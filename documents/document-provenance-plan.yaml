@@ -1,0 +1,142 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: architect_proposal
+version: 0.1
+
+principles:
+  - logical_documents_are_distinct_from_artifact_instances
+  - every_clue_bearing_artifact_requires_in_world_origin_and_player_package_path
+  - intentional_visual_similarity_requires_true_shared_provenance
+  - unrelated_documents_must_not_share_a_misleading_visual_template
+  - no_critical_forensic_observation_may_require_extreme_zoom_or_specialist_software
+
+provenance_chains:
+  - chain_id: PROV-01
+    logical_document: LDOC-07
+    origin: international_conference_organizer
+    created_for: conference_publicity_and_program_record
+    initial_access: [P-INGRID, conference_attendees, public_or_press]
+    later_custody: archived_public_or_party_material
+    player_package_path: Thomas_or_Solveig_phase_1_archive
+    clue_reason: Morozov is visible because he genuinely attended the conference.
+    comparison_target: LDOC-16
+
+  - chain_id: PROV-02
+    logical_document: LDOC-10
+    origin: Nystart_communications_event_archive
+    creator_or_custodian: P-THOMAS
+    created_for: ordinary_party_event_or_press_work
+    player_package_path: Thomas_voluntarily_supplies_as_phase_1_help
+    clue_reason: supplier mark exists because the supplier genuinely produced or supported the event material.
+    comparison_target: LDOC-20
+    fairness: Thomas does not knowingly hand players an incriminating document; the detail is meaningless without later network context.
+
+  - chain_id: PROV-03
+    logical_document: LDOC-15
+    origin: Ingrid_to_Martin_private_contact
+    creator: P-INGRID
+    intended_recipient: P-MARTIN
+    actual_recipient: P-MARTIN
+    custody_after_death: Martin_device_or_lawfully_recovered_extract
+    player_package_path: phase_2_material_released_due_to_INC_02
+    clue_reason: direct evidence of Ingrid's intended confidential meeting.
+
+  - chain_id: PROV-04
+    logical_document: LDOC-17
+    origin: legitimate_policy_or_security_briefing_channel
+    creator: unresolved_institution
+    recipient_or_viewer: P-INGRID
+    custody: Ingrid_working_material_or_lawfully_recovered_copy
+    player_package_path: becomes_relevant_through_Martin_private_investigation_material
+    clue_reason: Ingrid's annotations record her own realization process.
+    unresolved: exact institutional source must be plausible without requiring classified PST material.
+
+  - chain_id: PROV-05
+    logical_document: LDOC-18
+    origin: Ingrid_personal_or_work_contact_records
+    creator: P-INGRID_and_P-MOROZOV
+    custody: Ingrid_records
+    player_package_path: Martin_reconstructs_or_collects_lawfully_then_material_enters_phase_2_package
+    clue_reason: genuine chronological contact pattern.
+
+  - chain_id: PROV-06
+    logical_document: LDOC-19
+    origin: P-MARTIN
+    creator: P-MARTIN
+    created_for: private_working_investigation
+    custody_after_death: personal_office_bag_or_workspace
+    player_package_path: recovered_after_INC_02
+    clue_reason: notes preserve Martin's changing hypotheses because they are working notes, not a polished report.
+
+  - chain_id: PROV-07
+    logical_document: LDOC-20
+    origin: multiple_legitimate_business_and_transaction_sources
+    creators: [supplier_entities, public_company_records, Nystart_procurement_context]
+    collected_by: P-MARTIN
+    custody_after_death: Martin_investigation_material
+    player_package_path: recovered_after_INC_02
+    clue_reason: shared details exist because entities are truly operationally connected.
+    comparison_target: LDOC-10
+
+  - chain_id: PROV-08
+    logical_document: LDOC-22
+    origin: official_INC_02_scene_documentation
+    creator: police_or_accident_investigation
+    created_for: initial_accident_investigation
+    player_package_path: phase_2_case_material
+    clue_reason: photographs and diagram record the actual physical scene before homicide is recognised.
+
+  - chain_id: PROV-09
+    logical_document: LDOC-24
+    origin: unresolved_credible_vehicle_source
+    creator: workshop_parking_camera_or_other_ordinary_source
+    player_package_path: phase_2_investigation_material
+    clue_reason: Thomas's vehicle generated a normal-world trace after the collision.
+    unresolved: lock only after vehicle method and geography are validated.
+
+comparison_contracts:
+  - id: CMP-01
+    artifacts: [LDOC-07, LDOC-16]
+    action: compare_faces
+    visible_indicator: same_person_Morozov
+    truth_basis: T-002
+    anti_false_clue: sources must have visibly different designs because they are unrelated publishers.
+
+  - id: CMP-02
+    artifacts: [LDOC-10, LDOC-20]
+    action: compare_provenance_marks
+    visible_indicator: shared_supplier_identity_or_reference_family
+    truth_basis: T-015
+    anti_false_clue: similarity must be restricted to the true supplier mark/reference, not entire document layout.
+
+  - id: CMP-03
+    artifacts: [LDOC-17, LDOC-18]
+    action: compare_topics_and_annotations
+    visible_indicator: distinctive constellation of political details appears across both sources
+    truth_basis: T-004
+    anti_false_clue: players infer operational use from combination and chronology, not a secret label saying intelligence.
+
+  - id: CMP-04
+    artifacts: [LDOC-22, LDOC-23, LDOC-24]
+    action: compare_scene_bicycle_and_vehicle_traces
+    visible_indicator: compatible second_vehicle_contact_pattern
+    truth_basis: T-018
+    anti_false_clue: at least two independent indicators required before homicide inference.
+
+rendering_contract:
+  source_driven_visual_difference_required: true
+  governing_rule: documents/DOCUMENT_DESIGN_RULES.md
+  protected_clues:
+    - Morozov_face_match
+    - Ingrid_annotation_pattern
+    - Thomas_supplier_mark
+    - Martin_note_sequence
+    - INC_02_scene_geometry
+    - vehicle_contact_indicator
+  forbidden_rendering_failures:
+    - normalize_away_protected_clue
+    - create_shared_template_between_unrelated_sources
+    - accidental_logo_or_reference_repetition
+    - crop_required_comparison_detail
+    - make_clue_depend_on_colour_only
+    - make_clue_unreadable_in_home_print
