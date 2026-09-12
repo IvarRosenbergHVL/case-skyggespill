@@ -1,0 +1,119 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: architect_decision
+version: 0.1
+purpose: Lock architecture elements that have passed first plausibility review while preserving unresolved implementation details.
+
+research_basis:
+  - Norwegian threat assessments describe intelligence officers under diplomatic cover approaching targets at conferences and cultivating relationships gradually.
+  - Intelligence interest includes unclassified sensitive information, networks, internal conflicts and people expected to gain future influence.
+  - Norwegian political parties have bookkeeping and reporting obligations, making crude hidden large donations a weaker architecture than procurement abuse.
+
+decisions:
+  - decision_id: CL-001
+    subject: Ingrid_realization_mechanism
+    status: locked_at_semantic_level
+    truth: >-
+      Ingrid does not receive proof that Morozov is an intelligence officer. She encounters ordinary, unclassified
+      security-awareness material describing cultivation patterns and information interests. She recognises the pattern
+      of her own relationship with Morozov. She then compares it with her retained contact notes/messages and realises
+      that his questions had gradually shifted from policy discussion toward people, internal disagreements, networks
+      and likely reactions to political initiatives.
+    additional_trigger: >-
+      A distinctive cluster of political/personality details she had discussed with Morozov later appears reflected in
+      a Russian-facing talking point, approach or analysis available to her through normal political work. This does not
+      prove espionage by itself, but in combination with the cultivation pattern causes her to believe she has been used.
+    why_credible:
+      - requires_no_classified_access
+      - mirrors_known_cultivation_patterns
+      - preserves_Ingrid_as_intelligent_but_initially_naive_not_reckless
+      - creates_player_reconstructable_reasoning
+    must_not_become:
+      - secret_PST_dossier
+      - direct_spy_confession
+      - classified_document_leak
+      - single_sentence_solution
+    evidence_modalities:
+      text:
+        - generic_awareness_material
+        - earlier_messages_or_meeting_notes
+      visual:
+        - Ingrid_annotations_on_awareness_material
+        - chronological_pattern_across_contact_records
+        - conference_photo_identity_anchor
+
+  - decision_id: CL-002
+    subject: Martin_investigation_trigger
+    status: locked_at_semantic_level
+    truth: >-
+      Shortly before her death Ingrid privately tells Martin that she believes he was right about something and that she
+      needs to show him why, explicitly preferring an in-person conversation rather than discussing it by phone.
+      Their public dispute has repeatedly concerned Russian influence and political vulnerability. Hovden's later romance
+      explanation therefore leaves Martin with a concrete unresolved question.
+    fairness_constraint: The message must not name Morozov, espionage or Hovden's motive directly.
+
+  - decision_id: CL-003
+    subject: Thomas_financial_crime
+    status: preferred_architecture_narrowed
+    truth: >-
+      Thomas abuses his legitimate control or influence over communications/event procurement during Nystart's rapid growth.
+      A small group of nominally separate suppliers submits inflated and, in selected cases, partly fictitious invoices for
+      ordinary campaign, event and communications services. An intermediary controlled indirectly through a trusted associate
+      allows Thomas to conceal related-party control and derive personal economic benefit while also paying selected party
+      costs outside normal internal scrutiny.
+    boundaries:
+      - no_Russian_money
+      - Solveig_not_aware
+      - ordinary_party_members_not_aware
+      - not_whole_party_criminal_conspiracy
+      - Thomas_personally_benefits
+      - repeated_pattern_not_one_invoice
+    discovery_logic:
+      Martin_initial_hypothesis: covert_foreign_financing
+      observed_result: supplier_relationships_converge_domestically_on_Thomas
+      player_skill_required: ordinary_document_comparison_not_forensic_accounting
+    natural_traces:
+      - recurring_supplier_contact_detail
+      - related_address_or_registration_link
+      - repeated_job_or_production_reference_pattern
+      - invoice_sequence_or_description_pattern
+      - phase_1_event_material_supplier_mark
+      - public_company_relationship_information
+    still_open:
+      - exact_company_names
+      - exact_amounts
+      - exact_associate_relationship
+      - exact_tax_accounting_or_party_law_offences
+      - exact_money_flow
+
+  - decision_id: CL-004
+    subject: Martin_homicide_scene_behavior
+    status: preferred_architecture_narrowed
+    truth: >-
+      Thomas deliberately causes vehicle contact with Martin while Martin is cycling. The location and resulting fall are
+      sufficiently plausible as a solo cycling accident that Thomas chooses flight rather than elaborate scene manipulation.
+      The initial accident interpretation is therefore caused by scene ambiguity and incomplete information, not a perfect staging operation.
+    constraints:
+      - no_body_repositioning_required
+      - no_complex_scene_staging
+      - no_unique_microscopic_trace
+      - second_vehicle_inference_requires_multiple_indicators
+      - Thomas_identity_requires_independent_motive_opportunity_and_vehicle_link
+    still_open:
+      - exact_road_geometry
+      - exact_contact_direction
+      - exact_vehicle_damage
+      - exact_discovery_conditions
+      - exact_initial_police_reasoning
+
+architecture_effect:
+  newly_stable:
+    - Ingrid_realization_semantics
+    - Martin_reason_to_reopen_motive
+    - Thomas_scheme_category
+    - no_elaborate_staging_for_INC_02
+  next_required_validation:
+    - build_Thomas_supplier_network_as_concrete_but_simple_money_flow
+    - build_INC_02_scene_geometry_and_damage_logic
+    - map_each_locked_truth_to_actor_knowledge_and_artifact_provenance
+    - verify_phase_1_solution_remains_independent_of_phase_2
