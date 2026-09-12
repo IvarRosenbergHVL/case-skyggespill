@@ -1,0 +1,107 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: active
+version: 0.1
+
+open_decisions:
+  - decision_id: OD-001
+    topic: Ingrid grooming realization trigger
+    priority: critical
+    status: unresolved
+    requirement: >-
+      Define the concrete event or evidence that makes Ingrid understand that Morozov has been cultivating her for intelligence purposes.
+    downstream_dependencies:
+      - truth_graph.T-004
+      - actor_knowledge_graph
+      - motive_graph.MOT-01-HOVDEN
+      - objective_graph.O-05
+      - evidence_graph
+
+  - decision_id: OD-002
+    topic: Why Martin knows the romance-only story is wrong
+    priority: critical
+    status: partially_resolved
+    current_architecture: >-
+      Ingrid privately requested a confidential meeting with Martin shortly before death and framed the issue as something he had been right about.
+      This makes the public romance-only motive materially inconsistent with what Martin personally knows.
+    still_required:
+      - choose exact wording and communication artifact
+      - ensure the contact is strong enough to motivate investigation but not itself reveal the answer
+
+  - decision_id: OD-003
+    topic: Thomas secondary crime
+    priority: critical
+    status: architect_proposal
+    current_architecture: >-
+      Thomas has used false invoicing and a supplier network to route off-books money into Nystart organisational growth.
+      The scheme is independent of Russia.
+    validation_required:
+      - legal and practical plausibility
+      - amount and stakes sufficient to explain panic
+      - evidence trail understandable without accounting expertise
+      - avoid making the party collectively criminal
+
+  - decision_id: OD-004
+    topic: Martin murder method
+    priority: critical
+    status: preferred_not_locked
+    current_architecture: deliberate_vehicle_strike_staged_as_solo_bicycle_crash
+    strengths:
+      - visually investigable
+      - allows accident-like initial classification
+      - different from Ingrid's death
+      - supports timing, route and vehicle evidence
+    risks:
+      - may feel too ordinary unless scene and discovery architecture are strong
+      - physical evidence must be realistic and not require specialist expertise
+      - Thomas vehicle access and concealment must be credible
+    decision_gate: lock only after evidence path and physical plausibility review
+
+  - decision_id: OD-005
+    topic: Thomas phase-1 latent artifact
+    priority: high
+    status: unresolved
+    requirement: >-
+      Choose one genuinely useful phase-1 artifact supplied by Thomas that contains a visually or provenance-linked detail becoming important only in phase 2.
+    desired_player_moment: Oi, den har jo vært foran oss hele tiden.
+
+  - decision_id: OD-006
+    topic: Ingrid last words
+    priority: medium
+    status: unresolved
+    requirement: >-
+      Must be plausible for a critically injured person, ambiguous in phase 1, and capable of gaining meaning in phase 2 without functioning as a riddle.
+
+  - decision_id: OD-007
+    topic: parties and political profile
+    priority: medium
+    status: provisional
+    current_names:
+      - Nystart
+      - Fremtidspartiet
+    requirement: avoid direct one-to-one parody of a real Norwegian party
+
+  - decision_id: OD-008
+    topic: exact city, hotel and crash geography
+    priority: medium
+    status: unresolved
+    requirement: >-
+      Geography must support hotel fall reconstruction, plausible actor movements, Martin's cycling route and Thomas's vehicle opportunity.
+
+resolved_or_stable_decisions:
+  - two distinct murderers
+  - phase 1 correctly identifies Hovden
+  - phase 2 recontextualizes rather than retcons
+  - Russia connection is real but not a unified explanation
+  - Solveig is innocent
+  - murderer 2 is represented in phase 1
+  - visual evidence must carry investigative weight
+  - final document PDFs must be visually differentiated according to documents/DOCUMENT_DESIGN_RULES.md
+
+next_architecture_gate:
+  required_before_status_valid:
+    - resolve OD-001
+    - validate or replace OD-003
+    - validate and lock or replace OD-004
+    - resolve OD-005
+    - specify fair evidence route for every required solution claim
