@@ -1,0 +1,162 @@
+graph_id: AKG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+perceptions:
+  - id: AK-INGRID-01
+    actor_id: P-INGRID
+    subject: T-002
+    interval: before_realization
+    knowledge_state: knows_contact_exists
+    belief_state: legitimate_policy_relationship
+    confidence: high
+    correctness: incomplete
+    source: direct_interaction
+
+  - id: AK-INGRID-02
+    actor_id: P-INGRID
+    subject: T-004
+    interval: after_realization_before_death
+    knowledge_state: knows_relationship_crossed_a_line
+    belief_state: manipulated_by_intelligence_actor
+    confidence: high
+    correctness: correct
+    source: unresolved_trigger_to_be_defined
+    caused_actions: [T-005, T-006]
+
+  - id: AK-HOVDEN-01
+    actor_id: P-HOVDEN
+    subject: T-005
+    interval: immediately_before_incident_01
+    knowledge_state: knows_ingrid_intends_disclosure
+    belief_state: disclosure_will_destroy_nystart
+    confidence: high
+    correctness: belief_overstates_certainty
+    caused_actions: [T-008, T-009]
+
+  - id: AK-HOVDEN-02
+    actor_id: P-HOVDEN
+    subject: T-010
+    interval: after_incident_01
+    knowledge_state: knows_true_motive
+    belief_state: false_romance_story_can_contain_damage
+    confidence: medium_high
+    correctness: strategically_effective_but_false
+    caused_actions: [T-010]
+
+  - id: AK-MARTIN-01
+    actor_id: P-MARTIN
+    subject: T-006
+    interval: before_incident_01
+    knowledge_state: knows_ingrid_requested_private_meeting
+    belief_state: she_has_security_relevant_concern
+    confidence: medium
+    correctness: substantially_correct
+    source: direct_message_or_contact
+
+  - id: AK-MARTIN-02
+    actor_id: P-MARTIN
+    subject: T-010
+    interval: after_official_conviction
+    knowledge_state: knows_public_motive_story_does_not_explain_her_contact
+    belief_state: official_story_is_materially_incomplete
+    confidence: high
+    correctness: correct
+    caused_actions: [T-012]
+
+  - id: AK-MARTIN-03
+    actor_id: P-MARTIN
+    subject: T-013
+    interval: during_private_investigation
+    knowledge_state: has_evidence_of_morozov_cultivation
+    belief_state: russia_link_is_real
+    confidence: high
+    correctness: correct
+
+  - id: AK-MARTIN-04
+    actor_id: P-MARTIN
+    subject: T-014
+    interval: during_private_investigation
+    knowledge_state: does_not_know_if_financing_is_russian
+    belief_state: covert_financing_is_a_hypothesis_worth_testing
+    confidence: medium
+    correctness: false_as_to_russian_financing
+
+  - id: AK-MARTIN-05
+    actor_id: P-MARTIN
+    subject: T-016
+    interval: shortly_before_incident_02
+    knowledge_state: has_connected_supplier_network_to_thomas
+    belief_state: thomas_is_hiding_serious_financial_crime
+    confidence: medium_high
+    correctness: correct_if_decision_accepted
+    caused_actions: [T-017]
+
+  - id: AK-THOMAS-01
+    actor_id: P-THOMAS
+    subject: T-015
+    interval: throughout_case
+    knowledge_state: full_participant
+    belief_state: scheme_is_hidden_and_controllable
+    confidence: high
+    correctness: initially_correct_then_wrong
+
+  - id: AK-THOMAS-02
+    actor_id: P-THOMAS
+    subject: T-016
+    interval: after_martin_contact
+    knowledge_state: infers_martin_has_connected_the_network
+    belief_state: exposure_is_imminent_and_catastrophic
+    confidence: high
+    correctness: threat_real_but_extent_overestimated
+    caused_actions: [T-018, T-019]
+
+  - id: AK-MOROZOV-01
+    actor_id: P-MOROZOV
+    subject: T-002
+    interval: cultivation_period
+    knowledge_state: knows_intelligence_purpose
+    belief_state: ingrid_is_a_valuable_long_term_contact
+    confidence: high
+    correctness: correct
+
+  - id: AK-MOROZOV-02
+    actor_id: P-MOROZOV
+    subject: T-009
+    interval: after_incident_01
+    knowledge_state: does_not_know_full_hovden_motive_initially
+    belief_state: death_may_be_related_to_pressure_around_ingrid
+    confidence: low_medium
+    correctness: incomplete
+
+  - id: AK-SOLVEIG-01
+    actor_id: P-SOLVEIG
+    subject: T-010
+    interval: phase_1
+    knowledge_state: knows_hovdens_public_explanation
+    belief_state: romance_story_does_not_fit_what_she_knew_of_ingrid
+    confidence: medium
+    correctness: correct_suspicion_without_full_truth
+
+knowledge_boundaries:
+  phase_1:
+    player_may_prove:
+      - Ingrid was murdered
+      - Hovden caused the death
+    player_should_not_yet_be_able_to_prove:
+      - full Morozov cultivation architecture
+      - Thomas financial scheme
+      - Thomas responsibility for incident 02
+  phase_2:
+    player_may_prove:
+      - Hovden motive story is false or materially incomplete
+      - Morozov cultivation is real
+      - Martin pivoted from Russia to Thomas-linked financing
+      - Thomas killed Martin if fair inference path is complete
+
+validation_notes:
+  - Knowledge and belief are explicitly separated.
+  - Martin's reason for distrusting the romance explanation is his direct confidential contact from Ingrid, not hidden author knowledge.
+  - Ingrid's exact realization trigger remains unresolved and must be added to both truth and knowledge models.
