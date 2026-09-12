@@ -2,7 +2,7 @@ graph_id: TG-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.1
+version: 0.2
 truth_level: objective_truth
 
 nodes:
@@ -19,13 +19,35 @@ nodes:
   - id: T-003
     type: information_transfer
     actors: [P-INGRID, P-MOROZOV]
-    statement: Ingrid shares increasingly useful political context and network information while underestimating Morozov's intelligence purpose.
+    statement: Ingrid shares increasingly useful political context, internal relationship knowledge and network information while underestimating Morozov's intelligence purpose.
+
+  - id: T-003A
+    type: cultivation_pattern
+    actors: [P-INGRID, P-MOROZOV]
+    statement: Morozov's questions gradually move from general policy discussion toward who influences decisions, where internal disagreements exist, who may be persuadable and how named actors are likely to react.
+    status: architect_proposal
+    trace_consequence:
+      textual:
+        - calendar notes, messages or meeting fragments can show the progression without explicitly identifying espionage
+      visual:
+        - the pattern can be made player-visible through chronology, annotations or grouping of repeated names/topics
 
   - id: T-004
     type: realization
     actor: P-INGRID
-    statement: Ingrid eventually realizes that the relationship has crossed a line and that she has been manipulated.
-    status: unresolved_detail
+    statement: Ingrid recognises that a distinctive combination of political context she previously shared only with Morozov has been operationalised or echoed in a later Russia-related approach, briefing or influence assessment; she understands that their relationship was intelligence cultivation rather than ordinary policy dialogue.
+    status: architect_proposal
+    causal_logic:
+      - no single repeated fact proves manipulation
+      - the unusual combination and ordering of details makes coincidence implausible to Ingrid
+      - recognition causes her to reinterpret earlier Morozov questions as deliberate elicitation
+    trace_consequence:
+      textual:
+        - legitimate briefing or summary containing the echoed combination
+        - earlier messages or calendar fragments showing source details
+      visual:
+        - Ingrid may circle, underline or annotate the distinctive overlap
+        - players can later compare earlier material with the later briefing and reconstruct the same recognition
 
   - id: T-005
     type: intended_action
@@ -35,7 +57,13 @@ nodes:
   - id: T-006
     type: contact
     actors: [P-INGRID, P-MARTIN]
-    statement: Ingrid requests a confidential meeting with Martin shortly before her death.
+    statement: Ingrid requests a confidential meeting with Martin shortly before her death and indicates that he had been right about something they had publicly disputed; she refuses to discuss the substance by phone.
+    status: architect_proposal_semantics
+    trace_consequence:
+      textual:
+        - short message or contact record establishes the meeting request without stating the answer
+      logic:
+        - Martin can later know the romance-only explanation does not account for Ingrid's final concern
 
   - id: T-007
     type: knowledge_gain
@@ -54,6 +82,11 @@ nodes:
     victim: P-INGRID
     statement: During an escalating confrontation Hovden causes Ingrid to fall from the hotel window and die.
     method_status: provisional
+    trace_consequence:
+      visual:
+        - room/window/courtyard geometry must support a reconstructable physical sequence
+      textual:
+        - timing and presence evidence must corroborate Hovden's opportunity
 
   - id: T-010
     type: concealment
@@ -68,7 +101,7 @@ nodes:
   - id: T-012
     type: private_investigation_trigger
     actor: P-MARTIN
-    statement: Martin investigates because Ingrid's confidential approach does not fit the public romance explanation.
+    statement: Martin investigates because Ingrid's confidential approach and the subject of their long-running disagreement do not fit the public romance explanation.
 
   - id: T-013
     type: discovery
@@ -83,9 +116,18 @@ nodes:
   - id: T-015
     type: secondary_secret
     actor: P-THOMAS
-    statement: Thomas has operated an off-books financing and false-invoicing scheme connected to Nystart's organisational growth.
+    statement: Thomas has operated a supplier and false-invoicing loop connected to Nystart's organisational growth; a subset of inflated or partly fictitious invoices routes off-books money through an intermediary he controls or effectively controls. The scheme is independent of Russia and includes personal benefit to Thomas.
     relation_to_russia: none
     status: architect_proposal
+    scope_constraints:
+      - Solveig and ordinary Nystart members are not knowingly part of the scheme
+      - exposure threatens Thomas personally through criminal, financial and professional consequences
+      - the money trail must be understandable without specialist accounting knowledge
+    trace_consequence:
+      textual:
+        - invoices, supplier references, ordinary procurement correspondence and Martin's notes
+      visual:
+        - repeated address, logo, reference convention, contact detail or production mark creates a legitimate comparison path
 
   - id: T-016
     type: discovery
@@ -105,13 +147,20 @@ nodes:
     responsible_actor: P-THOMAS
     victim: P-MARTIN
     statement: Thomas kills Martin to stop disclosure of the financing scheme.
-    method: deliberate_vehicle_strike_staged_as_single_bicycle_crash
-    method_status: preferred_not_locked
+    method: deliberate_vehicle_contact_with_bicycle_staged_as_single_bicycle_crash
+    method_status: architect_proposal_preferred_not_locked
+    trace_consequence:
+      visual:
+        - scene geometry and bicycle damage should establish involvement of another vehicle without identifying Thomas alone
+        - a later Thomas-vehicle artifact can corroborate compatible recent damage or repair
+      textual:
+        - route, timing and access records establish opportunity
+        - Martin's final work establishes motive
 
   - id: T-019
     type: concealment
     actor: P-THOMAS
-    statement: Thomas attempts to make Martin's death appear accidental and benefits from the fact that Martin's surviving notes foreground Russia.
+    statement: Thomas attempts to make Martin's death appear accidental and benefits from the fact that Martin's surviving notes foreground Russia. He does not need to fabricate a Russian operation; the true Russia trail naturally misdirects attention.
     status: architect_proposal
 
   - id: T-020
@@ -123,9 +172,26 @@ nodes:
     type: negative_truth
     statement: The two murders are not part of one unified Russian conspiracy.
 
+  - id: T-022
+    type: phase_bridge_artifact_truth
+    actor: P-THOMAS
+    statement: During phase 1 Thomas genuinely provides useful archived event or press material connected to Ingrid's final days. One mundane supplier or production detail in that material originates from the same supplier ecosystem Martin later investigates.
+    status: architect_proposal
+    logic:
+      - Thomas provides the material because it is genuinely useful and not incriminating in isolation
+      - the detail becomes meaningful only after Martin's supplier findings exist
+      - this creates a fair recontextualization rather than a planted puzzle clue
+    trace_consequence:
+      visual:
+        - sponsor, production label, supplier credit, filename convention, logo or other source-driven visual marker may be reused naturally
+      textual:
+        - archive caption, event reference or supplier credit may corroborate provenance
+
 edges:
   - {from: T-001, to: T-002, relation: increases_value_of}
   - {from: T-002, to: T-003, relation: enables}
+  - {from: T-003, to: T-003A, relation: develops_into}
+  - {from: T-003A, to: T-004, relation: becomes_reinterpretable_after}
   - {from: T-003, to: T-004, relation: eventually_triggers}
   - {from: T-004, to: T-005, relation: causes}
   - {from: T-005, to: T-006, relation: causes}
@@ -135,6 +201,7 @@ edges:
   - {from: T-009, to: T-010, relation: causes_concealment}
   - {from: T-010, to: T-011, relation: shapes_official_narrative}
   - {from: T-006, to: T-012, relation: later_contradicts}
+  - {from: T-004, to: T-012, relation: subject_of_unfinished_disclosure}
   - {from: T-012, to: T-013, relation: leads_to}
   - {from: T-013, to: T-014, relation: motivates_test}
   - {from: T-014, to: T-016, relation: accidentally_leads_to}
@@ -144,14 +211,21 @@ edges:
   - {from: T-018, to: T-019, relation: causes_concealment}
   - {from: T-013, to: T-020, relation: does_not_imply}
   - {from: T-015, to: T-021, relation: supports}
+  - {from: T-022, to: T-016, relation: later_becomes_comparison_anchor}
 
 phase_partition:
-  phase_1_truth_nodes: [T-001, T-002, T-003, T-004, T-005, T-006, T-007, T-008, T-009, T-010, T-011]
-  phase_2_bridge_nodes: [T-006, T-010, T-012, T-013, T-014]
+  phase_1_truth_nodes: [T-001, T-002, T-003, T-003A, T-004, T-005, T-006, T-007, T-008, T-009, T-010, T-011, T-022]
+  phase_2_bridge_nodes: [T-004, T-006, T-010, T-012, T-013, T-014, T-022]
   phase_2_truth_nodes: [T-015, T-016, T-017, T-018, T-019, T-020, T-021]
+
+architecture_rules:
+  - every major visual clue must have an upstream objective-truth or provenance reason for existing
+  - every major textual clue must have a plausible author, purpose and knowledge boundary
+  - visual and textual evidence should converge on central conclusions rather than duplicate one another verbatim
+  - phase_2 may change interpretation of phase_1 material but never its factual content
 
 validation_notes:
   - Objective truth is separated from actor belief and player-provable conclusions.
-  - T-004 remains unresolved and must be concretised before plan approval.
-  - T-015 through T-019 remain architect proposals until creator review.
+  - T-004 now has a concrete architect proposal but remains unapproved.
+  - T-015 through T-019 and T-022 remain architect proposals until creator review.
   - Exact murder-2 physics must be validated before method is locked.
