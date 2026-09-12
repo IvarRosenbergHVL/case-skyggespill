@@ -1,15 +1,24 @@
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: active
-version: 0.1
+version: 0.2
 
 open_decisions:
   - decision_id: OD-001
     topic: Ingrid grooming realization trigger
     priority: critical
-    status: unresolved
-    requirement: >-
-      Define the concrete event or evidence that makes Ingrid understand that Morozov has been cultivating her for intelligence purposes.
+    status: architect_proposal
+    current_architecture: >-
+      Ingrid recognises that a distinctive combination of political context she previously shared only with Morozov later appears operationalised or echoed in a Russia-related briefing, approach or influence assessment. She then reinterprets the progression of his earlier questions as deliberate intelligence elicitation.
+    strengths:
+      - gives Ingrid a fair, human realization rather than a spy confession
+      - players can later reconstruct the same insight
+      - naturally produces both textual and visual evidence
+      - directly supports Hovden's motive trigger and Martin contact
+    validation_required:
+      - define exact briefing/summary type and why Ingrid legitimately sees it
+      - ensure repeated detail constellation is specific enough to be persuasive but not classified-PST fantasy
+      - ensure players can reconstruct the overlap without specialist knowledge
     downstream_dependencies:
       - truth_graph.T-004
       - actor_knowledge_graph
@@ -20,49 +29,63 @@ open_decisions:
   - decision_id: OD-002
     topic: Why Martin knows the romance-only story is wrong
     priority: critical
-    status: partially_resolved
+    status: architect_proposal_near_resolved
     current_architecture: >-
-      Ingrid privately requested a confidential meeting with Martin shortly before death and framed the issue as something he had been right about.
-      This makes the public romance-only motive materially inconsistent with what Martin personally knows.
+      Ingrid privately requested a confidential meeting with Martin shortly before death, indicated that he had been right about something, and refused to discuss the substance by phone. Martin knows their relevant public disagreement concerned Russian influence and political vulnerability. Hovden's romance explanation therefore cannot account for Ingrid's final crisis and intended disclosure.
     still_required:
-      - choose exact wording and communication artifact
-      - ensure the contact is strong enough to motivate investigation but not itself reveal the answer
+      - choose exact communication artifact and final wording
+      - keep message suggestive rather than solution-giving
 
   - decision_id: OD-003
     topic: Thomas secondary crime
     priority: critical
     status: architect_proposal
     current_architecture: >-
-      Thomas has used false invoicing and a supplier network to route off-books money into Nystart organisational growth.
-      The scheme is independent of Russia.
+      Thomas operates a narrow supplier/false-invoicing loop. Inflated or partly fictitious invoices connected to campaign, event or communications work route off-books money through an intermediary he controls or effectively controls. Some money supports Nystart organisational growth and some benefits Thomas personally. Russia has no role in the scheme.
+    strengths:
+      - Martin can discover it while testing a false hypothesis of covert Russian financing
+      - serious personal legal and financial stakes support murder motive
+      - ordinary party members and Solveig need not be complicit
+      - evidence can be understandable through repeated supplier references, provenance and a simple money flow
     validation_required:
       - legal and practical plausibility
-      - amount and stakes sufficient to explain panic
+      - amount and repetition sufficient to explain panic
       - evidence trail understandable without accounting expertise
-      - avoid making the party collectively criminal
+      - choose exact intermediary relationship without creating an unnecessary new major character
 
   - decision_id: OD-004
     topic: Martin murder method
     priority: critical
-    status: preferred_not_locked
-    current_architecture: deliberate_vehicle_strike_staged_as_solo_bicycle_crash
+    status: architect_proposal_preferred_not_locked
+    current_architecture: deliberate_vehicle_contact_with_bicycle_staged_as_solo_bicycle_crash
     strengths:
       - visually investigable
       - allows accident-like initial classification
       - different from Ingrid's death
       - supports timing, route and vehicle evidence
+      - permits convergence of physical, documentary and motive evidence
     risks:
       - may feel too ordinary unless scene and discovery architecture are strong
       - physical evidence must be realistic and not require specialist expertise
       - Thomas vehicle access and concealment must be credible
-    decision_gate: lock only after evidence path and physical plausibility review
+      - staging must not require implausible forensic incompetence
+    decision_gate: lock only after scene geometry, damage logic, timing and fair inference path are validated
 
   - decision_id: OD-005
     topic: Thomas phase-1 latent artifact
     priority: high
-    status: unresolved
-    requirement: >-
-      Choose one genuinely useful phase-1 artifact supplied by Thomas that contains a visually or provenance-linked detail becoming important only in phase 2.
+    status: architect_proposal
+    current_architecture: >-
+      Thomas genuinely supplies an archive/press/event artifact useful for reconstructing Ingrid's final days. A mundane supplier or production detail on the artifact comes from the same supplier ecosystem Martin later follows. The detail is non-incriminating in phase 1 and gains significance only after phase-2 context exists.
+    candidate_forms:
+      - event photograph with production/supplier credit
+      - press archive sheet with supplier reference or filename convention
+      - campaign/event material carrying a small production mark or contact detail
+    design_constraints:
+      - Thomas must remain rational in choosing to supply it
+      - artifact must have real phase-1 utility
+      - later visual/provenance match must be obvious enough once prompted, but not suspicious beforehand
+      - no hidden microtext or escape-room-style inspection
     desired_player_moment: Oi, den har jo vært foran oss hele tiden.
 
   - decision_id: OD-006
@@ -96,12 +119,15 @@ resolved_or_stable_decisions:
   - Solveig is innocent
   - murderer 2 is represented in phase 1
   - visual evidence must carry investigative weight
+  - text documents remain essential carriers of testimony, motive, context, chronology and contradiction
+  - visual evidence and text evidence should complement rather than redundantly restate each other
   - final document PDFs must be visually differentiated according to documents/DOCUMENT_DESIGN_RULES.md
 
 next_architecture_gate:
   required_before_status_valid:
-    - resolve OD-001
+    - validate and accept or revise OD-001
     - validate or replace OD-003
     - validate and lock or replace OD-004
-    - resolve OD-005
+    - choose exact implementation of OD-005
     - specify fair evidence route for every required solution claim
+    - define Ingrid last words or explicitly decide they are not required
