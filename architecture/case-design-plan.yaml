@@ -1,0 +1,121 @@
+plan_id: PLAN-SKYGGESPILL-001
+plan_version: 1
+status: draft
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+
+premise:
+  public: >-
+    En politiker dør etter et fall fra et hotellvindu. Senere dør en politisk motstander
+    som hadde begynt å undersøke saken på egen hånd.
+  hidden_core: >-
+    Drap 1 utføres for å hindre en politisk katastrofe knyttet til offerets kontakt med
+    russisk etterretning. Drap 2 utføres av en annen person for å skjule en annen hemmelighet
+    som den private etterforskningen av drap 1 tilfeldigvis avdekker.
+
+incidents:
+  - incident_id: INC-01
+    victim: P-INGRID
+    type: homicide
+    phase: phase_1
+    actual_classification: known_crime
+    initial_surface_interpretation: accidental_fall_possible
+    responsible_actor: P-HOVDEN
+    method_status: provisional
+    motive_status: modeled_v0_1
+  - incident_id: INC-02
+    victim: P-MARTIN
+    type: homicide
+    phase: phase_2
+    actual_classification: known_crime
+    initial_surface_interpretation: accident_like_or_natural_like
+    responsible_actor: P-THOMAS
+    responsible_actor_status: provisional
+    method_status: open
+    motive_status: open
+
+investigation_layers:
+  - investigation_id: INV-01
+    type: official
+    subject_incidents: [INC-01]
+    outcome: identifies_and_convicts_murderer_1
+    known_gap: accepts_or_fails_to_disprove_false_motive_story
+  - investigation_id: INV-02
+    type: private
+    investigator: P-MARTIN
+    subject_incidents: [INC-01]
+    outcome: discovers_russia_connection_and_secondary_secret
+    status: interrupted_by_incident_02
+  - investigation_id: INV-03
+    type: player_investigation
+    subject_incidents: [INC-01, INC-02]
+    outcome: reconstructs_both_truths_and_the_link_between_them
+
+required_solution_claims:
+  - SC-01: Ingrid was murdered rather than accidentally falling.
+  - SC-02: Hovden caused Ingrid's death.
+  - SC-03: Hovden's stated romantic motive is false or materially incomplete.
+  - SC-04: Ingrid had a real cultivated relationship with Russian intelligence officer Morozov.
+  - SC-05: Morozov is not the killer of either incident.
+  - SC-06: Martin's investigation of Ingrid led him to a separate secret.
+  - SC-07: Martin was murdered because of what he discovered.
+  - SC-08: Murderer 2 exploited the existing Russia/murder narrative as cover or misdirection.
+  - SC-09: The murders have different perpetrators and motives but are causally linked through Martin's investigation.
+
+narrative_key_evidence_targets:
+  - KE-01: visual_identity_match_morozov_across_unrelated_images
+  - KE-02: phase_2_material_reinterprets_hovdens_motive_story
+  - KE-03: martins_notes_show_pivot_from_russia_to_secondary_secret
+  - KE-04: phase_1_artifact_linking_helpful_actor_to_secondary_secret
+
+recontextualization_targets:
+  - RC-01:
+      prior: helpful_phase_1_material_is_background
+      later: one_visual_or_provenance_detail_links_to_martins_final_line_of_inquiry
+  - RC-02:
+      prior: ingrid_martin_public_hostility_implies_motive
+      later: private_contact_shows_trust_and_warning
+  - RC-03:
+      prior: russia_connection_explains_possible_external_killer
+      later: it_explains_motive_1_but_not_murder_2
+
+visual_discovery_requirements:
+  minimum_major_visual_actions: 4
+  candidate_actions:
+    - compare_faces_across_photos
+    - compare_logo_address_or_visual_identity_across_financial_material
+    - inspect_background_object_or_person_in_phase_1_photo
+    - spatially_reconstruct_window_room_courtyard_relationship
+    - revisit_handwritten_annotations_after_phase_2_trigger
+
+fair_play_requirements:
+  - every_required_solution_claim_has_player_visible_support
+  - no_decisive_fact_first_appears_in_solution
+  - central_conclusions_require_multi_source_inference
+  - visual_clues_must_survive_rendering_and_printing
+  - phase_2_reinterpretation_must_be_prepared_in_phase_1
+
+locked_fact_ids:
+  - L-001
+  - L-002
+  - L-003
+  - L-004
+  - L-005
+  - L-006
+  - L-007
+  - L-008
+  - L-009
+  - L-010
+
+open_design_questions:
+  - ODQ-01: final murderer_2 identity and motive
+  - ODQ-02: exact secondary secret Martin finds
+  - ODQ-03: murder_2 method and staging
+  - ODQ-04: trigger for Ingrid's realization of grooming
+  - ODQ-05: proof that undermines Hovden's romantic motive
+  - ODQ-06: exact final words from Ingrid
+  - ODQ-07: exact political party names and policy profiles
+
+production_gate:
+  player_document_generation_allowed: false
+  reason: truth_motive_and_discovery_architecture_not_yet_approved
