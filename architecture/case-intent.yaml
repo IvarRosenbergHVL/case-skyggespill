@@ -1,0 +1,87 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+conformance_targets:
+  - cer_v2_core
+status: draft
+version: 0.1
+
+scope:
+  series_membership: none
+  play_dependency: independent
+  incident_count_profile: multiple
+  incident_relationship_profile:
+    - linked
+    - cascading
+  authoring_mode: advanced_collaboration
+
+product_experience_intent:
+  players: "2-6"
+  target_playtime_minutes: "150-210"
+  difficulty: medium_high
+  delivery_profile: paper_only
+  document_load_target: compact_multifunctional
+  phase_structure:
+    - phase_1
+    - phase_2
+
+premise: >-
+  En fremadstormende politiker dør etter et fall fra et hotellvindu. Saken ser først ut til
+  å være et personlig drama, men etter at gjerningspersonen er identifisert og dømt, begynner
+  en politisk motstander å undersøke hvorfor offeret kontaktet ham kort før hun døde. Når også
+  han dør, avdekkes et nytt lag av saken. De to drapene har ulike gjerningspersoner og ulike
+  motiver, men det andre drapet oppstår fordi noen forsøker å forstå det første.
+
+constraints:
+  locked:
+    - id: L-001
+      rule: two_distinct_murderers
+    - id: L-002
+      rule: phase_1_correctly_identifies_murderer_1
+    - id: L-003
+      rule: phase_2_recontextualizes_phase_1_without_retcon
+    - id: L-004
+      rule: russian_intelligence_connection_is_real_but_not_the_complete_murder_solution
+    - id: L-005
+      rule: phase_1_commissioner_is_innocent
+    - id: L-006
+      rule: murderer_2_is_present_or_represented_in_phase_1
+    - id: L-007
+      rule: visual_evidence_has_investigative_function
+    - id: L-008
+      rule: player_documents_must_not_contain_case_internal_metadata
+    - id: L-009
+      rule: documents_do_not_lie_context_changes
+    - id: L-010
+      rule: no_single_document_may_solve_identity_method_motive_and_concealment
+  preferred:
+    - id: P-001
+      rule: total_player_facing_documents_below_30
+    - id: P-002
+      rule: several_documents_are_multifunctional
+    - id: P-003
+      rule: at_least_4_major_visual_or_physical_discovery_actions
+    - id: P-004
+      rule: both_deaths_initially_support_accident_like_interpretations
+    - id: P-005
+      rule: geopolitical_layer_remains_subordinate_to_murder_mystery
+  forbidden:
+    - id: F-001
+      rule: unfair_retroactive_fact_change
+    - id: F-002
+      rule: solution_depends_on_secret_author_only_fact
+    - id: F-003
+      rule: implausible_player_access_to_classified_pst_case_files
+    - id: F-004
+      rule: direct_use_of_real_living_people_as_criminal_characters
+    - id: F-005
+      rule: escape_room_style_puzzles_without_in_world_justification
+
+open_questions:
+  - exact_party_names
+  - exact_city_and_hotel
+  - victim_1_last_words
+  - exact_trigger_that_makes_ingrid_realize_she_was_groomed
+  - exact_reason_martin_knows_hovdens_romance_story_is_false_or_incomplete
+  - murderer_2_identity_and_final_motive_chain
+  - murder_2_method_and_staging
+  - exact_time_gap_between_incidents
