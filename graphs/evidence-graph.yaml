@@ -1,0 +1,167 @@
+graph_id: EG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+evidence_fragments:
+  - evidence_id: E-001
+    label: hotel_presence_cluster
+    phase: phase_1
+    supports: [O-01, O-02, O-03]
+    functions: [presence, opportunity, timeline]
+    player_actions: [compare_sources, reconstruct_timeline]
+    provenance_requirement: official_or_credible_case_source
+
+  - evidence_id: E-002
+    label: hotel_spatial_cluster
+    phase: phase_1
+    supports: [O-01, O-03]
+    functions: [scene_reconstruction, accident_testing]
+    player_actions: [spatial_reconstruction, compare_scene_material]
+    visual_requirement: true
+
+  - evidence_id: E-003
+    label: hovden_admission_and_motive_claim
+    phase: phase_1
+    supports: [O-03]
+    later_recontextualizes: [O-04, O-05]
+    functions: [identity_confirmation, claim_source, later_contradiction]
+    player_actions: [read_claim, revisit_claim]
+
+  - evidence_id: E-004
+    label: ingrid_martin_public_rivalry
+    phase: phase_1
+    supports_false_paths: [martin_as_adversary]
+    later_recontextualizes: [O-05]
+    functions: [relationship_context, suspect_architecture]
+    player_actions: [relationship_mapping]
+
+  - evidence_id: E-005
+    label: conference_photo_with_morozov_unidentified
+    phase: phase_1
+    supports: [O-05, O-06]
+    functions: [latent_relationship_evidence, visual_identity_anchor]
+    player_actions: [inspect_photo, later_compare_faces]
+    visual_requirement: true
+    recontextualization_role: major
+
+  - evidence_id: E-006
+    label: ingrid_private_contact_to_martin
+    phase: phase_2
+    supports: [O-04, O-05]
+    functions: [contradiction, private_trust, motive_recontextualization]
+    player_actions: [compare_public_and_private_relationship]
+
+  - evidence_id: E-007
+    label: later_public_morozov_photo_or_press_report
+    phase: phase_2
+    supports: [O-06]
+    functions: [identity_match, intelligence_context]
+    player_actions: [compare_faces_side_by_side]
+    visual_requirement: true
+
+  - evidence_id: E-008
+    label: martin_investigation_notes_sequence
+    phase: phase_2
+    supports: [O-06, O-07, O-10]
+    functions: [investigative_sequence, hypothesis_pivot, causal_bridge]
+    player_actions: [reconstruct_note_sequence, revisit_annotations]
+    visual_requirement: preferred
+
+  - evidence_id: E-009
+    label: supplier_and_payment_network_cluster
+    phase: phase_2
+    supports: [O-07, O-09]
+    functions: [financial_network, motive, actor_link]
+    player_actions: [group_entities, compare_addresses_logos_or_references]
+    visual_requirement: true
+
+  - evidence_id: E-010
+    label: phase_1_thomas_artifact_with_latent_network_detail
+    phase: phase_1
+    supports: [O-03]
+    later_recontextualizes: [O-07, O-09]
+    functions: [genuine_phase_1_help, latent_actor_link, provenance_bridge]
+    player_actions: [use_normally, later_revisit_and_compare]
+    visual_requirement: true
+    design_rule: Must not appear suspicious in phase 1 solely because it is clue-bearing later.
+
+  - evidence_id: E-011
+    label: martin_crash_scene_damage_cluster
+    phase: phase_2
+    supports: [O-08, O-09]
+    functions: [method, homicide_classification, vehicle_interaction]
+    player_actions: [inspect_damage, compare_scene_geometry]
+    visual_requirement: true
+
+  - evidence_id: E-012
+    label: thomas_vehicle_timing_or_damage_cluster
+    phase: phase_2
+    supports: [O-09]
+    functions: [opportunity, physical_link, corroboration]
+    player_actions: [compare_timing, compare_visible_damage_or_service_record]
+    dependency_note: exact artifact type remains open until murder-2 method is validated.
+
+  - evidence_id: E-013
+    label: morozov_timeline_exclusion
+    phase: phase_2
+    supports: [O-06, O-10]
+    functions: [suspect_elimination, conspiracy_disconfirmation]
+    player_actions: [timeline_elimination]
+
+inference_paths:
+  - conclusion_id: C-01-INGRID-HOMICIDE
+    evidence: [E-001, E-002]
+    minimum_distinct_sources: 2
+    player_actions: [timeline_reconstruction, spatial_reconstruction]
+
+  - conclusion_id: C-02-HOVDEN-KILLER
+    evidence: [E-001, E-002, E-003]
+    minimum_distinct_sources: 2
+    player_actions: [combine_presence_scene_and_claim]
+
+  - conclusion_id: C-03-ROMANCE-INCOMPLETE
+    evidence: [E-003, E-004, E-006, E-005, E-007]
+    minimum_distinct_sources: 3
+    player_actions: [contradiction_detection, relationship_mapping, visual_identity_match]
+
+  - conclusion_id: C-04-MOROZOV-CULTIVATION
+    evidence: [E-005, E-007, E-006, E-008]
+    minimum_distinct_sources: 3
+    player_actions: [visual_comparison, contact_pattern_reconstruction]
+
+  - conclusion_id: C-05-MARTIN-PIVOTED-AWAY-FROM-RUSSIA
+    evidence: [E-008, E-009, E-010]
+    minimum_distinct_sources: 3
+    player_actions: [sequence_reconstruction, entity_grouping, revisit_prior_artifact]
+
+  - conclusion_id: C-06-MARTIN-MURDERED
+    evidence: [E-011, E-012]
+    minimum_distinct_sources: 2
+    player_actions: [accident_hypothesis_test, compare_physical_and_timing_evidence]
+
+  - conclusion_id: C-07-THOMAS-KILLED-MARTIN
+    evidence: [E-009, E-010, E-011, E-012]
+    minimum_distinct_sources: 3
+    player_actions: [combine_motive_opportunity_method_and_provenance]
+
+  - conclusion_id: C-08-TWO-SEPARATE-MOTIVES
+    evidence: [E-003, E-006, E-007, E-008, E-009, E-013]
+    minimum_distinct_sources: 4
+    player_actions: [cross_incident_causal_reconstruction, reject_unified_conspiracy]
+
+fair_play_rules:
+  - no_required_conclusion_single_source_only
+  - all_critical_visual_clues_must_survive_print_and_rendering
+  - every_actor_link_requires_plausible_provenance
+  - evidence_used_by_martin_must_be_available_to_martin_before_INC_02
+  - evidence_used_by_players_must_have_a_declared_path_into_the_player_package
+  - false_paths_may_use_true_but_incomplete_evidence_but_not_fake_authorial_misdirection
+
+open_evidence_decisions:
+  - exact_phase_1_artifact_that_thomas_supplies
+  - exact_supplier_network_structure_and_visual_link
+  - exact_vehicle_evidence_for_INC_02
+  - exact_artifact_that_proves_ingrid_contacted_martin
+  - exact_artifact_sequence_that_shows_martins_investigative_pivot
