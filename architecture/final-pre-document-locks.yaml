@@ -1,0 +1,150 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: architect_lock_candidate
+version: 0.1
+purpose: Resolve the remaining causal details that would otherwise force rewrites during player-document production.
+
+locks:
+  - lock_id: PDL-001
+    subject: Ingrid_security_awareness_material
+    status: locked_semantics
+    artifact_intent:
+      type: unclassified_cross_party_security_awareness_brief
+      plausible_origin: parliamentary_or_public_security_policy_seminar
+      access: normal_for_national_politician
+      classification: unclassified
+      purpose: help elected representatives recognise foreign influence and cultivation without identifying specific ongoing intelligence cases
+    content_pattern:
+      - legitimate diplomatic or professional contact often begins around shared policy interests
+      - repeated informal contact can be used to map networks and decision influence
+      - questions may shift toward internal disagreement, personalities, likely reactions and who can persuade whom
+      - information can be valuable even when each individual detail is unclassified
+      - concern rises when apparently casual questions form a systematic pattern over time
+    Ingrid_annotations:
+      - underline phrase equivalent to 'who influences whom'
+      - circle reference to 'internal disagreement'
+      - margin mark beside 'likely reactions of named decision-makers'
+      - handwritten question mark beside warning that individually harmless information can form a useful whole
+      - short handwritten cross-reference to two dates from her own Morozov contact history
+    forbidden:
+      - Morozov named in brief
+      - Russia-specific accusation that gives answer
+      - PST case file or classified report
+      - authorial statement that Ingrid was recruited
+    discovery_result: Players can understand why the brief frightened Ingrid only by comparing it with her earlier contact records.
+
+  - lock_id: PDL-002
+    subject: Morozov_question_progression
+    status: locked_semantics
+    progression:
+      early:
+        examples:
+          - Norway's internal debate about NATO dependence
+          - Nystart's public foreign-policy positions
+          - how younger Norwegian politicians view dialogue with Russia
+        interpretation_at_time: normal_policy_interest
+      middle:
+        examples:
+          - which Nystart figures actually shape foreign-policy positions
+          - whether Solveig or Ingrid carries more influence with younger members
+          - which opposition politicians Ingrid privately respects despite public conflict
+        interpretation_at_time: unusually_personal_but_still_plausible_networking
+      late:
+        examples:
+          - who inside Nystart would resist a softer NATO formulation
+          - how Martin Hauge would react to a specific sovereignty argument
+          - which person could persuade Solveig if leadership disagreed
+          - whether an internal disagreement would become public or remain contained
+        interpretation_at_time: only_revealed_as_pattern_in_retrospect
+    fairness_rule: No individual question is incriminating; chronology creates the meaning.
+
+  - lock_id: PDL-003
+    subject: Hovden_knowledge_path
+    status: locked_semantics
+    causal_sequence:
+      - Ingrid decides Nystart leadership must receive limited warning before she seeks outside advice.
+      - She tells Hovden privately that she has seriously misjudged a foreign contact and that the matter may affect the party.
+      - Hovden initially argues it should be handled internally and quietly.
+      - Ingrid refuses containment and tells him she intends to speak with Martin Hauge because he previously warned her about this exact kind of vulnerability.
+      - She does not give Hovden the full evidence or awareness brief.
+      - Hovden understands enough to believe disclosure could destroy Nystart immediately before its political breakthrough.
+      - He later goes to her hotel room to make one final attempt to stop or postpone disclosure.
+    natural_traces:
+      - short calendar block or meeting trace between Ingrid and Hovden
+      - a terse message from Hovden asking her not to do anything before they speak again
+      - Ingrid-to-Martin meeting request remains separate and is not available to phase-1 players
+    phase_1_constraint: Hovden trace may establish urgency/contact but cannot reveal Russia or Martin as the true motive.
+    phase_2_recontextualization: Once Ingrid's Martin contact and Morozov realization are known, Hovden's earlier urgency becomes legible.
+    credibility_reason: Hovden learns the threat directly from Ingrid rather than through contrived overhearing, hacking or coincidence.
+
+  - lock_id: PDL-004
+    subject: Thomas_supplier_scheme_player_model
+    status: locked_for_document_design
+    entities:
+      primary_vendor:
+        function: real event and campaign production supplier
+        truth: performs substantial legitimate work and also bills selected inflated packages
+      secondary_vendor:
+        function: small production/subcontracting company
+        truth: performs some real work but also carries vague or duplicated subcontracted line items
+        hidden_link: controlled by a trusted long-term associate of Thomas
+      intermediary:
+        function: consultancy/production coordination entity
+        truth: receives value from supplier chain and pays expenses or benefits controlled by Thomas
+    player_visible_links:
+      - same secondary vendor appears as a legitimate production credit on Thomas-supplied phase-1 event material
+      - primary vendor invoices contain recurring subcontract/reference family pointing to secondary vendor
+      - secondary vendor and intermediary share a simple public contact or registration relationship
+      - Martin's notes identify the associate's relationship to Thomas
+      - repeated job references and service descriptions make the pattern visible without calculating tax or VAT
+    Martin_access:
+      - public company information
+      - public campaign/event materials
+      - voluntarily supplied or lawfully obtained Nystart procurement extracts
+      - source-provided invoice copies retained in Martin's working file
+    motive_threshold: Martin has enough to publish a documented investigation and trigger police/tax/party-finance scrutiny, though not enough to prove every offence in court.
+    naming_rule: Final fictional company and associate names may be assigned during artifact specification without changing architecture.
+
+  - lock_id: PDL-005
+    subject: Martin_vehicle_homicide_physics
+    status: lock_candidate_requires_render_test
+    scenario:
+      road_type: quiet_two_lane_or_single_carriageway_urban_edge_road_with_curve_and_fixed_roadside_barrier
+      lighting: evening_or_low_light_but_not_dark_enough_to_make_all_observation_impossible
+      Martin: cycling_home_or_between_known_locations
+      Thomas: follows_or_intercepts_by_car_after_final_contact
+      contact: deliberate_lateral_or_rear_quarter_vehicle_contact_to_bicycle
+      consequence: Martin loses control and strikes a fixed roadside object or barrier, producing fatal injuries that can initially resemble a solo cycling crash
+      Thomas_action_after: leaves_scene_without_repositioning_Martin_or_bicycle
+    evidence_clusters:
+      scene_geometry:
+        - bicycle/fall trajectory does not comfortably originate from the apparent fixed-object impact alone
+        - small debris or scrape position indicates disturbance before the final barrier impact
+      bicycle_damage:
+        - one damage area is consistent with final barrier/fall
+        - separate contact area is too high, lateral or differently oriented to be explained by that barrier alone
+      vehicle_link:
+        - Thomas vehicle later has recent compatible mirror/trim/body damage or repair
+        - timing/route places vehicle in relevant corridor
+      motive:
+        - Martin contacted Thomas shortly before death and signalled imminent exposure
+    inference_rule: Scene+bicycle can establish another vehicle; they cannot identify Thomas. Thomas requires independent vehicle, timing and motive evidence.
+    anti_CSI:
+      - no DNA miracle
+      - no unique paint database match
+      - no microscopic fragment identifying make/model
+      - observations described in ordinary language and visible imagery
+    initial_accident_reasoning: The fatal fixed-object impact and absence of an obvious second vehicle make a solo loss-of-control explanation reasonable at first examination, not evidence of police incompetence.
+    render_test_required:
+      - draw road/trajectory diagram
+      - ensure two damage events are spatially coherent
+      - ensure player can distinguish them at normal print size
+      - reject method if diagram requires specialist crash reconstruction to understand
+
+production_gate:
+  architecture_ready_when:
+    - PDL-001 through PDL-004 represented in truth/knowledge/evidence/provenance graphs
+    - PDL-005 passes simple geometry render test
+    - phase_1 evidence remains independently sufficient for Hovden identity
+    - no phase_2 artifact is required to understand phase_1 completion instruction
+  then_status: ready_for_player_document_specs
