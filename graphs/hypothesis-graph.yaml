@@ -1,0 +1,179 @@
+graph_id: HG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+hypotheses:
+  - hypothesis_id: H-ACCIDENT-INGRID
+    statement: Ingrid fell accidentally from the hotel window.
+    phase: phase_1
+    initial_plausibility: medium
+    support_sources:
+      - initial scene ambiguity
+      - fall-compatible physical setting
+    disconfirming_sources:
+      - evidence of confrontation
+      - Hovden presence during fatal window
+      - physical and timeline inconsistencies with a simple accident
+    intended_state_change:
+      from: plausible
+      to: rejected
+    linked_discoveries: [DM-01]
+
+  - hypothesis_id: H-MOROZOV-KILLED-INGRID
+    statement: Morozov or Russian intelligence directly killed Ingrid.
+    phase: cross_phase
+    initial_plausibility: low_medium
+    support_sources:
+      - real cultivated relationship
+      - later evidence that Morozov is intelligence-linked
+    disconfirming_sources:
+      - Hovden opportunity and presence
+      - Morozov timeline exclusion
+    intended_state_change:
+      from: plausible_red_herring
+      to: rejected_as_direct_killer
+    linked_discoveries: [DM-01, DM-02]
+
+  - hypothesis_id: H-HOVDEN-KILLED-INGRID
+    statement: Hovden caused Ingrid's death.
+    phase: phase_1
+    initial_plausibility: low
+    support_sources:
+      - presence evidence
+      - timeline reconstruction
+      - confrontation evidence
+      - later admission
+    intended_state_change:
+      from: suspect
+      to: established
+    linked_discoveries: [DM-01]
+
+  - hypothesis_id: H-ROMANCE-ONLY-MOTIVE
+    statement: Hovden killed Ingrid solely because a secret romantic relationship was ending.
+    phase: phase_1_to_phase_2
+    initial_plausibility: high_after_confession
+    support_sources:
+      - Hovden's own statement
+      - surface plausibility of an intimate conflict
+    disconfirming_sources:
+      - Ingrid's confidential approach to Martin
+      - Morozov link
+      - evidence of planned disclosure
+      - lack of independent support for a romance
+    intended_state_change:
+      from: accepted_public_narrative
+      to: rejected_or_materially_incomplete
+    linked_discoveries: [DM-02, DM-03]
+
+  - hypothesis_id: H-RUSSIA-CULTIVATION
+    statement: Morozov cultivated Ingrid for Russian intelligence purposes.
+    phase: phase_2
+    initial_plausibility: low
+    support_sources:
+      - visual identity match
+      - contact pattern
+      - later public reporting about Morozov
+      - Ingrid's final outreach to Martin
+    intended_state_change:
+      from: suspicion
+      to: established_context
+    linked_discoveries: [DM-02, DM-03]
+
+  - hypothesis_id: H-MARTIN-ACCIDENT
+    statement: Martin died in a solo bicycle accident.
+    phase: phase_2
+    initial_plausibility: high
+    support_sources:
+      - accident-like scene
+      - bicycle context
+    disconfirming_sources:
+      - impact evidence incompatible with solo crash
+      - scene geometry
+      - timing and vehicle evidence
+    intended_state_change:
+      from: default_explanation
+      to: rejected
+    linked_discoveries: [DM-05]
+
+  - hypothesis_id: H-RUSSIA-KILLED-MARTIN
+    statement: Martin was killed as part of the same Russian operation connected to Ingrid.
+    phase: phase_2
+    initial_plausibility: medium_high
+    support_sources:
+      - Martin's Russia-focused notes
+      - genuine Morozov connection
+      - Martin's security-policy profile
+    disconfirming_sources:
+      - investigation notes pivot away from Russia
+      - supplier network points to Thomas
+      - Thomas opportunity and physical evidence
+    intended_state_change:
+      from: dominant_unifying_theory
+      to: rejected
+    linked_discoveries: [DM-04, DM-06]
+
+  - hypothesis_id: H-THOMAS-HAD-SEPARATE-SECRET
+    statement: Thomas was hiding an independent financial crime exposed by Martin's inquiry.
+    phase: phase_2
+    initial_plausibility: low
+    support_sources:
+      - supplier/entity links
+      - Martin's note sequence
+      - phase-1 artifact provenance
+    intended_state_change:
+      from: hidden
+      to: established
+    linked_discoveries: [DM-04]
+
+  - hypothesis_id: H-THOMAS-KILLED-MARTIN
+    statement: Thomas killed Martin to prevent exposure of the separate financial crime.
+    phase: phase_2
+    initial_plausibility: very_low
+    support_sources:
+      - motive network
+      - timing and opportunity
+      - vehicle/scene evidence
+      - Thomas-linked provenance detail from phase 1
+    intended_state_change:
+      from: hidden
+      to: established
+    linked_discoveries: [DM-04, DM-05, DM-06]
+
+  - hypothesis_id: H-ONE-CONSPIRACY
+    statement: Both deaths are executions within one coordinated Russian conspiracy.
+    phase: phase_2
+    initial_plausibility: intentionally_high_midgame
+    support_sources:
+      - real Russia connection
+      - two politically connected deaths
+      - Martin's early investigative focus
+    disconfirming_sources:
+      - distinct motive chains
+      - Thomas financial network
+      - Hovden's independent trigger
+      - Morozov exclusion
+    intended_state_change:
+      from: seductive_global_theory
+      to: rejected
+    linked_discoveries: [DM-04, DM-06]
+
+final_model:
+  accepted:
+    - H-HOVDEN-KILLED-INGRID
+    - H-RUSSIA-CULTIVATION
+    - H-THOMAS-HAD-SEPARATE-SECRET
+    - H-THOMAS-KILLED-MARTIN
+  rejected:
+    - H-ACCIDENT-INGRID
+    - H-MOROZOV-KILLED-INGRID
+    - H-ROMANCE-ONLY-MOTIVE
+    - H-MARTIN-ACCIDENT
+    - H-RUSSIA-KILLED-MARTIN
+    - H-ONE-CONSPIRACY
+
+validation_notes:
+  - No required final hypothesis may depend on a fact introduced only in the solution.
+  - H-ONE-CONSPIRACY is a designed synthesis trap, not a fake-evidence trick.
+  - Genuine Russia evidence must remain true even after the unifying-conspiracy hypothesis is rejected.
