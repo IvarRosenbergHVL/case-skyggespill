@@ -2,7 +2,14 @@ graph_id: EG-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.1
+version: 0.2
+
+design_principles:
+  - visual_clues_must_be_entailed_by_objective_truth_not_added_as_decoration
+  - every_major_visual_clue_should_have_an_in_world_reason_to_exist
+  - visual_observation_should_change_or_test_a_hypothesis
+  - phase_1_visual_material_may_gain_new_meaning_in_phase_2_without_changing
+  - critical_visual_inference_requires_redundancy_or_corroboration
 
 evidence_fragments:
   - evidence_id: E-001
@@ -12,6 +19,13 @@ evidence_fragments:
     functions: [presence, opportunity, timeline]
     player_actions: [compare_sources, reconstruct_timeline]
     provenance_requirement: official_or_credible_case_source
+    visual_logic:
+      truth_basis: Hovden was physically present at the hotel and moved through observable spaces before Ingrid fell.
+      candidate_visible_traces:
+        - access_log_or_keycard_sequence
+        - hotel_corridor_or_lobby_image
+        - room_or_floor_plan_with_access_route
+      intended_inference: presence becomes stronger when temporal and spatial traces agree.
 
   - evidence_id: E-002
     label: hotel_spatial_cluster
@@ -20,6 +34,14 @@ evidence_fragments:
     functions: [scene_reconstruction, accident_testing]
     player_actions: [spatial_reconstruction, compare_scene_material]
     visual_requirement: true
+    visual_logic:
+      truth_basis: The geometry of Ingrid's room, window and landing area constrains how the fall could have occurred.
+      candidate_visible_traces:
+        - room_plan
+        - exterior_facade_photo
+        - courtyard_or_backyard_scene_photo
+        - window_height_and_furniture_relationship
+      intended_inference: players should be able to reject a simple accidental fall through visible spatial inconsistency combined with timeline evidence.
 
   - evidence_id: E-003
     label: hovden_admission_and_motive_claim
@@ -28,6 +50,12 @@ evidence_fragments:
     later_recontextualizes: [O-04, O-05]
     functions: [identity_confirmation, claim_source, later_contradiction]
     player_actions: [read_claim, revisit_claim]
+    visual_logic:
+      truth_basis: Hovden admits the act but lies about motive.
+      candidate_visible_traces:
+        - signed_statement_with_handwritten_correction_or_emphasis
+        - media_photo_where_his_public_composure_contrasts_with_claimed_private_crisis
+      intended_inference: visual presentation may support authenticity/provenance but must not itself prove the motive lie.
 
   - evidence_id: E-004
     label: ingrid_martin_public_rivalry
@@ -36,6 +64,12 @@ evidence_fragments:
     later_recontextualizes: [O-05]
     functions: [relationship_context, suspect_architecture]
     player_actions: [relationship_mapping]
+    visual_logic:
+      truth_basis: Ingrid and Martin publicly appear politically hostile while privately retaining mutual respect.
+      candidate_visible_traces:
+        - debate_photo_with_confrontational_body_language
+        - screenshot_or_clipping_of_public_exchange
+      intended_inference: establishes a plausible public rivalry that phase_2 private contact will later reframe.
 
   - evidence_id: E-005
     label: conference_photo_with_morozov_unidentified
@@ -45,6 +79,14 @@ evidence_fragments:
     player_actions: [inspect_photo, later_compare_faces]
     visual_requirement: true
     recontextualization_role: major
+    visual_logic:
+      truth_basis: Ingrid and Morozov genuinely met at an international conference before the murder.
+      required_visible_content:
+        - Ingrid in a natural conference context
+        - Morozov clearly enough visible for later recognition but not captioned as intelligence-linked
+      later_comparison_target: E-007
+      intended_inference: the same man is independently visible in two unrelated artifacts.
+      anti_gimmick_rule: recognition must be possible by ordinary side-by-side comparison without facial-recognition software or extreme zoom.
 
   - evidence_id: E-006
     label: ingrid_private_contact_to_martin
@@ -52,6 +94,13 @@ evidence_fragments:
     supports: [O-04, O-05]
     functions: [contradiction, private_trust, motive_recontextualization]
     player_actions: [compare_public_and_private_relationship]
+    visual_logic:
+      truth_basis: Ingrid contacted Martin privately shortly before her death and intended a confidential meeting.
+      candidate_visible_traces:
+        - message_screenshot
+        - handwritten_calendar_entry
+        - phone_call_or_message_thread_excerpt
+      intended_inference: the private contact visually contradicts the phase_1 picture of simple political hostility.
 
   - evidence_id: E-007
     label: later_public_morozov_photo_or_press_report
@@ -60,6 +109,13 @@ evidence_fragments:
     functions: [identity_match, intelligence_context]
     player_actions: [compare_faces_side_by_side]
     visual_requirement: true
+    visual_logic:
+      truth_basis: Morozov later becomes publicly identifiable in connection with intelligence suspicion or diplomatic departure.
+      required_visible_content:
+        - recognisable image of Morozov from a different source and occasion
+        - enough contextual separation from E-005 to make the match player-driven
+      compares_to: E-005
+      intended_inference: the previously anonymous conference participant is Morozov.
 
   - evidence_id: E-008
     label: martin_investigation_notes_sequence
@@ -68,6 +124,14 @@ evidence_fragments:
     functions: [investigative_sequence, hypothesis_pivot, causal_bridge]
     player_actions: [reconstruct_note_sequence, revisit_annotations]
     visual_requirement: preferred
+    visual_logic:
+      truth_basis: Martin's investigation genuinely shifts from Russia-focused questions toward a separate supplier/finance pattern.
+      candidate_visible_traces:
+        - changing_handwritten_arrows_between_names
+        - crossed_out_russia_hypothesis
+        - later-added_supplier_names_or_invoice_numbers
+        - colour_or_symbol_grouping_created_by_martin
+      intended_inference: players can see the investigation pivot, not merely read a summary saying it happened.
 
   - evidence_id: E-009
     label: supplier_and_payment_network_cluster
@@ -76,6 +140,16 @@ evidence_fragments:
     functions: [financial_network, motive, actor_link]
     player_actions: [group_entities, compare_addresses_logos_or_references]
     visual_requirement: true
+    visual_logic:
+      truth_basis: Multiple ostensibly separate suppliers are materially connected to Thomas or his network.
+      candidate_visible_traces:
+        - repeated_business_address
+        - recurring_logo_element_or_template_family
+        - matching_reference_number_pattern
+        - same_contact_person_initials
+        - invoice_layout_similarity_that_is_in_world_justified
+      intended_inference: apparently separate entities belong to one operational network.
+      forensic_safety: similarity must be explicitly caused by shared provenance, not generic template reuse.
 
   - evidence_id: E-010
     label: phase_1_thomas_artifact_with_latent_network_detail
@@ -86,6 +160,16 @@ evidence_fragments:
     player_actions: [use_normally, later_revisit_and_compare]
     visual_requirement: true
     design_rule: Must not appear suspicious in phase 1 solely because it is clue-bearing later.
+    visual_logic:
+      truth_basis: Thomas genuinely supplied useful phase_1 material, and because of his real-world role that artifact naturally contains a minor trace of his supplier network.
+      candidate_visible_traces:
+        - small_supplier_logo
+        - footer_address
+        - file_reference_prefix
+        - print_shop_or_vendor_mark
+      phase_1_meaning: mundane provenance/background detail.
+      phase_2_meaning: matches E-009 and ties Thomas to the network Martin was tracing.
+      intended_effect: "den har jo ligget foran oss hele tiden" without unfair concealment.
 
   - evidence_id: E-011
     label: martin_crash_scene_damage_cluster
@@ -94,6 +178,16 @@ evidence_fragments:
     functions: [method, homicide_classification, vehicle_interaction]
     player_actions: [inspect_damage, compare_scene_geometry]
     visual_requirement: true
+    visual_logic:
+      truth_basis: Martin's bicycle was struck by another vehicle and the final resting pattern is inconsistent with a pure solo crash.
+      candidate_visible_traces:
+        - asymmetric_rear_or_side_damage
+        - paint_transfer_or_broken_component_position
+        - debris_distribution
+        - skid_or_contact_marks
+        - mismatch_between_impact_point_and_final_bicycle_position
+      intended_inference: a second vehicle participated in the event.
+      constraint: the deduction must remain understandable to lay players with supporting ordinary-language scene information.
 
   - evidence_id: E-012
     label: thomas_vehicle_timing_or_damage_cluster
@@ -102,6 +196,14 @@ evidence_fragments:
     functions: [opportunity, physical_link, corroboration]
     player_actions: [compare_timing, compare_visible_damage_or_service_record]
     dependency_note: exact artifact type remains open until murder-2 method is validated.
+    visual_logic:
+      truth_basis: If Thomas used his vehicle, it should generate a plausible visible or documentary trace consistent with E-011.
+      candidate_visible_traces:
+        - fresh_damage_photo
+        - workshop_intake_photo
+        - replaced_mirror_or_trim_component
+        - parking_camera_frame
+      intended_inference: Thomas's vehicle physically fits the interaction with Martin's bicycle.
 
   - evidence_id: E-013
     label: morozov_timeline_exclusion
@@ -109,6 +211,45 @@ evidence_fragments:
     supports: [O-06, O-10]
     functions: [suspect_elimination, conspiracy_disconfirmation]
     player_actions: [timeline_elimination]
+    visual_logic:
+      truth_basis: Morozov was no longer in a position to commit incident 02.
+      candidate_visible_traces:
+        - dated_press_photo_from_abroad
+        - travel_or_departure_record
+        - public_event_image_with_date
+      intended_inference: the Russia trail is real but cannot physically explain Martin's death.
+
+visual_traceability:
+  - visual_id: V-01
+    truth_nodes: [T-008, T-009]
+    evidence: [E-001, E-002]
+    discovery: DM-01
+    player_action: spatial_and_timeline_reconstruction
+    conclusion: Hovden was present and Ingrid's fall was not a simple accident.
+  - visual_id: V-02
+    truth_nodes: [T-002, T-013]
+    evidence: [E-005, E-007]
+    discovery: DM-02
+    player_action: side_by_side_face_comparison
+    conclusion: the man with Ingrid at the conference was Morozov.
+  - visual_id: V-03
+    truth_nodes: [T-014, T-016]
+    evidence: [E-008, E-009, E-010]
+    discovery: DM-04
+    player_action: note_sequence_and_entity_visual_grouping
+    conclusion: Martin's inquiry pivoted from Russia toward Thomas's supplier network.
+  - visual_id: V-04
+    truth_nodes: [T-018, T-019]
+    evidence: [E-011, E-012]
+    discovery: DM-05
+    player_action: compare_damage_scene_and_vehicle_traces
+    conclusion: Martin's death involved another vehicle and was not a solo bicycle accident.
+  - visual_id: V-05
+    truth_nodes: [T-015, T-016, T-018]
+    evidence: [E-009, E-010, E-012]
+    discovery: DM-06
+    player_action: revisit_phase_1_artifact_and_compare_provenance
+    conclusion: Thomas was connected to both Martin's final inquiry and the physical circumstances of his death.
 
 inference_paths:
   - conclusion_id: C-01-INGRID-HOMICIDE
@@ -158,6 +299,9 @@ fair_play_rules:
   - evidence_used_by_martin_must_be_available_to_martin_before_INC_02
   - evidence_used_by_players_must_have_a_declared_path_into_the_player_package
   - false_paths_may_use_true_but_incomplete_evidence_but_not_fake_authorial_misdirection
+  - every_major_visual_clue_must_trace_back_to_objective_truth
+  - every_visual_clue_must_have_a_declared_in_world_reason_for_its_presence
+  - visual_similarity_between_artifacts_may_imply_shared_provenance_only_when_that_relationship_is_true
 
 open_evidence_decisions:
   - exact_phase_1_artifact_that_thomas_supplies
