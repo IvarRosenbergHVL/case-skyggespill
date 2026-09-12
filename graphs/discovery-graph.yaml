@@ -2,31 +2,22 @@ graph_id: DG-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.1
+version: 0.2
 
 discovery_moments:
   - discovery_id: DM-01
     title: Han var på rommet
     phase: phase_1
-    prerequisites:
-      - scene_material_seen
-      - timeline_material_seen
-    triggering_material:
-      - hotel_scene_cluster
-      - access_or_presence_cluster
-    intended_player_actions:
-      - reconstruct_timeline
-      - compare_sources_side_by_side
-      - test_hovden_opportunity
+    prerequisites: [scene_material_seen, timeline_material_seen]
+    triggering_material: [hotel_scene_cluster, access_or_presence_cluster]
+    intended_player_actions: [reconstruct_timeline, compare_sources_side_by_side, test_hovden_opportunity]
     intended_realization:
       - Hovden was present during the fatal window
       - Ingrid's fall was not a simple accident
     affected_hypotheses:
       weaken: [H-ACCIDENT-INGRID, H-MOROZOV-KILLED-INGRID]
       strengthen: [H-HOVDEN-KILLED-INGRID]
-    material_to_revisit:
-      - Hovden statements
-      - hotel spatial material
+    material_to_revisit: [Hovden statements, hotel spatial material]
     supported_objectives: [O-01, O-02, O-03]
     confidence: high
     redundancy: required
@@ -34,25 +25,16 @@ discovery_moments:
   - discovery_id: DM-02
     title: Vent, det er samme mann
     phase: phase_2
-    prerequisites:
-      - conference_photo_seen_in_phase_1
-      - later_press_or_public_photo_seen
-    triggering_material:
-      - conference_photo
-      - later_morozov_press_photo
-    intended_player_actions:
-      - compare_faces_side_by_side
-      - identify_visual_match
-      - revisit_ingrid_contact_context
+    prerequisites: [conference_photo_seen_in_phase_1, later_press_or_public_photo_seen]
+    triggering_material: [conference_photo, later_morozov_press_photo]
+    intended_player_actions: [compare_faces_side_by_side, identify_visual_match, revisit_ingrid_contact_context]
     intended_realization:
       - the diplomat in Ingrid's earlier conference material is Morozov
       - the Russia connection was real before the murder
     affected_hypotheses:
       strengthen: [H-RUSSIA-CULTIVATION]
       weaken: [H-ROMANCE-ONLY-MOTIVE]
-    material_to_revisit:
-      - conference_photo
-      - Ingrid calendar/contact material
+    material_to_revisit: [conference_photo, Ingrid calendar/contact material]
     supported_objectives: [O-05, O-06]
     confidence: high
     redundancy: visual_plus_textual
@@ -60,54 +42,71 @@ discovery_moments:
   - discovery_id: DM-03
     title: Kjærlighetshistorien passer ikke
     phase: phase_2
-    prerequisites:
-      - Hovden romance claim known
-      - Ingrid-to-Martin confidential contact revealed
+    prerequisites: [Hovden_romance_claim_known, Ingrid_to_Martin_confidential_contact_revealed]
     triggering_material:
       - Ingrid message or meeting request to Martin
       - Hovden motive statement
       - relationship background material from phase_1
-    intended_player_actions:
-      - contradiction_detection
-      - compare_claim_with_known_behavior
-      - revisit_phase_1_relationship_assumptions
+    intended_player_actions: [contradiction_detection, compare_claim_with_known_behavior, revisit_phase_1_relationship_assumptions]
     intended_realization:
       - Ingrid was preparing to discuss something security-relevant with a public opponent
       - Hovden's romance explanation does not account for her final actions
     affected_hypotheses:
       weaken: [H-ROMANCE-ONLY-MOTIVE]
-      strengthen: [H-POLITICAL-INTELLIGENCE-MOTIVE]
-    material_to_revisit:
-      - Hovden confession or interview
-      - Ingrid public/private relationship material
+      strengthen: [H-RUSSIA-CULTIVATION]
+    material_to_revisit: [Hovden confession or interview, Ingrid public/private relationship material]
     supported_objectives: [O-04, O-05]
     confidence: medium_high
     redundancy: required
 
+  - discovery_id: DM-07
+    title: Spillerne ser det Ingrid så
+    phase: phase_2
+    prerequisites:
+      - DM-02 complete
+      - earlier Ingrid-Morozov contact fragments available
+      - Ingrid annotated awareness/briefing material available
+    triggering_material:
+      - earlier Morozov messages and meeting notes
+      - unclassified security-awareness or policy briefing material Ingrid encountered
+      - Ingrid's visible annotations
+      - chronology of Morozov's increasingly specific questions
+    intended_player_actions:
+      - order_contact_fragments_chronologically
+      - compare_question_topics_with_awareness_pattern
+      - compare_repeated_people_reactions_and_internal_context
+      - inspect_Ingrid_annotations
+      - reconstruct_why_Ingrid_changed_her_assessment
+    intended_realization:
+      - Morozov's contact had gradually shifted from normal policy dialogue toward mapping people, influence, disagreements and reactions
+      - Ingrid recognised that pattern shortly before her death
+      - this explains why she urgently sought Martin's judgement and would not discuss it by phone
+    affected_hypotheses:
+      strengthen: [H-RUSSIA-CULTIVATION]
+      weaken: [H-ROMANCE-ONLY-MOTIVE]
+    material_to_revisit:
+      - phase_1 conference material
+      - Ingrid calendar/contact material
+      - Ingrid-to-Martin message
+    supported_objectives: [O-04, O-05, O-06]
+    confidence: high
+    redundancy: textual_pattern_plus_visual_annotation
+    anti_gimmick_rule: >-
+      No single highlighted sentence states the answer. The discovery comes from chronology, repeated subject matter and Ingrid's ordinary annotations.
+
   - discovery_id: DM-04
     title: Martin lette etter Russland, men fant noe annet
     phase: phase_2
-    prerequisites:
-      - Morozov link established
-      - Martin dossier available
-    triggering_material:
-      - Martin handwritten investigation notes
-      - supplier and payment cluster
-      - phase_1 Thomas-supplied artifact
-    intended_player_actions:
-      - reconstruct_note_sequence
-      - group_entities_by_visual_identity_address_or_provenance
-      - compare_phase_1_and_phase_2_material
-      - revisit_prior_artifact
+    prerequisites: [Morozov_link_established, Martin_dossier_available]
+    triggering_material: [Martin handwritten investigation notes, supplier and payment cluster, phase_1 Thomas-supplied artifact]
+    intended_player_actions: [reconstruct_note_sequence, group_entities_by_visual_identity_address_or_provenance, compare_phase_1_and_phase_2_material, revisit_prior_artifact]
     intended_realization:
       - Martin's newest work had shifted away from Russian financing
       - several supplier entities point toward Thomas's network
     affected_hypotheses:
       weaken: [H-RUSSIA-KILLED-MARTIN]
       strengthen: [H-THOMAS-HAD-SEPARATE-SECRET]
-    material_to_revisit:
-      - phase_1 material supplied by Thomas
-      - Nystart supplier references
+    material_to_revisit: [phase_1 material supplied by Thomas, Nystart supplier references]
     supported_objectives: [O-07]
     confidence: high
     redundancy: required
@@ -115,25 +114,16 @@ discovery_moments:
   - discovery_id: DM-05
     title: Dette var ikke en soloulykke
     phase: phase_2
-    prerequisites:
-      - Martin crash scene material available
-    triggering_material:
-      - bicycle damage imagery
-      - road or route diagram
-      - ordinary forensic summary
-    intended_player_actions:
-      - compare_damage_pattern_with_scene_geometry
-      - route_and_distance_checking
-      - test_single_bicycle_crash_hypothesis
+    prerequisites: [Martin_crash_scene_material_available]
+    triggering_material: [bicycle damage imagery, road or route diagram, ordinary forensic summary]
+    intended_player_actions: [compare_damage_pattern_with_scene_geometry, route_and_distance_checking, test_single_bicycle_crash_hypothesis]
     intended_realization:
       - another vehicle interacted with Martin's bicycle
-      - crash scene was at least partially staged or misrepresented
+      - the initial solo-accident interpretation is materially wrong
     affected_hypotheses:
       weaken: [H-MARTIN-ACCIDENT]
-      strengthen: [H-MARTIN-HOMICIDE]
-    material_to_revisit:
-      - timing records
-      - vehicle access records
+      strengthen: [H-THOMAS-KILLED-MARTIN]
+    material_to_revisit: [timing records, vehicle access records]
     supported_objectives: [O-08]
     confidence: high
     redundancy: visible_plus_documentary
@@ -141,27 +131,16 @@ discovery_moments:
   - discovery_id: DM-06
     title: Thomas var der hele tiden
     phase: phase_2
-    prerequisites:
-      - DM-04 complete
-      - DM-05 complete
-    triggering_material:
-      - Thomas-linked supplier clue
-      - Thomas vehicle timing or damage evidence
-      - earlier phase_1 artifact associated with Thomas
-    intended_player_actions:
-      - retrieve_phase_1_material
-      - compare_visual_or_provenance_detail
-      - combine_motive_opportunity_and_method_clusters
+    prerequisites: [DM-04 complete, DM-05 complete]
+    triggering_material: [Thomas-linked supplier clue, Thomas vehicle timing or damage evidence, earlier phase_1 artifact associated with Thomas]
+    intended_player_actions: [retrieve_phase_1_material, compare_visual_or_provenance_detail, combine_motive_opportunity_and_method_clusters]
     intended_realization:
       - the helpful phase_1 resource person is the actor Martin had begun to expose
       - Thomas had motive, opportunity and a physical link to Martin's death
     affected_hypotheses:
       reject: [H-RUSSIA-KILLED-MARTIN]
       strengthen: [H-THOMAS-KILLED-MARTIN]
-    material_to_revisit:
-      - phase_1 Thomas material
-      - Martin final notes
-      - crash evidence
+    material_to_revisit: [phase_1 Thomas material, Martin final notes, crash evidence]
     supported_objectives: [O-09, O-10]
     confidence: high
     redundancy: multi_cluster_required
@@ -170,21 +149,19 @@ paths:
   - path_id: DP-01-INCIDENT-01
     sequence: [DM-01]
     conclusion: Hovden caused Ingrid's death.
-
   - path_id: DP-02-HIDDEN-MOTIVE
-    sequence: [DM-02, DM-03]
-    conclusion: Hovden's stated romance motive is false or materially incomplete and the Morozov relationship matters.
-
+    sequence: [DM-02, DM-03, DM-07]
+    conclusion: Hovden's stated romance motive is false or materially incomplete; Ingrid had recognised Morozov's cultivation and sought Martin's help.
   - path_id: DP-03-INCIDENT-02
     sequence: [DM-04, DM-05, DM-06]
     conclusion: Martin was killed by Thomas because Martin discovered Thomas's separate financial crime.
-
   - path_id: DP-04-FINAL-RECONSTRUCTION
-    sequence: [DM-01, DM-02, DM-03, DM-04, DM-05, DM-06]
+    sequence: [DM-01, DM-02, DM-03, DM-07, DM-04, DM-05, DM-06]
     conclusion: The murders have different offenders and motives but are linked because Martin investigated Ingrid's death.
 
 validation_notes:
   - Critical conclusions require active inference and cross-document comparison.
-  - DM-02, DM-04 and DM-06 deliberately require visual or physical comparison.
+  - DM-02, DM-04, DM-06 and DM-07 deliberately require comparison rather than answer-bearing prose.
   - DM-06 must not work unless Thomas has been genuinely useful in phase 1.
+  - DM-07 must let players reconstruct Ingrid's realization rather than merely receive it as exposition.
   - Final player artifacts must naturally prompt comparisons without explicit puzzle instructions.
