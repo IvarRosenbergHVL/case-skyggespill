@@ -2,15 +2,36 @@ graph_id: PGG-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.1
+version: 0.2
 
 phase_model:
-  delivery: two_envelope_or_equivalent_physical_gate
+  delivery: two_envelope_plus_resolution_bridge
   phase_1_goal: solve_incident_01_identity_and_basic_mechanics
   phase_2_goal: reopen_motive_context_and_solve_incident_02
   core_rule: phase_2_recontextualizes_phase_1_without_invalidating_phase_1_solution
+  transition_sequence:
+    - player_declares_phase_1_conclusion
+    - open_phase_1_resolution_artifact
+    - receive_confirmed_outcome_and_time_passage
+    - reveal_bridge_information
+    - trigger_breaking_news_INC_02
+    - open_phase_2_material
 
 phase_1:
+  player_facing_completion_question:
+    wording_intent: >-
+      Når dere mener dere kan forklare om Ingrid Veldes død var en ulykke, hvem som var ansvarlig dersom den ikke var det,
+      og hva som skjedde på hotellrommet, har dere avsluttet etterforskningen i denne saken.
+    required_answers:
+      - Was Ingrid's death accidental or caused by another person?
+      - Who was responsible for Ingrid's death?
+      - What basic sequence of events caused the fatal fall?
+    explicitly_not_required:
+      - complete motive
+      - full explanation of Morozov
+      - explanation of every relationship or background clue
+    design_reason: prevent_players_from_overinvestigating_unresolved_phase_2_threads
+
   required_player_conclusions_before_gate:
     - Ingrid did not die by accident.
     - Hovden was present during the fatal confrontation.
@@ -26,16 +47,120 @@ phase_1:
     - Thomas supplier scheme
     - Thomas responsibility for Martin's later death
     - complete cross-incident reconstruction
+
   gate_trigger:
-    preferred: explicit_case_solution_check_or_instruction_after_O-03
+    type: explicit_player_decision_not_hidden_code
+    instruction: >-
+      When the group agrees on the three phase-1 answers, they open the separately marked resolution envelope/artifact.
+      No password, QR validation or puzzle is required.
+    envelope_label_working: SAKENS UTFALL — åpnes når dere har konkludert i saken om Ingrid Velde
     player_experience: >-
-      Players should feel they have genuinely solved Ingrid's murder before opening phase 2. The gate must not imply that their phase-1 answer was wrong.
+      Players should feel they have genuinely solved Ingrid's murder before opening the bridge. The gate must not imply
+      that their phase-1 answer was wrong or that they failed by not understanding the full motive.
+
+phase_1_resolution_artifact:
+  logical_document_id: LDOC-13
+  working_title: Sakens utfall
+  function: [solution_confirmation, narrative_reward, temporal_bridge, controlled_false_context]
+  presentation_rule: >-
+    The artifact confirms objective phase-1 findings first. Only after players receive that reward does it describe
+    Hovden's confession and the public motive narrative.
+  sections:
+    - section_id: R1
+      title_intent: Dette skjedde på hotellet
+      content_contract:
+        - confirm Ingrid's death was caused by Hovden
+        - explain the basic confrontation/fall sequence using only already player-provable phase-1 facts
+        - connect the strongest phase-1 evidence to those conclusions
+      must_not_reveal:
+        - true political motive
+        - Ingrid's realization about Morozov
+    - section_id: R2
+      title_intent: Etterforskningen
+      content_contract:
+        - Hovden is confronted with convergent evidence placing him at the scene
+        - he admits responsibility for Ingrid's death
+        - official investigation proceeds against him
+    - section_id: R3
+      title_intent: Hovdens forklaring
+      content_contract:
+        - Hovden claims a secret romantic relationship
+        - he claims Ingrid intended to end it
+        - he describes the fatal confrontation as loss of control
+      epistemic_status: actor_claim_presented_as_officially_accepted_explanation
+      critical_rule: >-
+        Do not authorially state that the romance motive is objective truth. Attribute it clearly to Hovden and the
+        resulting public/official narrative so phase 2 recontextualizes a claim rather than retconning a narrator.
+    - section_id: R4
+      title_intent: Saken avsluttes
+      content_contract:
+        - Hovden is convicted or otherwise judicially held responsible
+        - public attention settles around the private-tragedy explanation
+        - Nystart suffers political damage but continues
+      intended_feeling: closure_and_success
+
+interphase_bridge:
+  time_jump:
+    status: architect_proposal
+    preferred_range: several_months
+    exact_duration: unresolved
+    reason: >-
+      Enough time for conviction/public closure and for Martin to conduct a meaningful private inquiry, while Ingrid's
+      death remains politically relevant and source material remains accessible.
+
+  bridge_revelation:
+    reveal_after_phase_1_resolution: true
+    information:
+      - Martin Hauge did not accept that Hovden's public motive explained Ingrid's final actions.
+      - Shortly before her death Ingrid had privately contacted Martin and requested a confidential conversation.
+      - Martin continued investigating after the official case was considered solved.
+    withheld_until_phase_2_material:
+      - full content/context of Martin's findings
+      - Thomas supplier connection
+      - proof of Morozov cultivation
+    dramaturgical_function: turn_closure_into_unresolved_causal_question
+
+  bridge_line_intent: >-
+    Saken var avsluttet for alle andre. Martin Hauge klarte ikke å legge den fra seg.
+
+phase_2_inciting_incident:
+  incident: INC-02
+  first_artifact: LDOC-14
+  presentation: breaking_news_or_equivalent_abrupt_media_artifact
+  initial_frame: Martin Hauge is dead after what is initially described as a bicycle accident.
+  design_contrast: >-
+    The breaking-news artifact should be visually and tonally distinct from the calm phase-1 resolution so the transition
+    feels like a new event interrupting a closed story.
+  immediate_information:
+    - Martin is dead.
+    - death is provisionally understood as an accident.
+    - Martin had recently been asking questions about Ingrid's case.
+  must_not_immediately_reveal:
+    - homicide classification
+    - Thomas connection
+    - exact subject of Martin's final discovery
+
+phase_2_commission:
+  commissioner: P-SOLVEIG
+  purpose: reconnect_players_to_case
+  semantic_contract:
+    - Solveig is disturbed because Martin contacted or questioned her shortly before his death.
+    - His questions concerned Ingrid, Russia/Morozov and Nystart suppliers or organizational matters.
+    - She does not know the answer and is not withholding a secret solution.
+    - She asks players to understand why Martin kept investigating and whether his death is connected.
+  opening_questions:
+    - Why did Martin continue investigating Ingrid's death?
+    - What had Ingrid intended to tell him?
+    - Was Martin's death really accidental?
+    - If it was not, what had he discovered?
 
 phase_2_entry:
-  inciting_material:
-    - breaking_news_or_case_update_about_martin_death
-    - indication_that_martin_was_privately_investigating_ingrid_case
-    - selected_material_from_martins_incomplete_investigation
+  physical_sequence:
+    - read_SAKENS_UTFALL
+    - read_time_jump_and_bridge
+    - reveal_breaking_news_LDOC_14
+    - read_Solveig_phase_2_commission
+    - open_phase_2_evidence_package
   immediate_questions:
     - Why was Martin still investigating a solved murder?
     - Was Martin's death really an accident?
@@ -53,7 +178,7 @@ phase_2_resolution:
     - Ingrid contacted Martin because she trusted his judgement on that danger despite public rivalry.
     - Morozov was a real intelligence actor but did not kill either victim.
     - Martin followed a Russia-financing hypothesis into a separate Thomas-linked financial crime.
-    - Martin's bicycle death was deliberately caused and staged as accidental.
+    - Martin's bicycle death was deliberately caused and initially misread as accidental.
     - Thomas killed Martin to prevent exposure.
     - the two murders have different offenders and motives but are causally linked by Martin's investigation.
 
@@ -68,16 +193,36 @@ fairness_checks:
     rule: phase_2_entry_must_raise_new_questions_not_simply_dump_answers
   - id: PGF-05
     rule: phase_2_solution_requires_textual_visual_temporal_and_relational_inference_in_combination
+  - id: PGF-06
+    rule: phase_1_resolution_must_distinguish_objective_fact_from_Hovdens_claimed_motive
+  - id: PGF-07
+    rule: players_must_be_explicitly_told_when_phase_1_is_complete
+  - id: PGF-08
+    rule: unresolved_Russia_material_must_not_block_phase_1_completion
+  - id: PGF-09
+    rule: bridge_must_preserve_a_short_emotional_pause_between_success_and_new_crisis
 
 experience_beats:
   - beat_id: PB-01
-    title: Saken er løst
+    title: Vi løste saken
     phase: phase_1_end
-    intended_feeling: satisfaction
+    intended_feeling: satisfaction_and_validation
+  - beat_id: PB-01B
+    title: Hovden tilstår
+    phase: resolution_artifact
+    intended_feeling: confirmation
+  - beat_id: PB-01C
+    title: Saken blir historie
+    phase: interphase_time_jump
+    intended_feeling: closure
   - beat_id: PB-02
     title: Hvorfor gransket Martin videre?
-    phase: phase_2_open
+    phase: bridge
     intended_feeling: destabilised_curiosity
+  - beat_id: PB-02B
+    title: Martin Hauge er død
+    phase: phase_2_inciting_incident
+    intended_feeling: shock_and_urgency
   - beat_id: PB-03
     title: Ingrid hadde faktisk kontakt med russisk etterretning
     phase: phase_2_early
