@@ -1,0 +1,247 @@
+graph_id: TLG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+time_model:
+  anchor_event: INC-01
+  notation: relative_case_time
+  rationale: >-
+    Exact calendar dates remain open until geography and delivery framing are locked. Relative timing is used now to validate causal order, knowledge transfer and physical opportunity.
+
+periods:
+  - period_id: P0-CULTIVATION
+    range: T-minus-3y_to_T-minus-3m
+    purpose: establish Ingrid-Morozov relationship and gradual intelligence cultivation
+
+  - period_id: P1-REALIZATION
+    range: T-minus-21d_to_T-minus-5d
+    purpose: Ingrid recognises operational use of information and decides disclosure is necessary
+
+  - period_id: P2-INCIDENT-01
+    range: T-minus-48h_to_T-plus-24h
+    purpose: confidential outreach, Hovden confrontation, Ingrid death and immediate investigation
+
+  - period_id: P3-OFFICIAL-CLOSURE
+    range: T-plus-weeks_to_T-plus-months
+    purpose: Hovden conviction and public adoption of false romance motive
+
+  - period_id: P4-MARTIN-PRIVATE-INVESTIGATION
+    range: post_conviction_to_INC-02
+    purpose: Martin reconstructs hidden motive and follows Russia hypothesis into Thomas supplier network
+
+  - period_id: P5-INCIDENT-02
+    range: final_72h_before_phase_2
+    purpose: Thomas learns exposure is imminent and kills Martin
+
+  - period_id: P6-PLAYER-PHASE-2
+    range: immediately_after_INC-02
+    purpose: breaking-news transition and cross-incident reconstruction
+
+events:
+  - event_id: TL-001
+    period: P0-CULTIVATION
+    actors: [P-INGRID, P-MOROZOV]
+    relative_time: T-minus-3y
+    event: Ingrid meets Morozov at an international policy or security conference.
+    truth_links: [T-002]
+    visible_trace_logic:
+      - conference photography exists for ordinary institutional reasons
+      - programme, badge, event schedule or press material may corroborate attendance
+    player_phase_visibility: phase_1_partial
+
+  - event_id: TL-002
+    period: P0-CULTIVATION
+    actors: [P-INGRID, P-MOROZOV]
+    relative_time: T-minus-30m_to_T-minus-6m
+    event: Contact continues intermittently through policy discussion, events and direct messages.
+    truth_links: [T-003]
+    visible_trace_logic:
+      - calendar entries and benign message fragments show increasing specificity over time
+      - pattern is meaningful only when compared retrospectively
+    player_phase_visibility: phase_1_fragmentary_phase_2_recontextualized
+
+  - event_id: TL-003
+    period: P1-REALIZATION
+    actors: [P-INGRID]
+    relative_time: T-minus-14d_approx
+    event: Ingrid sees a legitimate briefing or policy summary containing a distinctive combination of assumptions and actor reactions she recognises from information previously given to Morozov.
+    truth_links: [T-004]
+    knowledge_links: [AK-INGRID-02]
+    visible_trace_logic:
+      - Ingrid marks or annotates the sections she recognises
+      - comparison with earlier contact fragments reveals the source-pattern
+      - no single phrase is enough on its own
+    player_phase_visibility: phase_2
+
+  - event_id: TL-004
+    period: P1-REALIZATION
+    actors: [P-INGRID]
+    relative_time: T-minus-13d_to_T-minus-4d
+    event: Ingrid privately revisits earlier Morozov contact and concludes she has been cultivated for intelligence purposes.
+    truth_links: [T-004, T-005]
+    visible_trace_logic:
+      - earlier messages gain new significance
+      - Ingrid's private notes or selective annotations may show fear and reconstruction without giving full solution
+    player_phase_visibility: phase_2
+
+  - event_id: TL-005
+    period: P2-INCIDENT-01
+    actors: [P-INGRID, P-MARTIN]
+    relative_time: T-minus-36h_to_T-minus-18h
+    event: Ingrid contacts Martin requesting a confidential in-person meeting and indicates he had been right about something important.
+    truth_links: [T-006]
+    knowledge_links: [AK-MARTIN-01]
+    visible_trace_logic:
+      - message/contact record exists because communication was ordinary and direct
+      - wording creates a question, not an answer
+    player_phase_visibility: phase_2
+
+  - event_id: TL-006
+    period: P2-INCIDENT-01
+    actors: [P-HOVDEN]
+    relative_time: T-minus-12h_to_T-minus-2h
+    event: Hovden learns Ingrid intends to disclose the Morozov relationship and seeks confrontation.
+    truth_links: [T-007]
+    visible_trace_logic:
+      - Hovden's schedule, communications or witness context can establish urgency without revealing motive directly
+    player_phase_visibility: phase_1_partial_phase_2_recontextualized
+
+  - event_id: TL-007
+    period: P2-INCIDENT-01
+    actors: [P-HOVDEN, P-INGRID]
+    relative_time: T0
+    event: Hovden confronts Ingrid in her hotel room; confrontation escalates and Ingrid is forced or thrown through the window and fatally injured.
+    truth_links: [T-008, T-009]
+    visible_trace_logic:
+      - room geometry, disturbance and timing constrain what could have happened
+      - presence evidence and scene evidence are independent clusters
+    player_phase_visibility: phase_1
+
+  - event_id: TL-008
+    period: P2-INCIDENT-01
+    actors: [P-HOVDEN]
+    relative_time: T-plus-hours_to_days
+    event: As evidence of his presence hardens, Hovden admits responsibility for the fatal confrontation but substitutes a secret-romance motive.
+    truth_links: [T-010]
+    knowledge_links: [AK-HOVDEN-02]
+    visible_trace_logic:
+      - official interview/admission is textual evidence
+      - claim is internally coherent enough to support temporary closure
+    player_phase_visibility: phase_1
+
+  - event_id: TL-009
+    period: P3-OFFICIAL-CLOSURE
+    actors: [P-HOVDEN, P-SOLVEIG, P-MARTIN]
+    relative_time: T-plus-weeks_to_months
+    event: Hovden is convicted; public narrative centres on hidden relationship and emotional confrontation.
+    truth_links: [T-011]
+    visible_trace_logic:
+      - press summary and official outcome establish closure
+      - Solveig and Martin remain privately unconvinced by motive, for different reasons
+    player_phase_visibility: phase_1_end_and_phase_2_context
+
+  - event_id: TL-010
+    period: P4-MARTIN-PRIVATE-INVESTIGATION
+    actors: [P-MARTIN]
+    relative_time: after_public_closure
+    event: Martin begins a private reconstruction because Ingrid's confidential approach cannot be explained by Hovden's public motive.
+    truth_links: [T-012]
+    knowledge_links: [AK-MARTIN-02]
+    visible_trace_logic:
+      - note sequence should show question progression rather than a pre-written final theory
+    player_phase_visibility: phase_2
+
+  - event_id: TL-011
+    period: P4-MARTIN-PRIVATE-INVESTIGATION
+    actors: [P-MARTIN, P-MOROZOV]
+    relative_time: investigation_middle
+    event: Martin confirms that Morozov was the diplomat connected to Ingrid and that the relationship had intelligence significance.
+    truth_links: [T-013]
+    knowledge_links: [AK-MARTIN-03]
+    visible_trace_logic:
+      - face/photo identity comparison plus public reporting
+      - textual chronology corroborates the visual match
+    player_phase_visibility: phase_2
+
+  - event_id: TL-012
+    period: P4-MARTIN-PRIVATE-INVESTIGATION
+    actors: [P-MARTIN]
+    relative_time: investigation_late
+    event: Martin tests whether Russian influence extended to covert financing of Nystart.
+    truth_links: [T-014]
+    knowledge_links: [AK-MARTIN-04]
+    visible_trace_logic:
+      - handwritten notes, company searches and supplier grouping show hypothesis evolution
+    player_phase_visibility: phase_2
+
+  - event_id: TL-013
+    period: P4-MARTIN-PRIVATE-INVESTIGATION
+    actors: [P-MARTIN, P-THOMAS]
+    relative_time: INC-02-minus-5d_to_minus-2d
+    event: Supplier and payment relationships converge on Thomas-controlled or Thomas-linked entities rather than Russia.
+    truth_links: [T-015, T-016]
+    knowledge_links: [AK-MARTIN-05]
+    visible_trace_logic:
+      - repeated supplier identity, address, reference format or provenance detail can be seen across documents
+      - phase-1 Thomas material contains one innocent prior instance of the same network marker
+    player_phase_visibility: phase_2
+
+  - event_id: TL-014
+    period: P5-INCIDENT-02
+    actors: [P-MARTIN, P-THOMAS]
+    relative_time: INC-02-minus-24h_to_minus-2h
+    event: Martin contacts Thomas and signals that he has linked the supplier network to him and intends further verification or disclosure.
+    truth_links: [T-017]
+    knowledge_links: [AK-THOMAS-02]
+    visible_trace_logic:
+      - contact metadata may establish communication without revealing content
+      - Martin's notes establish what issue he intended to raise
+    player_phase_visibility: phase_2
+
+  - event_id: TL-015
+    period: P5-INCIDENT-02
+    actors: [P-MARTIN, P-THOMAS]
+    relative_time: INC-02
+    event: Thomas causes Martin's fatal bicycle crash using a vehicle and leaves the scene looking compatible with a solo accident.
+    truth_links: [T-018, T-019]
+    visible_trace_logic:
+      - scene geometry and damage establish external vehicle interaction
+      - independent timing and vehicle evidence connect Thomas later
+    player_phase_visibility: phase_2
+
+  - event_id: TL-016
+    period: P6-PLAYER-PHASE-2
+    actors: [P-THOMAS, P-MOROZOV]
+    relative_time: immediately_after_INC-02
+    event: Martin's death initially amplifies the apparent Russia narrative because his surviving material prominently contains Morozov and influence research.
+    truth_links: [T-019, T-021]
+    visible_trace_logic:
+      - Russia-heavy early pages of Martin's dossier are genuine
+      - latest pages pivot toward Thomas and must be reconstructed chronologically
+    player_phase_visibility: phase_2
+
+causal_checks:
+  - check_id: TC-01
+    requirement: Ingrid realization precedes Martin contact and Hovden knowledge gain.
+    status: satisfied_in_model
+  - check_id: TC-02
+    requirement: Martin cannot investigate evidence created after his death.
+    status: satisfied_in_model
+  - check_id: TC-03
+    requirement: Thomas learns enough about Martin's discovery before INC-02 to form motive.
+    status: satisfied_in_model
+  - check_id: TC-04
+    requirement: Player-visible phase-1 material must not prove Thomas scheme before phase 2.
+    status: design_constraint
+  - check_id: TC-05
+    requirement: Morozov timeline and location must eventually exclude him from INC-02 without erasing his real intelligence role.
+    status: requires_exact_dates_and_geography
+
+open_timeline_decisions:
+  - exact_gap_between_INC-01_and_INC-02
+  - exact_duration_of_INV-01_and_trial_or_disposition
+  - exact_date_of_morozov_departure_from_norway
+  - exact_city_and_travel_times
+  - exact_time_of_day_for_both_homicides
