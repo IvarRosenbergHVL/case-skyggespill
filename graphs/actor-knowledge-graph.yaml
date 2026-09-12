@@ -2,7 +2,7 @@ graph_id: AKG-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.1
+version: 0.2
 
 perceptions:
   - id: AK-INGRID-01
@@ -15,16 +15,30 @@ perceptions:
     correctness: incomplete
     source: direct_interaction
 
+  - id: AK-INGRID-01A
+    actor_id: P-INGRID
+    subject: T-003A
+    interval: late_cultivation_before_realization
+    knowledge_state: remembers_progression_of_morozov_questions
+    belief_state: questions_are_unusually_detailed_but_still_explainable_as_policy_interest
+    confidence: medium
+    correctness: incomplete
+    source: direct_interaction_and_own_records
+
   - id: AK-INGRID-02
     actor_id: P-INGRID
     subject: T-004
     interval: after_realization_before_death
-    knowledge_state: knows_relationship_crossed_a_line
+    knowledge_state: recognises_her_prior_context_has_been_operationalised
     belief_state: manipulated_by_intelligence_actor
     confidence: high
     correctness: correct
-    source: unresolved_trigger_to_be_defined
+    source:
+      - later_russia_related_briefing_or_summary
+      - comparison_with_prior_morozov_conversations
     caused_actions: [T-005, T-006]
+    player_reconstruction_requirement: >-
+      Published evidence should permit players in phase 2 to reconstruct why Ingrid reached this conclusion rather than simply being told she did.
 
   - id: AK-HOVDEN-01
     actor_id: P-HOVDEN
@@ -50,9 +64,9 @@ perceptions:
     actor_id: P-MARTIN
     subject: T-006
     interval: before_incident_01
-    knowledge_state: knows_ingrid_requested_private_meeting
-    belief_state: she_has_security_relevant_concern
-    confidence: medium
+    knowledge_state: knows_ingrid_requested_private_meeting_and_said_he_was_right_about_something
+    belief_state: concern_is_likely_connected_to_their_public_security_disagreement
+    confidence: medium_high
     correctness: substantially_correct
     source: direct_message_or_contact
 
@@ -92,7 +106,22 @@ perceptions:
     belief_state: thomas_is_hiding_serious_financial_crime
     confidence: medium_high
     correctness: correct_if_decision_accepted
+    source:
+      - supplier_and_invoice_comparison
+      - repeated_provenance_identifiers
+      - phase_1_archive_detail_revisited
     caused_actions: [T-017]
+
+  - id: AK-THOMAS-00
+    actor_id: P-THOMAS
+    subject: T-022
+    interval: phase_1
+    knowledge_state: knows_archive_material_and_supplier_origin
+    belief_state: archive_detail_is_innocuous_and_not_incriminating_without_external_context
+    confidence: high
+    correctness: correct_at_phase_1_time
+    caused_actions:
+      - provides_genuinely_useful_phase_1_material
 
   - id: AK-THOMAS-01
     actor_id: P-THOMAS
@@ -122,6 +151,15 @@ perceptions:
     confidence: high
     correctness: correct
 
+  - id: AK-MOROZOV-01A
+    actor_id: P-MOROZOV
+    subject: T-003A
+    interval: cultivation_period
+    knowledge_state: deliberately_structures_questions_to_map_people_influence_and_reactions
+    belief_state: gradual_elicitation_is_less_likely_to_alarm_ingrid_than_direct_requests
+    confidence: high
+    correctness: correct
+
   - id: AK-MOROZOV-02
     actor_id: P-MOROZOV
     subject: T-009
@@ -145,6 +183,9 @@ knowledge_boundaries:
     player_may_prove:
       - Ingrid was murdered
       - Hovden caused the death
+    player_may_notice_but_not_yet_prove:
+      - some details around Ingrid's outside contacts are unresolved
+      - a Thomas-supplied archive artifact has ordinary supplier provenance
     player_should_not_yet_be_able_to_prove:
       - full Morozov cultivation architecture
       - Thomas financial scheme
@@ -153,10 +194,17 @@ knowledge_boundaries:
     player_may_prove:
       - Hovden motive story is false or materially incomplete
       - Morozov cultivation is real
+      - why Ingrid herself became convinced she was being cultivated
       - Martin pivoted from Russia to Thomas-linked financing
       - Thomas killed Martin if fair inference path is complete
+
+architecture_rules:
+  - no actor may know a fact before a plausible source delivers it
+  - actor belief may be wrong while still causing rational-in-character action
+  - player reconstruction of actor realization should use published evidence where that realization drives a central motive
+  - visual marks and textual records must reflect what the originating actor could realistically have created or retained
 
 validation_notes:
   - Knowledge and belief are explicitly separated.
   - Martin's reason for distrusting the romance explanation is his direct confidential contact from Ingrid, not hidden author knowledge.
-  - Ingrid's exact realization trigger remains unresolved and must be added to both truth and knowledge models.
+  - Ingrid's realization now has a concrete architect proposal, but remains unapproved until creator acceptance.
