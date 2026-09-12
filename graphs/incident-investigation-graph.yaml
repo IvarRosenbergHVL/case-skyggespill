@@ -1,0 +1,118 @@
+graph_id: IIG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+incidents:
+  - incident_id: INC-01
+    title: Ingrid Velde death
+    victim: P-INGRID
+    objective_truth_classification: homicide
+    official_incident_classification_initial: unknown_event
+    official_incident_classification_final: known_crime
+    relationship_to_other_incidents: [linked, cascading]
+    responsible_actor: P-HOVDEN
+    method_summary: fatal_fall_from_hotel_window_during_confrontation
+    method_status: provisional
+    phase: phase_1
+    consequence_bridges:
+      - INV-01 conviction creates public closure
+      - false motive leaves causal gap
+      - Ingrid's pre-death contact activates Martin's private investigation
+
+  - incident_id: INC-02
+    title: Martin Hauge death
+    victim: P-MARTIN
+    objective_truth_classification: homicide
+    official_incident_classification_initial: accidental_death
+    official_incident_classification_final: known_crime
+    relationship_to_other_incidents: [linked, cascading]
+    responsible_actor: P-THOMAS
+    responsible_actor_status: architect_proposal
+    method_summary: deliberate_vehicle_strike_staged_as_solo_bicycle_crash
+    method_status: preferred_not_locked
+    phase: phase_2
+    causal_parent:
+      - INV-02 private investigation of INC-01
+
+investigations:
+  - investigation_id: INV-01
+    type: official
+    subjects: [INC-01]
+    chronology:
+      begins: after_INC_01
+      ends: before_phase_2
+    access_scope:
+      - hotel scene and witnesses
+      - Hovden statements
+      - ordinary digital and physical case evidence
+    findings:
+      - Ingrid's death is homicide
+      - Hovden caused the death
+    blind_spots:
+      - full Morozov significance
+      - true motive chain
+      - Ingrid's intended disclosure context
+    disposition: closed_solved
+    justice_outcome: convicted
+    official_narrative: secret_romantic_conflict
+
+  - investigation_id: INV-02
+    type: private
+    investigator: P-MARTIN
+    subjects: [INC-01]
+    chronology:
+      begins: after_INV_01_public_closure
+      ends: interrupted_by_INC_02
+    trigger:
+      - Ingrid's earlier confidential meeting request does not fit the public motive explanation
+    access_scope:
+      - public reporting
+      - his own private contact with Ingrid
+      - professional political/security network
+      - public and lawfully obtainable company/supplier information
+      - materials voluntarily shared or inferable from Nystart context
+    findings_sequence:
+      - Hovden's stated motive is incomplete
+      - Morozov was a real cultivated intelligence contact
+      - no direct proof that Russia ordered Ingrid's death
+      - financing inquiry points away from Russia and toward Thomas-linked entities
+    disposition: interrupted
+    information_handoff_status: incomplete
+    fairness_constraint: >-
+      Martin must not privately solve the entire final case in a hidden note. His materials should expose a direction,
+      connections and unresolved questions that players still need to complete.
+
+  - investigation_id: INV-03
+    type: player_investigation
+    subjects: [INC-01, INC-02]
+    chronology:
+      phase_1: reconstruct_INC_01_and_identify_Hovden
+      phase_2: reopen_motive_context_and_solve_INC_02
+    access_scope:
+      - curated player package with declared provenance
+    required_findings:
+      - INC-01 was homicide
+      - Hovden killed Ingrid
+      - romance-only motive is false or materially incomplete
+      - Morozov cultivated Ingrid but did not kill either victim
+      - Martin's inquiry pivoted to an unrelated financial secret
+      - INC-02 was homicide staged as accident
+      - Thomas killed Martin to prevent exposure
+      - murders have different motives and offenders but an investigation-caused causal link
+    disposition: player_resolved
+
+investigation_edges:
+  - {from: INC-01, to: INV-01, relation: triggers}
+  - {from: INV-01, to: INV-02, relation: leaves_unresolved_motive_gap}
+  - {from: INV-02, to: INC-02, relation: causally_triggers}
+  - {from: INC-02, to: INV-03, relation: opens_phase_2}
+  - {from: INV-01, to: INV-03, relation: provides_phase_1_case_material}
+  - {from: INV-02, to: INV-03, relation: provides_incomplete_private_dossier}
+
+validation_notes:
+  - INV-01 must be reasonably competent; it misses motive depth, not obvious identity evidence.
+  - INV-02 evidence access must be plausible for a politician acting privately.
+  - INC-02 cannot require secret police intelligence unavailable to Martin or players.
+  - Official and objective incident classifications remain separate.
