@@ -1,0 +1,106 @@
+graph_id: MG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+motive_chains:
+  - motive_id: MOT-01-HOVDEN
+    offender: P-HOVDEN
+    incident: INC-01
+    status: modeled
+    prior_expectation:
+      - Nystart is close to a political breakthrough after years of work.
+      - Ingrid is central to that breakthrough.
+    triggering_discovery:
+      - Hovden learns Ingrid intends to disclose the Morozov relationship.
+    objective_threatened_loss:
+      - collapse of public trust
+      - loss of candidates, financing and parliamentary breakthrough
+    perceived_threatened_loss:
+      - everything Hovden built will be destroyed
+      - Nystart will be remembered primarily as a Russia-linked party
+    offender_interpretation:
+      - disclosure must be stopped immediately
+      - delay is preferable to truth becoming public now
+    desired_outcome:
+      - stop or postpone Ingrid's disclosure
+    rejected_alternatives:
+      - allow Ingrid to disclose and let the party respond
+      - resign and distance himself
+      - tell Solveig and seek internal crisis management
+    criminal_objective:
+      - prevent disclosure in the immediate confrontation
+    method_relation:
+      - the killing is an escalation of an emotionally charged confrontation rather than a preplanned assassination
+    concealment_relation:
+      - once presence is provable, Hovden conceals motive rather than identity
+      - false romance story redirects the case from political/intelligence damage to private passion
+    objective_reality_vs_belief:
+      reality: disclosure would be devastating but not necessarily fatal to Nystart.
+      belief: Hovden experiences disclosure as existential destruction.
+
+  - motive_id: MOT-02-THOMAS
+    offender: P-THOMAS
+    incident: INC-02
+    status: architect_proposal
+    prior_expectation:
+      - off-books financing remains hidden inside ordinary supplier activity
+      - Thomas remains a respected strategist and indispensable resource
+    triggering_discovery:
+      - Martin tells or clearly signals that he has connected the supplier network to Thomas
+      - Martin intends to verify and disclose the findings
+    objective_threatened_loss:
+      financial:
+        - collapse of business and personal finances
+      legal:
+        - investigation for false invoicing, concealed financing and related offences
+        - credible imprisonment risk
+      professional:
+        - loss of political and communications career
+      social:
+        - public disgrace and exposure as a corrupt fixer
+    perceived_threatened_loss:
+      - total destruction of identity, livelihood and status
+      - severe damage to Nystart caused by Thomas himself
+    offender_interpretation:
+      - Martin already has enough to destroy him within hours
+      - there is no time to contain the story politically
+    desired_outcome:
+      - prevent disclosure
+      - neutralise the most dangerous evidentiary link
+    rejected_alternatives:
+      - confess and accept consequences
+      - resign and cooperate
+      - attempt a legal or reputational defence
+      - allow Martin to continue verification
+    criminal_objective:
+      - stop Martin permanently before publication or handoff
+    method_relation:
+      - a vehicle strike after a late confrontation is opportunistic, available and compatible with panic
+      - staging as a solo bicycle accident gives Thomas a plausible immediate escape route
+    concealment_relation:
+      - Thomas leaves Russia-related notes intact because they attract attention away from his financial trail
+      - he removes or targets only the clearest link to his supplier network
+      - he does not need to fabricate a Russian plot; existing truth does the misdirection for him
+    objective_reality_vs_belief:
+      reality: Martin's case is serious but incomplete and may still require corroboration.
+      belief: Thomas believes exposure and criminal collapse are effectively certain.
+
+cross_motive_architecture:
+  shared_feature:
+    - both offenders act under perceived existential loss
+    - both conceal motive more than the physical event itself
+  critical_difference:
+    - Hovden kills to protect a political project from Ingrid's disclosure
+    - Thomas kills to protect himself from exposure of an independent financial crime
+  thematic_result: >-
+    The case should initially tempt players toward one overarching conspiracy, but the final reconstruction shows
+    multiple actors making separate destructive choices inside the same political crisis.
+
+validation:
+  checks_required:
+    - timing must make both trigger-to-crime transitions credible
+    - no motive may depend solely on secret internal thought
+    - external evidence must support the perceived stakes for both offenders
+    - method and concealment must remain causally connected to motive
