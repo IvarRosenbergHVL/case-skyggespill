@@ -1,0 +1,83 @@
+graph_id: RG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+recontextualizations:
+  - recontextualization_id: RC-01
+    title: Den hjelpsomme ressursen
+    phase_trigger: phase_2
+    triggering_insight: Martin's newest financial trail points toward Thomas rather than Russia.
+    affected_material:
+      - phase_1_artifact_supplied_by_thomas
+      - nystart_supplier_or_event_material
+    prior_interpretation: Thomas is a useful and credible source helping explain the party and case background.
+    revised_interpretation: A provenance, logo, supplier, address, vehicle or contact detail in material already supplied by Thomas is part of the network Martin later follows.
+    enabled_hypotheses: [H-THOMAS-HAD-SEPARATE-SECRET]
+    weakened_hypotheses: [H-RUSSIA-KILLED-MARTIN, H-ONE-CONSPIRACY]
+    linked_discoveries: [DM-04, DM-06]
+    design_requirement: The phase-1 artifact must be genuinely useful before its secondary meaning appears.
+
+  - recontextualization_id: RC-02
+    title: Fienden Ingrid stolte på
+    phase_trigger: phase_2
+    triggering_insight: Ingrid privately asked Martin for a confidential meeting shortly before her death.
+    affected_material:
+      - public_debate_between_ingrid_and_martin
+      - critical_posts_or_press_comments
+      - phase_1_suspect_context_for_martin
+    prior_interpretation: Martin's public hostility makes him a plausible adversary or suspect.
+    revised_interpretation: The public rivalry coexisted with enough private trust that Ingrid turned to him when she feared a security problem.
+    enabled_hypotheses: [H-RUSSIA-CULTIVATION]
+    weakened_hypotheses: [H-ROMANCE-ONLY-MOTIVE]
+    linked_discoveries: [DM-03]
+
+  - recontextualization_id: RC-03
+    title: Russland var virkelig, men ikke svaret på alt
+    phase_trigger: phase_2_mid
+    triggering_insight: Morozov is positively identified as Ingrid's cultivated intelligence contact, while Martin's latest notes pivot to Thomas-linked financing.
+    affected_material:
+      - conference_photo
+      - morozov_press_photo
+      - martin_russia_notes
+      - supplier_material
+    prior_interpretation: The Russian thread may unify both deaths.
+    revised_interpretation: The Russia thread explains Ingrid's hidden crisis and Hovden's trigger, but Martin's death arises from a separate crime discovered while following that thread.
+    enabled_hypotheses: [H-THOMAS-HAD-SEPARATE-SECRET, H-THOMAS-KILLED-MARTIN]
+    weakened_hypotheses: [H-RUSSIA-KILLED-MARTIN, H-ONE-CONSPIRACY]
+    linked_discoveries: [DM-02, DM-04, DM-06]
+
+  - recontextualization_id: RC-04
+    title: Hovden tilsto sannheten og løy om hvorfor
+    phase_trigger: phase_2_early
+    triggering_insight: Ingrid's final behaviour and Morozov connection are inconsistent with the romance-only story.
+    affected_material:
+      - hovden_admission
+      - relationship_background
+      - ingrid_final_contact_pattern
+    prior_interpretation: Hovden's admission closes both identity and motive.
+    revised_interpretation: His admission is reliable about the physical killing but deliberately misleading about the causal motive.
+    enabled_hypotheses: [H-RUSSIA-CULTIVATION]
+    weakened_hypotheses: [H-ROMANCE-ONLY-MOTIVE]
+    linked_discoveries: [DM-03]
+    design_requirement: Phase 1 must remain satisfying even though motive remains incompletely resolved.
+
+  - recontextualization_id: RC-05
+    title: Krasjsporet endrer Martins notater
+    phase_trigger: phase_2_late
+    triggering_insight: Martin did not die in a solo bicycle accident.
+    affected_material:
+      - martin_final_notes
+      - contact_log_or_calendar
+      - supplier_network_annotations
+    prior_interpretation: The newest unfinished notes may simply be secondary financial research.
+    revised_interpretation: The newest notes are likely the immediate reason someone needed Martin stopped before he could verify or disclose the finding.
+    enabled_hypotheses: [H-THOMAS-KILLED-MARTIN]
+    weakened_hypotheses: [H-MARTIN-ACCIDENT]
+    linked_discoveries: [DM-05, DM-06]
+
+validation_notes:
+  - Every recontextualization must use material already player-visible before or at the trigger.
+  - No prior document changes its factual content; only investigative meaning changes.
+  - RC-01 and RC-04 are mandatory experience beats and must survive document-count reductions.
