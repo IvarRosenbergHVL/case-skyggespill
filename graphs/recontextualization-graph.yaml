@@ -2,7 +2,7 @@ graph_id: RG-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.1
+version: 0.2
 
 recontextualizations:
   - recontextualization_id: RC-01
@@ -13,22 +13,25 @@ recontextualizations:
       - phase_1_artifact_supplied_by_thomas
       - nystart_supplier_or_event_material
     prior_interpretation: Thomas is a useful and credible source helping explain the party and case background.
-    revised_interpretation: A provenance, logo, supplier, address, vehicle or contact detail in material already supplied by Thomas is part of the network Martin later follows.
+    revised_interpretation: A provenance, logo, supplier, address, production mark or contact detail in material already supplied by Thomas is part of the network Martin later follows.
     enabled_hypotheses: [H-THOMAS-HAD-SEPARATE-SECRET]
     weakened_hypotheses: [H-RUSSIA-KILLED-MARTIN, H-ONE-CONSPIRACY]
     linked_discoveries: [DM-04, DM-06]
-    design_requirement: The phase-1 artifact must be genuinely useful before its secondary meaning appears.
+    design_requirement:
+      - the phase-1 artifact must be genuinely useful before its secondary meaning appears
+      - the latent detail must arise naturally from the artifact's provenance rather than look planted
+      - players must have a natural reason in phase 2 to retrieve the phase-1 material again
 
   - recontextualization_id: RC-02
     title: Fienden Ingrid stolte på
     phase_trigger: phase_2
-    triggering_insight: Ingrid privately asked Martin for a confidential meeting shortly before her death.
+    triggering_insight: Ingrid privately asked Martin for a confidential meeting shortly before her death and indicated he had been right about something.
     affected_material:
       - public_debate_between_ingrid_and_martin
       - critical_posts_or_press_comments
       - phase_1_suspect_context_for_martin
     prior_interpretation: Martin's public hostility makes him a plausible adversary or suspect.
-    revised_interpretation: The public rivalry coexisted with enough private trust that Ingrid turned to him when she feared a security problem.
+    revised_interpretation: The public rivalry coexisted with enough private trust that Ingrid turned to him when she feared a security problem connected to an issue on which he had challenged her publicly.
     enabled_hypotheses: [H-RUSSIA-CULTIVATION]
     weakened_hypotheses: [H-ROMANCE-ONLY-MOTIVE]
     linked_discoveries: [DM-03]
@@ -51,7 +54,7 @@ recontextualizations:
   - recontextualization_id: RC-04
     title: Hovden tilsto sannheten og løy om hvorfor
     phase_trigger: phase_2_early
-    triggering_insight: Ingrid's final behaviour and Morozov connection are inconsistent with the romance-only story.
+    triggering_insight: Ingrid's final behaviour, private contact with Martin and Morozov relationship are inconsistent with the romance-only story.
     affected_material:
       - hovden_admission
       - relationship_background
@@ -77,7 +80,29 @@ recontextualizations:
     weakened_hypotheses: [H-MARTIN-ACCIDENT]
     linked_discoveries: [DM-05, DM-06]
 
+  - recontextualization_id: RC-06
+    title: Spillerne ser det Ingrid så
+    phase_trigger: phase_2_middle
+    triggering_insight: Players compare Ingrid's earlier Morozov-contact material with the later briefing or influence summary and identify the same unusual constellation of people, reactions and political context.
+    affected_material:
+      - earlier_morozov_messages_or_calendar_entries
+      - ingrid_annotations
+      - later_briefing_or_summary
+      - conference_photo
+    prior_interpretation: The earlier contacts look like ordinary diplomatic or political networking; Ingrid's notes appear cautious but not conclusive.
+    revised_interpretation: The progression of Morozov's questions and the later reuse of Ingrid-specific context show why Ingrid realised she had been cultivated for intelligence purposes.
+    enabled_hypotheses: [H-RUSSIA-CULTIVATION, H-POLITICAL-INTELLIGENCE-MOTIVE]
+    weakened_hypotheses: [H-ROMANCE-ONLY-MOTIVE, H-INGRID-KNEW-FROM-START]
+    intended_player_actions:
+      - compare_textual_fragments
+      - group_repeated_names_and_reactions
+      - inspect_ingrid_annotations
+      - reconstruct_contact_progression
+    balance_requirement: >-
+      The breakthrough must combine textual pattern recognition with a visible annotation or layout cue. It must not be solvable by a single highlighted sentence or by face matching alone.
+
 validation_notes:
   - Every recontextualization must use material already player-visible before or at the trigger.
   - No prior document changes its factual content; only investigative meaning changes.
-  - RC-01 and RC-04 are mandatory experience beats and must survive document-count reductions.
+  - RC-01, RC-04 and RC-06 are mandatory experience beats and must survive document-count reductions.
+  - Recontextualizations should alternate evidence modes so the case does not become either text-only or image-puzzle-heavy.
