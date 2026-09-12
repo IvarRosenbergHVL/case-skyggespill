@@ -1,0 +1,121 @@
+decision_id: DEC-MURDER-02-001
+status: proposed_for_review
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+source_layer: architect_proposal
+
+subject:
+  offender: P-THOMAS
+  victim: P-MARTIN
+  incident: INC-02
+
+secondary_secret:
+  label: off_books_party_financing_and_false_invoicing
+  summary: >-
+    Thomas has financed parts of Nystart's rapid organisational growth through an off-books
+    scheme built around false supplier invoices and concealed transfers routed through his
+    communications network. The money is not Russian funding. The scheme exists for domestic,
+    self-serving reasons and predates Martin's investigation.
+  why_it_matters:
+    - exposure creates a credible risk of prison for serious financial offences
+    - exposure threatens Thomas's business, personal finances and professional identity
+    - exposure would implicate party infrastructure and create the scandal Thomas claims to protect others from
+    - the scheme is independently shameful and therefore supports the final theme that several secrets coexist
+  russia_link: false
+
+martin_discovery_path:
+  initial_question: Did Russian influence around Ingrid include covert financing of Nystart?
+  search_direction:
+    - compare Nystart suppliers, campaign purchases and organisational payments
+    - trace repeated vendor names, addresses and visual identities
+    - mark entities that appear connected despite different company names
+  pivot: >-
+    Martin finds no fair basis for Russian financing. Instead he notices that several unrelated-looking
+    suppliers resolve back to Thomas's business network and that invoice timing aligns with Nystart growth.
+  final_pre_death_state:
+    - Martin suspects systematic false invoicing and concealed party financing
+    - Martin has enough material to confront Thomas but has not completed a prosecutable case
+    - Martin contacts Thomas for an explanation before going public
+
+motive_chain:
+  prior_expectation:
+    - the financing scheme remains buried among ordinary campaign and supplier records
+    - Thomas remains indispensable to Nystart and professionally successful
+  trigger:
+    - Martin makes clear he has connected the supplier network to Thomas
+    - Martin indicates he intends to verify the findings and disclose them
+  objective_threatened_loss:
+    - criminal investigation and possible imprisonment
+    - collapse of Thomas's company and finances
+    - loss of political and professional standing
+    - severe damage to Nystart
+  perceived_threatened_loss:
+    - total destruction of the life Thomas has built
+    - betrayal by the party he believes he helped make viable
+    - becoming publicly recast from helpful strategist to corrupt fixer
+  desired_outcome:
+    - prevent Martin from disclosing the supplier network
+    - recover or neutralise the most dangerous material
+  rejected_alternatives:
+    - admit the scheme and accept consequences
+    - allow Martin to continue verification
+    - leave the country or resign and hope the trail dies
+  criminal_objective:
+    - stop Martin permanently before disclosure
+  objective_reality_vs_belief:
+    reality: Martin's material is serious but incomplete and does not guarantee conviction.
+    belief: Thomas believes Martin already has enough to destroy him and the party within hours.
+
+murder_method_candidate:
+  status: preferred_not_locked
+  method: deliberate_vehicle_strike_staged_as_single_bicycle_crash
+  setup: >-
+    Thomas arranges to meet Martin late after Martin's request to discuss what he found. After the meeting,
+    Thomas follows him as Martin cycles home on an e-bike. On a quiet stretch he deliberately sideswipes
+    Martin at low-to-moderate speed, then adjusts the bicycle/body position enough to support a solo-crash
+    interpretation before leaving.
+  why_plausible_for_actor:
+    - Thomas has access to a vehicle through his work
+    - it requires no specialist murder skill
+    - the act can emerge from panic after the confrontation rather than a long assassination plan
+  staging_goal:
+    - create an apparently ordinary night-time bicycle accident
+    - exploit the existing assumption that Martin was obsessively following a dangerous Russia trail
+    - allow commentators to speculate that stress, distraction or haste caused the crash without Thomas inventing a full false dossier
+  fair_forensic_weaknesses:
+    - impact geometry inconsistent with a pure solo crash
+    - trace transfer from another vehicle on bicycle/clothing
+    - damage pattern on Thomas's vehicle that appears shortly afterwards
+    - route/timing evidence showing Thomas had opportunity to follow Martin
+  caution: >-
+    Exact physics, road layout and medical consequences must be validated before locking. The case must not
+    depend on obscure forensic expertise; visible and documentary redundancy is required.
+
+cover_and_misdirection:
+  principle: selective_truth_not_fake_spy_evidence
+  actions:
+    - Thomas does not fabricate a Russian assassin
+    - he allows Martin's known Russia investigation to dominate interpretation of the death
+    - he removes or attempts to remove one item that points directly to his supplier network
+    - he leaves other Russia-related notes untouched, making the surviving dossier look as though Russia was Martin's final lead
+  failure_mode_for_players: >-
+    Players may initially conclude that Martin was killed because he uncovered Morozov. The discovery graph
+    must later force a pivot: Morozov is real, but Martin's latest work had moved away from Russia and toward Thomas.
+
+architecture_assessment:
+  timing_strength: high
+  stakes_strength: high
+  method_motive_connection: medium_high
+  concealment_motive_connection: high
+  recontextualization_value: high
+  visual_evidence_value: high
+  fair_play_risk: medium
+  principal_risks:
+    - accident staging may become too forensic if not supported by ordinary visible evidence
+    - financial trail may become spreadsheet-heavy unless visual/provenance clues are distributed
+    - Thomas must remain genuinely helpful in phase 1 so the reveal is recontextualization, not simple villain coding
+
+lock_recommendation:
+  offender_identity: recommend_lock_after_creator_review
+  secondary_secret: recommend_lock_after_creator_review
+  method: keep_open_until_spatial_and_forensic_validation
