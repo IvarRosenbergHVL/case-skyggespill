@@ -1,0 +1,100 @@
+graph_id: PGG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+phase_model:
+  delivery: two_envelope_or_equivalent_physical_gate
+  phase_1_goal: solve_incident_01_identity_and_basic_mechanics
+  phase_2_goal: reopen_motive_context_and_solve_incident_02
+  core_rule: phase_2_recontextualizes_phase_1_without_invalidating_phase_1_solution
+
+phase_1:
+  required_player_conclusions_before_gate:
+    - Ingrid did not die by accident.
+    - Hovden was present during the fatal confrontation.
+    - Hovden caused Ingrid's death.
+  permitted_uncertainty_at_gate:
+    - exact motive may remain uncertain
+    - romance explanation may appear plausible or unresolved
+    - Morozov may be an unexplained background figure
+    - Martin may still look like a hostile political opponent
+    - Thomas should appear useful, credible and non-central
+  prohibited_phase_1_resolution:
+    - full intelligence-cultivation explanation
+    - Thomas supplier scheme
+    - Thomas responsibility for Martin's later death
+    - complete cross-incident reconstruction
+  gate_trigger:
+    preferred: explicit_case_solution_check_or_instruction_after_O-03
+    player_experience: >-
+      Players should feel they have genuinely solved Ingrid's murder before opening phase 2. The gate must not imply that their phase-1 answer was wrong.
+
+phase_2_entry:
+  inciting_material:
+    - breaking_news_or_case_update_about_martin_death
+    - indication_that_martin_was_privately_investigating_ingrid_case
+    - selected_material_from_martins_incomplete_investigation
+  immediate_questions:
+    - Why was Martin still investigating a solved murder?
+    - Was Martin's death really an accident?
+    - Is the Russia thread responsible for both deaths?
+  mandatory_revisit_targets:
+    - Hovden motive claim
+    - Ingrid-Martin public rivalry material
+    - conference image containing Morozov
+    - Thomas-supplied phase-1 archive artifact
+
+phase_2_resolution:
+  required_player_conclusions:
+    - Hovden's romance-only motive was false or materially incomplete.
+    - Ingrid realised Morozov had cultivated her for intelligence purposes.
+    - Ingrid contacted Martin because she trusted his judgement on that danger despite public rivalry.
+    - Morozov was a real intelligence actor but did not kill either victim.
+    - Martin followed a Russia-financing hypothesis into a separate Thomas-linked financial crime.
+    - Martin's bicycle death was deliberately caused and staged as accidental.
+    - Thomas killed Martin to prevent exposure.
+    - the two murders have different offenders and motives but are causally linked by Martin's investigation.
+
+fairness_checks:
+  - id: PGF-01
+    rule: no_phase_2_material_may_retroactively_make_phase_1_identity_solution_false
+  - id: PGF-02
+    rule: phase_1_should_contain_at_least_two_materials_that_gain_new_meaning_in_phase_2
+  - id: PGF-03
+    rule: mandatory_revisit_material_must_have_had_a_legitimate_phase_1_function
+  - id: PGF-04
+    rule: phase_2_entry_must_raise_new_questions_not_simply_dump_answers
+  - id: PGF-05
+    rule: phase_2_solution_requires_textual_visual_temporal_and_relational_inference_in_combination
+
+experience_beats:
+  - beat_id: PB-01
+    title: Saken er løst
+    phase: phase_1_end
+    intended_feeling: satisfaction
+  - beat_id: PB-02
+    title: Hvorfor gransket Martin videre?
+    phase: phase_2_open
+    intended_feeling: destabilised_curiosity
+  - beat_id: PB-03
+    title: Ingrid hadde faktisk kontakt med russisk etterretning
+    phase: phase_2_early
+    intended_feeling: vindication_and_dread
+  - beat_id: PB-04
+    title: Hovden løy om hvorfor
+    phase: phase_2_early_middle
+    intended_feeling: recontextualization
+  - beat_id: PB-05
+    title: Martin lette etter Russland men fant Thomas
+    phase: phase_2_middle
+    intended_feeling: theory_revision
+  - beat_id: PB-06
+    title: Den hjelpsomme kilden var der hele tiden
+    phase: phase_2_late
+    intended_feeling: retrospective_recognition
+  - beat_id: PB-07
+    title: Det var aldri én stor konspirasjon
+    phase: phase_2_final
+    intended_feeling: coherent_complexity
