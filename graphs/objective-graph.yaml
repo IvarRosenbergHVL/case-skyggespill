@@ -1,0 +1,149 @@
+graph_id: OG-SKYGGESPILL-001
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft
+version: 0.1
+
+objectives:
+  - objective_id: O-01
+    question: Was Ingrid's fall an accident?
+    target_conclusion: Ingrid's death was caused by another person.
+    scope: incident
+    incident: INC-01
+    prerequisites: []
+    required_player_actions:
+      - reconstruct_scene
+      - compare_timeline_and_physical_evidence
+    linked_discoveries: [DM-01]
+    earliest_permitted_resolution: phase_1_early
+    completion_criteria:
+      - accidental_fall_hypothesis_materially_disfavoured
+      - homicide_interpretation_supported_by_multiple_sources
+
+  - objective_id: O-02
+    question: Who was with Ingrid shortly before the fall?
+    target_conclusion: Hovden was present in the room during the fatal confrontation.
+    scope: incident
+    incident: INC-01
+    prerequisites: [O-01]
+    required_player_actions:
+      - timeline_reconstruction
+      - source_comparison
+      - opportunity_testing
+    linked_discoveries: [DM-01]
+    earliest_permitted_resolution: phase_1_middle
+
+  - objective_id: O-03
+    question: Who caused Ingrid's death?
+    target_conclusion: Hovden caused Ingrid's death.
+    scope: incident
+    incident: INC-01
+    prerequisites: [O-01, O-02]
+    required_player_actions:
+      - combine_opportunity_physical_and_claim_evidence
+    linked_solution_claims: [SC-01, SC-02]
+    earliest_permitted_resolution: phase_1_late
+
+  - objective_id: O-04
+    question: Does Hovden's romance explanation fit the evidence?
+    target_conclusion: The romance explanation is false or materially incomplete.
+    scope: case
+    prerequisites: [O-03]
+    required_player_actions:
+      - compare_hovden_claim_with_ingrid_martin_contact
+      - revisit_phase_1_relationship_material
+      - contradiction_detection
+    linked_discoveries: [DM-03]
+    earliest_permitted_resolution: phase_2_early
+
+  - objective_id: O-05
+    question: Why did Ingrid contact Martin?
+    target_conclusion: Ingrid sought confidential help because she had realised her Morozov relationship had become an intelligence problem.
+    scope: case
+    prerequisites: [O-04]
+    required_player_actions:
+      - relationship_mapping
+      - compare_public_hostility_with_private_contact
+      - evidence_cluster_integration
+    linked_discoveries: [DM-02, DM-03]
+    earliest_permitted_resolution: phase_2_early_middle
+
+  - objective_id: O-06
+    question: What was Morozov's real role?
+    target_conclusion: Morozov cultivated Ingrid for Russian intelligence, but did not kill either victim.
+    scope: case
+    prerequisites: [O-05]
+    required_player_actions:
+      - visual_identity_comparison
+      - timeline_elimination
+      - provenance_analysis
+    linked_discoveries: [DM-02]
+    linked_solution_claims: [SC-04, SC-05]
+    earliest_permitted_resolution: phase_2_middle
+
+  - objective_id: O-07
+    question: What was Martin investigating immediately before his death?
+    target_conclusion: Martin's inquiry had pivoted from Russia to a Thomas-linked supplier and financing network.
+    scope: incident
+    incident: INC-02
+    prerequisites: [O-06]
+    required_player_actions:
+      - compare_notes_and_financial_material
+      - group_entities_by_address_logo_or_provenance
+      - reconstruct_investigative_sequence
+    linked_discoveries: [DM-04]
+    earliest_permitted_resolution: phase_2_middle
+
+  - objective_id: O-08
+    question: Was Martin's death an accident?
+    target_conclusion: Martin's bicycle crash was deliberately caused and staged.
+    scope: incident
+    incident: INC-02
+    prerequisites: []
+    required_player_actions:
+      - compare_scene_damage_and_route_timing
+      - evaluate_accident_hypothesis
+      - combine_visible_forensic_and_documentary_evidence
+    linked_discoveries: [DM-05]
+    earliest_permitted_resolution: phase_2_middle
+
+  - objective_id: O-09
+    question: Who killed Martin?
+    target_conclusion: Thomas killed Martin after learning that Martin had connected the financing scheme to him.
+    scope: incident
+    incident: INC-02
+    prerequisites: [O-07, O-08]
+    required_player_actions:
+      - opportunity_testing
+      - vehicle_evidence_comparison
+      - motive_and_timeline_integration
+    linked_discoveries: [DM-05, DM-06]
+    linked_solution_claims: [SC-07, SC-08]
+    earliest_permitted_resolution: phase_2_late
+
+  - objective_id: O-10
+    question: How are the two murders connected?
+    target_conclusion: Martin's investigation of Ingrid's death led him into Thomas's separate secret; the murders have different offenders and motives but a causal investigation bridge.
+    scope: case
+    prerequisites: [O-03, O-06, O-09]
+    required_player_actions:
+      - build_cross_incident_causal_chain
+      - reject_single_conspiracy_hypothesis
+    linked_solution_claims: [SC-06, SC-09]
+    earliest_permitted_resolution: phase_2_final
+
+edges:
+  - {from: O-01, to: O-02, relation: enables}
+  - {from: O-02, to: O-03, relation: enables}
+  - {from: O-03, to: O-04, relation: opens_recontextualization}
+  - {from: O-04, to: O-05, relation: motivates}
+  - {from: O-05, to: O-06, relation: enables}
+  - {from: O-06, to: O-07, relation: creates_false_lead_then_pivot}
+  - {from: O-07, to: O-09, relation: supplies_motive}
+  - {from: O-08, to: O-09, relation: supplies_method_and_opportunity}
+  - {from: O-09, to: O-10, relation: resolves_cross_incident_link}
+
+validation_notes:
+  - O-03 must be solvable in phase 1 without O-04 through O-10.
+  - O-04 must remain unresolved enough in phase 1 to preserve recontextualization.
+  - O-07 and O-08 must independently contribute to O-09 so no single document solves incident 02.
