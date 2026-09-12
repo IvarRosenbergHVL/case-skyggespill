@@ -1,0 +1,83 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: architect_proposal
+version: 0.1
+
+purpose: >-
+  Define a financially understandable domestic fraud trail that Martin can plausibly discover while initially testing a Russia-financing hypothesis.
+  This is causal architecture, not final legal classification or player-facing accounting.
+
+actors_and_entities:
+  Thomas:
+    actor_id: P-THOMAS
+    legitimate_role: communications_and_event_procurement_influence
+    hidden_role: organizer_and_beneficiary
+  Supplier_A:
+    role: genuine_primary_vendor
+    behavior: performs_real_work_but_selected_invoices_are_inflated
+    relationship_to_Thomas: longstanding_professional_relationship
+  Supplier_B:
+    role: small_subcontractor_or_production_company
+    behavior: mix_of_real_and_partly_fictitious_work
+    relationship_to_Thomas: indirectly_controlled_through_trusted_associate
+  Intermediary_C:
+    role: consulting_or_production_intermediary
+    behavior: receives_payments_from_supplier_network_and_pays_selected_costs_or_benefits_Thomas
+    relationship_to_Thomas: concealed_related_party_link
+
+scheme_flow:
+  - step: 1
+    action: Nystart orders ordinary campaign/event/communications work through Thomas's procurement sphere.
+  - step: 2
+    action: Supplier_A invoices plausible categories at inflated values; some subcontracted line items point to Supplier_B.
+  - step: 3
+    action: Supplier_B or Intermediary_C invoices Supplier_A for services whose descriptions are repetitive, vague or only partly real.
+  - step: 4
+    action: value is redirected into expenses or benefits controlled by Thomas, while some value can also cover party activity outside normal internal scrutiny.
+  - step: 5
+    action: because much of the visible work is real, ordinary colleagues see vendors delivering banners, event production, media assets or campaign material and do not immediately suspect fraud.
+
+why_Martin_finds_it:
+  - Martin tests whether Nystart's rapid professionalisation could have external financing behind it.
+  - He groups publicly visible campaign suppliers and party expenditure context.
+  - Several apparently separate vendor references recur across event material and invoice/company records.
+  - A domestic relationship link leads from Supplier_B or Intermediary_C toward Thomas or a trusted associate.
+  - The Russia hypothesis weakens because the money/procurement relationships close domestically rather than abroad.
+
+player_readable_trace:
+  required_observations:
+    - one_supplier_identity_seen_in_phase_1_event_material
+    - at_least_two_phase_2_records_show_the_same_supplier_or_reference_family
+    - a_simple_public_company_or_contact_link_connects_the_network_to_Thomas
+    - invoice_descriptions_or_sequences_show_repetition_inconsistent_with_independent_one_off_jobs
+  optional_observations:
+    - same_phone_or_email_domain_across_nominally_separate_entities
+    - production_job_number_sequence
+    - repeated_typo_or_internal_project_code_only_if_true_shared_workflow
+  forbidden_shortcuts:
+    - all_companies_share_exact_same_document_template_without_reason
+    - one_invoice_says_fraud
+    - hidden_shell_company_requires_specialist_registry_knowledge
+    - players_must_calculate_complex_VAT_or_tax_discrepancies
+
+motive_threshold:
+  required: >-
+    By the time Martin contacts Thomas, Martin has enough material to expose a credible pattern and to trigger formal scrutiny,
+    but he has not completed a courtroom-ready fraud case. Thomas believes disclosure will reveal his hidden control/benefit,
+    destroy his livelihood and status, expose him to criminal investigation and damage Nystart.
+  important: Thomas kills because he believes Martin is about to make the pattern public or hand it to authorities, not because Martin has merely asked a vague question.
+
+phase_1_bridge:
+  artifact: LDOC-10
+  content_reason: Thomas genuinely archived or supplied event/press material that used Supplier_A_or_B.
+  visible_latent_detail: vendor_credit_or_production_reference
+  phase_1_function: authenticates_event_and_supports_Ingrid_timeline
+  phase_2_function: gives_players_a_preexisting_reference_to_compare_with_Martins_supplier_material
+  irrationality_check: pass
+  rationale: Thomas has no reason in phase_1 to think an ordinary supplier credit exposes the hidden financial relationships.
+
+validation_needed:
+  - choose_exact_legal_company_relationship_that_is_publicly_discoverable
+  - set_amount_scale_after_party_size_and_election_timing_are_locked
+  - ensure_Martin_access_does_not_require_bank_secrecy_or_police_powers
+  - ensure_player_package_has_legitimate_path_to_any_nonpublic_invoice_material
