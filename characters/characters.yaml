@@ -1,0 +1,104 @@
+characters:
+  - person_id: P-INGRID
+    name: Ingrid Velde
+    status: victim_incident_01
+    age: 38
+    public_role: rising politician in Nystart
+    public_layer:
+      - idealistic
+      - media_effective
+      - NATO_sceptical
+      - dialogue_oriented_toward_Russia
+    private_layer:
+      - pragmatic
+      - increasingly uneasy about Morozov relationship
+      - privately trusts Martin more than public rhetoric suggests
+    hidden_truth:
+      - groomed by Russian intelligence through Morozov
+      - shared increasingly sensitive political context
+      - intends to disclose the relationship and what happened
+    knowledge_targets:
+      - knows relationship with Morozov crossed a line
+      - knows Hovden fears catastrophic party damage
+      - knows Martin may understand security implications
+
+  - person_id: P-HOVDEN
+    name: Eirik Hovden
+    status: murderer_incident_01
+    age: 44
+    public_role: organisation chief / strategist in Nystart
+    public_layer:
+      - disciplined
+      - loyal
+      - effective organiser
+    private_layer:
+      - sees party as life work
+      - highly loss-averse about imminent political breakthrough
+    hidden_truth:
+      - confronts Ingrid to stop disclosure
+      - causes her death during escalating confrontation
+      - later fabricates romantic motive while admitting the killing
+
+  - person_id: P-MARTIN
+    name: Martin Hauge
+    status: victim_incident_02
+    age: 51
+    public_role: security-policy politician in opposing party
+    public_layer:
+      - hardline on Russia
+      - openly hostile to Ingrid's foreign-policy positions
+      - publicly called her naive or useful to Russian interests
+    private_layer:
+      - respects Ingrid intellectually
+      - takes her warning seriously
+    hidden_truth:
+      - receives request for confidential meeting before her death
+      - investigates because official motive story does not fit what he knows
+      - discovers both the real Russia connection and a separate secret
+
+  - person_id: P-MOROZOV
+    name: Aleksej Morozov
+    status: intelligence_joker
+    age: 48
+    public_role: Russian diplomat
+    hidden_role: intelligence_officer
+    public_layer:
+      - polished
+      - policy-oriented
+      - plausible conference contact
+    hidden_truth:
+      - cultivates Ingrid over time
+      - values her increasing political influence
+      - leaves Norway before incident 02
+      - is not murderer 1 or murderer 2
+
+  - person_id: P-SOLVEIG
+    name: Solveig Løken
+    status: innocent_commissioner
+    age: 57
+    public_role: leader / founder of Nystart
+    public_layer:
+      - sincere
+      - politically committed
+      - personally close to Ingrid
+    hidden_truth:
+      - innocent of both murders
+      - does not know full Russia truth when phase 1 begins
+      - distrusts Hovden's romance explanation
+
+  - person_id: P-THOMAS
+    name: Thomas Rønning
+    status: provisional_murderer_incident_02
+    age: 46
+    public_role: communications strategist and resource person in Nystart
+    public_layer:
+      - helpful
+      - competent
+      - provides useful phase_1 material
+    hidden_truth:
+      - final hidden crime/secret not yet locked
+      - may be murderer 2 if motive survives architecture review
+      - must have a credible causal reason to kill Martin now
+    architecture_note: >-
+      Thomas is intentionally provisional. His role must not be locked until motive chain,
+      discovery path, opportunity, and murder-2 staging all pass CER v2 fair-play review.
