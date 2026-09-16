@@ -4,57 +4,28 @@ characters:
     status: victim_incident_01
     age: 38
     public_role: rising politician in Nystart
-    public_layer:
-      - idealistic
-      - media_effective
-      - NATO_sceptical
-      - dialogue_oriented_toward_Russia
-    private_layer:
-      - pragmatic
-      - increasingly uneasy about Morozov relationship
-      - privately trusts Martin more than public rhetoric suggests
-    hidden_truth:
-      - groomed by Russian intelligence through Morozov
-      - shared increasingly sensitive political context
-      - intends to disclose the relationship and what happened
-    knowledge_targets:
-      - knows relationship with Morozov crossed a line
-      - knows Hovden fears catastrophic party damage
-      - knows Martin may understand security implications
+    public_layer: [idealistic, media_effective, NATO_sceptical, dialogue_oriented_toward_Russia]
+    private_layer: [pragmatic, increasingly uneasy about Morozov relationship, privately trusts Martin more than public rhetoric suggests]
+    hidden_truth: [groomed by Russian intelligence through Morozov, shared increasingly sensitive political context, intends to disclose the relationship and what happened]
+    knowledge_targets: [knows relationship with Morozov crossed a line, knows Hovden fears catastrophic party damage, knows Martin may understand security implications]
 
   - person_id: P-HOVDEN
     name: Eirik Hovden
     status: murderer_incident_01
     age: 44
     public_role: organisation chief / strategist in Nystart
-    public_layer:
-      - disciplined
-      - loyal
-      - effective organiser
-    private_layer:
-      - sees party as life work
-      - highly loss-averse about imminent political breakthrough
-    hidden_truth:
-      - confronts Ingrid to stop disclosure
-      - causes her death during escalating confrontation
-      - later fabricates romantic motive while admitting the killing
+    public_layer: [disciplined, loyal, effective organiser]
+    private_layer: [sees party as life work, highly loss-averse about imminent political breakthrough]
+    hidden_truth: [confronts Ingrid to stop disclosure, causes her death during escalating confrontation, later fabricates romantic motive while admitting the killing]
 
   - person_id: P-MARTIN
     name: Martin Hauge
     status: victim_incident_02
     age: 51
     public_role: security-policy politician in opposing party
-    public_layer:
-      - hardline on Russia
-      - openly hostile to Ingrid's foreign-policy positions
-      - publicly called her naive or useful to Russian interests
-    private_layer:
-      - respects Ingrid intellectually
-      - takes her warning seriously
-    hidden_truth:
-      - receives request for confidential meeting before her death
-      - investigates because official motive story does not fit what he knows
-      - discovers both the real Russia connection and a separate secret
+    public_layer: [hardline on Russia, openly hostile to Ingrid's foreign-policy positions, publicly called her naive or useful to Russian interests]
+    private_layer: [respects Ingrid intellectually, takes her warning seriously]
+    hidden_truth: [receives request for confidential meeting before her death, investigates because official motive story does not fit what he knows, discovers both the real Russia connection and a separate secret]
 
   - person_id: P-MOROZOV
     name: Aleksej Morozov
@@ -62,43 +33,101 @@ characters:
     age: 48
     public_role: Russian diplomat
     hidden_role: intelligence_officer
-    public_layer:
-      - polished
-      - policy-oriented
-      - plausible conference contact
-    hidden_truth:
-      - cultivates Ingrid over time
-      - values her increasing political influence
-      - leaves Norway before incident 02
-      - is not murderer 1 or murderer 2
+    public_layer: [polished, policy-oriented, plausible conference contact]
+    hidden_truth: [cultivates Ingrid over time, values her increasing political influence, leaves Norway before incident 02, is not murderer 1 or murderer 2]
 
   - person_id: P-SOLVEIG
     name: Solveig Løken
     status: innocent_commissioner
     age: 57
     public_role: leader / founder of Nystart
-    public_layer:
-      - sincere
-      - politically committed
-      - personally close to Ingrid
-    hidden_truth:
-      - innocent of both murders
-      - does not know full Russia truth when phase 1 begins
-      - distrusts Hovden's romance explanation
+    public_layer: [sincere, politically committed, personally close to Ingrid]
+    hidden_truth: [innocent of both murders, does not know full Russia truth when phase 1 begins, distrusts Hovden's romance explanation]
 
   - person_id: P-THOMAS
     name: Thomas Rønning
-    status: provisional_murderer_incident_02
+    status: murderer_incident_02
     age: 46
     public_role: communications strategist and resource person in Nystart
-    public_layer:
-      - helpful
-      - competent
-      - provides useful phase_1 material
-    hidden_truth:
-      - final hidden crime/secret not yet locked
-      - may be murderer 2 if motive survives architecture review
-      - must have a credible causal reason to kill Martin now
-    architecture_note: >-
-      Thomas is intentionally provisional. His role must not be locked until motive chain,
-      discovery path, opportunity, and murder-2 staging all pass CER v2 fair-play review.
+    public_layer: [helpful, competent, provides useful phase_1 material]
+    hidden_truth: [runs or controls the supplier/false-invoicing scheme independent of Russia, Martin's investigation converges on him, kills Martin to prevent exposure]
+
+visual_character_system:
+  status: required_before_character_image_generation
+  purpose: >-
+    Establish stable, deliberately differentiated visual identities for recurring people before portraits,
+    scene photographs, press photographs or other generated images are produced.
+
+  required_sequence:
+    - step: 1
+      action: write_textual_visual_profile
+      rule: >-
+        Each recurring character must first receive a human-readable appearance and style description.
+        The description is authoritative for later image work and must be approved before a reference portrait is generated.
+    - step: 2
+      action: cross_character_distinctiveness_review
+      rule: >-
+        Review the complete cast together and deliberately separate facial structure, apparent age, body/build,
+        hair, grooming, styling, clothing silhouette and other stable visual anchors. Avoid model-default convergence
+        where unrelated characters acquire similar faces and appear related.
+    - step: 3
+      action: generate_reference_portrait
+      rule: >-
+        Create at least one neutral, high-quality canonical portrait for every recurring visually represented character.
+        The portrait must follow the approved textual profile rather than inventing a new identity.
+    - step: 4
+      action: approve_and_lock_visual_identity
+      rule: >-
+        Once approved, the textual profile plus canonical portrait becomes the character's visual identity reference.
+        Later images must preserve recognisable identity while allowing plausible changes in expression, pose, lighting,
+        camera, clothing occasion and age only when the timeline requires it.
+    - step: 5
+      action: use_reference_in_future_generation
+      rule: >-
+        Every later generated image containing the character must use the canonical visual identity reference whenever
+        the production tool supports image/reference conditioning. Text prompts alone are not considered sufficient
+        continuity control when a usable reference-image workflow exists.
+
+  textual_visual_profile_required_fields:
+    - apparent_age
+    - face_shape_and_proportions
+    - distinguishing_facial_features
+    - skin_and_complexion_description
+    - eye_description
+    - hair_colour_cut_texture_and_hairline
+    - facial_hair_or_explicit_none
+    - body_build_and_posture
+    - typical_clothing_style
+    - colour_and_material_preferences_where_character_relevant
+    - accessories_or_repeated_visual_anchors
+    - grooming_and_makeup_where_relevant
+    - overall_visual_impression
+    - features_that_must_remain_stable
+    - features_that_may_vary_by_scene
+    - explicit_distinction_from_other_cast_members
+
+  anti_convergence_rules:
+    - unrelated_characters_must_not_share_the_same_or_near_identical_face_structure
+    - do_not_reuse_one_generic_attractive_ai_face_across_the_cast
+    - vary_head_shape_jaw_nose_eyes_brows_hairline_and_age_markers_across_characters
+    - vary_body_build_posture_grooming_and_clothing_silhouette_where_plausible
+    - visual_distinction_must_not_depend_only_on_hair_colour_or_clothing
+    - characters_who_are_not_relatives_should_not_accidentally_read_as_siblings
+    - group_images_require_an_identity_check_for_every_recurring_character
+    - a_failed_identity_or_distinctiveness_check_blocks_artifact_approval
+
+  reference_asset_requirements:
+    canonical_portrait_per_recurring_character: true
+    neutral_reference_preferred: true
+    preserve_natural_skin_texture_and_age: true
+    avoid_beautification_convergence: true
+    future_image_reference_required_when_supported: true
+    reference_assets_are_production_control_not_player_evidence: true
+
+  pending_profiles:
+    - P-INGRID
+    - P-HOVDEN
+    - P-MARTIN
+    - P-MOROZOV
+    - P-SOLVEIG
+    - P-THOMAS
