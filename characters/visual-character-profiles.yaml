@@ -1,0 +1,212 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: architect_visual_profile_v0_1
+purpose: >-
+  Text-first visual design of the recurring cast. These profiles must be reviewed together before canonical portrait generation.
+  Portraits generated later become production references for all subsequent character images.
+
+design_principles:
+  - believable contemporary Norwegian political and professional milieu
+  - no cast-wide glamour treatment
+  - age should remain visible and credible
+  - facial distinction must survive grayscale, different clothing and different lighting
+  - clothing supports role/personality but is not the primary identity cue
+  - avoid exaggerated caricature unless an in-world artifact plausibly produces it
+  - Morozov must remain visually recognisable across conference and later press photography
+
+profiles:
+  - person_id: P-INGRID
+    name: Ingrid Velde
+    apparent_age: 38
+    face_shape_and_proportions: long oval face with a relatively high forehead, narrow lower face and defined but not heavy jaw
+    distinguishing_facial_features:
+      - straight medium-length nose with a slightly pronounced bridge
+      - wide-set grey-blue eyes
+      - subtly asymmetrical smile, stronger on her left side
+      - fine expression lines at outer eyes despite otherwise youthful face
+    skin_and_complexion_description: fair Nordic complexion with natural texture and a few light freckles across upper cheeks and nose
+    eye_description: grey-blue, alert, slightly wide-set; direct camera presence
+    hair_colour_cut_texture_and_hairline: dark ash-blonde/light brown, shoulder length, mostly straight with slight natural bend; side part; high clean forehead
+    facial_hair_or_explicit_none: none
+    body_build_and_posture: slim-to-average build, upright energetic posture, often leaning slightly forward when engaged
+    typical_clothing_style: contemporary Scandinavian political professional; clean wool jackets, fine knitwear, simple blouses, tailored trousers; less corporate than Martin
+    colour_and_material_preferences_where_character_relevant: muted navy, charcoal, cream, forest tones; matte natural fabrics
+    accessories_or_repeated_visual_anchors: small understated silver earrings; occasionally thin watch; no signature glasses
+    grooming_and_makeup_where_relevant: restrained natural makeup suitable for television/public appearances; realistic skin retained
+    overall_visual_impression: intelligent, approachable, focused; looks like a politician who is comfortable both on television and in an informal policy meeting
+    features_that_must_remain_stable: [long_oval_face, high_forehead, wide_set_grey_blue_eyes, nose_bridge, asymmetrical_smile, ash_blonde_brown_hair]
+    features_that_may_vary_by_scene: [hair_tucked_behind_ear, formal_vs_informal_clothing, makeup_level, expression]
+    explicit_distinction_from_other_cast_members: >-
+      Younger and more open-faced than Solveig; much narrower facial structure than Hovden; no resemblance to Thomas; lighter colouring and less angular face than Martin.
+
+  - person_id: P-HOVDEN
+    name: Eirik Hovden
+    apparent_age: 44
+    face_shape_and_proportions: broad rectangular face, strong lower jaw, shorter forehead and compact proportions
+    distinguishing_facial_features:
+      - heavy straight eyebrows
+      - deep-set dark brown eyes
+      - broad nose with rounded tip
+      - slight old indentation/scar through outer right eyebrow, subtle not dramatic
+      - pronounced nasolabial lines when tense
+    skin_and_complexion_description: light-to-medium complexion with slightly ruddy cheeks; visible pores and realistic mid-forties texture
+    eye_description: dark brown, deep-set, often appears concentrated rather than warm
+    hair_colour_cut_texture_and_hairline: dark brown, short and dense, beginning to grey at temples; modest recession at corners
+    facial_hair_or_explicit_none: usually clean-shaven with occasional late-day stubble
+    body_build_and_posture: stocky/solid build, thick neck and shoulders; controlled posture, tends to hold arms close to body
+    typical_clothing_style: practical party-operations professional; dark overshirts, oxford shirts, knit polo or plain blazer; rarely a tie
+    colour_and_material_preferences_where_character_relevant: dark navy, brown, charcoal, heavy cotton/wool
+    accessories_or_repeated_visual_anchors: simple dark leather belt/watch; no glasses
+    grooming_and_makeup_where_relevant: functional, neat, not fashion-conscious
+    overall_visual_impression: dependable organiser rather than media star; physically grounded and controlled
+    features_that_must_remain_stable: [broad_rectangular_face, heavy_brows, deep_set_brown_eyes, broad_nose, eyebrow_indentation, solid_build]
+    features_that_may_vary_by_scene: [stubble, shirt_or_blazer, fatigue]
+    explicit_distinction_from_other_cast_members: >-
+      Broadest face and heaviest build in core cast. Must not share Martin's angular nose/cheekbones or Thomas's softer rounder face.
+
+  - person_id: P-MARTIN
+    name: Martin Hauge
+    apparent_age: 51
+    face_shape_and_proportions: angular oblong face with pronounced cheekbones, narrow jaw and slightly hollow cheeks
+    distinguishing_facial_features:
+      - prominent slightly hooked nose
+      - narrow hazel-green eyes beneath arched brows
+      - vertical line between brows
+      - thin upper lip and more prominent lower lip
+      - visible crow's feet and forehead lines
+    skin_and_complexion_description: fair complexion with weathered outdoor texture and mild redness around nose/cheeks
+    eye_description: hazel-green, narrower than Ingrid's, analytical expression
+    hair_colour_cut_texture_and_hairline: medium brown heavily mixed with grey, short side-parted cut, clearly receding temples
+    facial_hair_or_explicit_none: clean-shaven in official imagery; may show grey stubble in private late investigation images
+    body_build_and_posture: tall, lean, slightly bony; erect public posture but shoulders loosen in private settings
+    typical_clothing_style: conventional senior politician; structured dark suits, pale shirts, restrained ties; off duty practical cycling/outdoor clothing
+    colour_and_material_preferences_where_character_relevant: dark blue/grey suits, white/pale blue shirts
+    accessories_or_repeated_visual_anchors: thin rectangular reading glasses used for documents but not always worn; quality but conservative watch
+    grooming_and_makeup_where_relevant: formal and conventional in public; visibly less polished during private investigation
+    overall_visual_impression: experienced, somewhat severe security-policy politician; credible as Ingrid's ideological opponent without looking villainous
+    features_that_must_remain_stable: [angular_oblong_face, hooked_nose, hazel_green_narrow_eyes, pronounced_cheekbones, receding_grey_brown_hair]
+    features_that_may_vary_by_scene: [reading_glasses, stubble, suit_vs_cycling_clothing, fatigue]
+    explicit_distinction_from_other_cast_members: >-
+      Tallest/leanest male silhouette and most angular face. Must be immediately distinct from Hovden's broad compact face and Thomas's softer facial geometry.
+
+  - person_id: P-MOROZOV
+    name: Aleksej Morozov
+    apparent_age: 48
+    face_shape_and_proportions: triangular-to-heart-shaped face, broad upper face tapering toward a narrower chin
+    distinguishing_facial_features:
+      - high prominent cheekbones
+      - close-set pale grey eyes
+      - narrow straight nose
+      - slightly uneven left eyebrow rising higher than right
+      - small crease/dimple in chin
+    skin_and_complexion_description: light olive/eastern European complexion with natural texture; slightly darker than most Norwegian cast members without exaggeration
+    eye_description: pale grey, close-set, composed gaze
+    hair_colour_cut_texture_and_hairline: very dark brown almost black with significant silver at temples; short, neat, combed back; distinct widow's peak
+    facial_hair_or_explicit_none: clean-shaven
+    body_build_and_posture: medium height, lean-average build; relaxed but precise posture, comfortable in formal social settings
+    typical_clothing_style: polished diplomat; well-fitted dark suits, high-quality plain shirts, restrained ties; conference smart-casual may include fine dark knit under jacket
+    colour_and_material_preferences_where_character_relevant: charcoal, midnight blue, white, burgundy accent used sparingly
+    accessories_or_repeated_visual_anchors: discreet rimless or very thin metal reading glasses may appear in close work but not canonical identity cue
+    grooming_and_makeup_where_relevant: meticulously groomed but not fashion-model polished
+    overall_visual_impression: internationally experienced diplomat; pleasant and controlled, not visually coded as sinister
+    features_that_must_remain_stable: [high_cheekbones, close_set_pale_grey_eyes, widow_peak, silver_temples, asymmetric_brows, chin_crease]
+    features_that_may_vary_by_scene: [glasses, tie, conference_badge, expression]
+    explicit_distinction_from_other_cast_members: >-
+      Unique tapered face, widow's peak and close-set pale eyes. Must not converge on Martin's long angular face or Thomas's rounded face. Recognition across images should rely on several stable facial features, not clothing.
+
+  - person_id: P-SOLVEIG
+    name: Solveig Løken
+    apparent_age: 57
+    face_shape_and_proportions: broad softly square face with full cheeks and a strong rounded chin
+    distinguishing_facial_features:
+      - warm brown eyes with visible lower-lid lines
+      - short slightly upturned nose
+      - pronounced smile lines
+      - one eyebrow naturally more curved than the other
+      - small mole high on left cheek, visible but not clue-like
+    skin_and_complexion_description: fair complexion with visible age texture, sun spots and natural lines; no smoothing
+    eye_description: warm medium brown, expressive
+    hair_colour_cut_texture_and_hairline: naturally silver-grey with darker undertones, thick chin-length layered bob, slight wave
+    facial_hair_or_explicit_none: none
+    body_build_and_posture: medium-to-sturdy build; grounded open posture, often shoulders back
+    typical_clothing_style: experienced movement/party leader rather than corporate executive; textured jackets, knitwear, scarves, practical tailored trousers
+    colour_and_material_preferences_where_character_relevant: rust, deep green, navy, wool and textured natural fabrics
+    accessories_or_repeated_visual_anchors: distinctive but plausible dark-framed reading glasses sometimes worn; simple scarf in public appearances
+    grooming_and_makeup_where_relevant: minimal makeup; age visible
+    overall_visual_impression: authoritative, humane and politically seasoned; visually different generation from Ingrid
+    features_that_must_remain_stable: [broad_soft_square_face, full_cheeks, warm_brown_eyes, silver_layered_bob, rounded_chin, cheek_mole]
+    features_that_may_vary_by_scene: [glasses, scarf, jacket, hair_wave]
+    explicit_distinction_from_other_cast_members: >-
+      Only core character with silver bob and broad full-cheeked female face; must not be aged-up Ingrid. Bone structure, eye colour and proportions are deliberately different.
+
+  - person_id: P-THOMAS
+    name: Thomas Rønning
+    apparent_age: 46
+    face_shape_and_proportions: medium round-to-oval face with a relatively low forehead and softer jawline
+    distinguishing_facial_features:
+      - medium-set blue eyes
+      - short slightly broad nose
+      - one-sided cheek crease when smiling
+      - fuller eyebrows with a gentle arch
+      - attached earlobes and slightly prominent ears as secondary anchors
+    skin_and_complexion_description: fair-to-medium complexion, generally healthy appearance, mild unevenness and realistic mid-forties texture
+    eye_description: clear medium blue, socially attentive expression
+    hair_colour_cut_texture_and_hairline: sandy brown/dark blond, short textured cut, noticeably thinning at crown but not heavily receding at front
+    facial_hair_or_explicit_none: neatly trimmed short beard, sandy brown with some grey; beard is stable but not sole identity cue
+    body_build_and_posture: average height, slightly soft average build; relaxed shoulders and open social posture
+    typical_clothing_style: communications/creative professional; good casual blazer, open-collar shirt, knit polo, clean trainers or understated leather shoes; more contemporary than Hovden
+    colour_and_material_preferences_where_character_relevant: mid-blue, olive, beige, soft grey; lighter palette than Hovden/Martin
+    accessories_or_repeated_visual_anchors: occasional contemporary roundish glasses for screen work; messenger/laptop bag in work contexts
+    grooming_and_makeup_where_relevant: intentionally approachable and well kept without looking luxurious
+    overall_visual_impression: competent, likable communications person who can plausibly become a trusted practical source for players
+    features_that_must_remain_stable: [round_oval_face, softer_jaw, blue_eyes, sandy_thinning_hair, short_greying_beard, cheek_crease, ear_shape]
+    features_that_may_vary_by_scene: [glasses, beard_length_within_short_range, blazer_vs_knit, expression]
+    explicit_distinction_from_other_cast_members: >-
+      Softest male facial geometry, only stable bearded core male, lighter palette and more informal styling. Must not look like Hovden with a beard added.
+
+cast_distinctiveness_matrix:
+  face_geometry:
+    P-INGRID: long_oval_narrow
+    P-HOVDEN: broad_rectangular
+    P-MARTIN: angular_oblong
+    P-MOROZOV: tapered_heart_triangular
+    P-SOLVEIG: broad_soft_square
+    P-THOMAS: round_oval_soft
+  primary_eye_identity:
+    P-INGRID: wide_set_grey_blue
+    P-HOVDEN: deep_set_dark_brown
+    P-MARTIN: narrow_hazel_green
+    P-MOROZOV: close_set_pale_grey
+    P-SOLVEIG: warm_brown
+    P-THOMAS: medium_set_blue
+  hair_identity:
+    P-INGRID: shoulder_length_ash_blonde_brown
+    P-HOVDEN: short_dark_grey_temples
+    P-MARTIN: receding_grey_brown
+    P-MOROZOV: dark_combed_back_widows_peak_silver_temples
+    P-SOLVEIG: silver_layered_bob
+    P-THOMAS: sandy_short_thinning_crown
+  silhouette:
+    P-INGRID: slim_energetic
+    P-HOVDEN: stocky_solid
+    P-MARTIN: tall_lean
+    P-MOROZOV: lean_average_precise
+    P-SOLVEIG: sturdy_grounded
+    P-THOMAS: average_soft_relaxed
+  styling_family:
+    P-INGRID: modern_scandinavian_political
+    P-HOVDEN: practical_party_operations
+    P-MARTIN: conventional_senior_politician
+    P-MOROZOV: polished_diplomatic
+    P-SOLVEIG: movement_founder_textured
+    P-THOMAS: contemporary_communications
+
+review:
+  sibling_risk:
+    P-INGRID_vs_P-SOLVEIG: low_by_bone_structure_eye_colour_age_hair
+    P-HOVDEN_vs_P-THOMAS: low_if_face_geometry_and_beard_independent_features_preserved
+    P-MARTIN_vs_P-MOROZOV: low_if_nose_face_taper_eye_spacing_hairline_preserved
+    all_other_pairs: low_by_design
+  glamour_convergence_risk: explicitly_forbidden
+  portrait_generation_gate: ready_for_canonical_portrait_generation_after_human_review
+  portrait_generation_order_recommendation: [P-INGRID, P-HOVDEN, P-MARTIN, P-MOROZOV, P-SOLVEIG, P-THOMAS]
