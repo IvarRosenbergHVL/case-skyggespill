@@ -2,230 +2,128 @@ graph_id: TG-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.2
+version: 0.3
 truth_level: objective_truth
 
 nodes:
-  - id: T-001
-    type: person_state
-    actor: P-INGRID
-    statement: Ingrid is a rising Nystart politician with increasing national relevance.
-
-  - id: T-002
-    type: relationship
-    actors: [P-INGRID, P-MOROZOV]
-    statement: Ingrid develops an initially legitimate policy relationship with Morozov that becomes an intelligence cultivation relationship.
-
-  - id: T-003
-    type: information_transfer
-    actors: [P-INGRID, P-MOROZOV]
-    statement: Ingrid shares increasingly useful political context, internal relationship knowledge and network information while underestimating Morozov's intelligence purpose.
-
+  - {id: T-001, type: person_state, actor: P-INGRID, statement: Ingrid is a rising Nystart politician with increasing national relevance.}
+  - {id: T-002, type: relationship, actors: [P-INGRID, P-MOROZOV], statement: Ingrid develops an initially legitimate policy relationship with Morozov that becomes an intelligence cultivation relationship.}
+  - {id: T-003, type: information_transfer, actors: [P-INGRID, P-MOROZOV], statement: Ingrid shares unclassified political context, internal relationship knowledge and network information while underestimating Morozov's intelligence purpose.}
   - id: T-003A
     type: cultivation_pattern
     actors: [P-INGRID, P-MOROZOV]
-    statement: Morozov's questions gradually move from general policy discussion toward who influences decisions, where internal disagreements exist, who may be persuadable and how named actors are likely to react.
-    status: architect_proposal
-    trace_consequence:
-      textual:
-        - calendar notes, messages or meeting fragments can show the progression without explicitly identifying espionage
-      visual:
-        - the pattern can be made player-visible through chronology, annotations or grouping of repeated names/topics
-
+    statement: Morozov's questions gradually move from general policy toward who influences decisions, internal disagreements, persuadable actors and predicted reactions of named decision-makers.
+    status: locked
   - id: T-004
     type: realization
     actor: P-INGRID
-    statement: Ingrid recognises that a distinctive combination of political context she previously shared only with Morozov has been operationalised or echoed in a later Russia-related approach, briefing or influence assessment; she understands that their relationship was intelligence cultivation rather than ordinary policy dialogue.
-    status: architect_proposal
-    causal_logic:
-      - no single repeated fact proves manipulation
-      - the unusual combination and ordering of details makes coincidence implausible to Ingrid
-      - recognition causes her to reinterpret earlier Morozov questions as deliberate elicitation
-    trace_consequence:
-      textual:
-        - legitimate briefing or summary containing the echoed combination
-        - earlier messages or calendar fragments showing source details
-      visual:
-        - Ingrid may circle, underline or annotate the distinctive overlap
-        - players can later compare earlier material with the later briefing and reconstruct the same recognition
-
-  - id: T-005
-    type: intended_action
-    actor: P-INGRID
-    statement: Ingrid decides to disclose the Morozov relationship and seek advice outside Nystart.
-
+    statement: Through legitimate political work Ingrid receives unclassified security-awareness material describing gradual cultivation, interest in networks and disagreements, and how harmless details can form a useful intelligence picture. Comparing it with her retained Morozov contacts makes her realise she has been cultivated.
+    status: locked
+    constraints:
+      - no classified dossier
+      - no direct accusation naming Morozov
+      - no single sentence proves the conclusion
+      - Ingrid's annotations and date cross-references expose her reasoning without writing the answer
+  - {id: T-005, type: intended_action, actor: P-INGRID, statement: Ingrid decides the matter cannot be contained inside Nystart and intends to seek outside advice before disclosure.}
+  - id: T-005A
+    type: limited_internal_warning
+    actors: [P-INGRID, P-HOVDEN]
+    statement: Ingrid privately tells Hovden she has seriously misjudged a foreign contact and that the matter may affect the party. Hovden argues it should be handled internally and quietly.
+    status: locked
   - id: T-006
     type: contact
     actors: [P-INGRID, P-MARTIN]
-    statement: Ingrid requests a confidential meeting with Martin shortly before her death and indicates that he had been right about something they had publicly disputed; she refuses to discuss the substance by phone.
-    status: architect_proposal_semantics
-    trace_consequence:
-      textual:
-        - short message or contact record establishes the meeting request without stating the answer
-      logic:
-        - Martin can later know the romance-only explanation does not account for Ingrid's final concern
-
+    statement: Ingrid requests a confidential meeting with Martin shortly before her death, says she thinks he was right about something, and refuses to discuss substance by phone.
+    status: locked_semantics
+  - id: T-006A
+    type: disclosure_of_intent
+    actors: [P-INGRID, P-HOVDEN]
+    statement: Ingrid refuses Hovden's containment request and tells him she intends to speak with Martin because he had warned her about this kind of vulnerability. She does not give Hovden the full evidence or awareness brief.
+    status: locked
   - id: T-007
     type: knowledge_gain
     actor: P-HOVDEN
-    statement: Hovden learns that Ingrid intends to disclose the Morozov relationship.
-
-  - id: T-008
-    type: confrontation
-    actors: [P-HOVDEN, P-INGRID]
-    statement: Hovden goes to Ingrid's hotel room to stop or delay disclosure.
-
+    statement: Through Ingrid's direct statements Hovden understands that she believes a foreign contact has compromised her judgement, that the issue may damage Nystart, and that she intends to take it to Martin outside the party.
+    status: locked
+  - {id: T-007A, type: urgency_trace, actors: [P-HOVDEN, P-INGRID], statement: Hovden asks Ingrid not to do anything until they speak again and makes repeated attempts to reach her before going to the hotel.}
+  - {id: T-008, type: confrontation, actors: [P-HOVDEN, P-INGRID], statement: Hovden goes to Ingrid's hotel room for a final attempt to stop or postpone her outside disclosure.}
   - id: T-009
     type: homicide_event
     incident: INC-01
     responsible_actor: P-HOVDEN
     victim: P-INGRID
     statement: During an escalating confrontation Hovden causes Ingrid to fall from the hotel window and die.
-    method_status: provisional
-    trace_consequence:
-      visual:
-        - room/window/courtyard geometry must support a reconstructable physical sequence
-      textual:
-        - timing and presence evidence must corroborate Hovden's opportunity
-
-  - id: T-010
-    type: concealment
-    actor: P-HOVDEN
-    statement: After his presence becomes provable, Hovden admits causing Ingrid's death but gives a false romantic motive to conceal the political/intelligence trigger.
-
-  - id: T-011
-    type: official_outcome
-    investigation: INV-01
-    statement: The official investigation identifies Hovden and secures a conviction while leaving the stated motive materially wrong or incomplete.
-
-  - id: T-012
-    type: private_investigation_trigger
-    actor: P-MARTIN
-    statement: Martin investigates because Ingrid's confidential approach and the subject of their long-running disagreement do not fit the public romance explanation.
-
-  - id: T-013
-    type: discovery
-    actor: P-MARTIN
-    statement: Martin independently confirms that Ingrid had a meaningful cultivated relationship with Morozov.
-
-  - id: T-014
-    type: investigative_pivot
-    actor: P-MARTIN
-    statement: Martin tests whether Russian influence around Ingrid also involved covert financing of Nystart.
-
+    method_status: locked_at_causal_level_pending_final_scene_geometry
+  - {id: T-010, type: concealment, actor: P-HOVDEN, statement: After his presence becomes provable Hovden admits causing Ingrid's death but gives a false romantic motive to conceal the political/intelligence trigger and protect Nystart.}
+  - {id: T-011, type: official_outcome, investigation: INV-01, statement: The official investigation identifies Hovden and secures a conviction while leaving the stated motive materially wrong or incomplete.}
+  - {id: T-012, type: private_investigation_trigger, actor: P-MARTIN, statement: Martin investigates because Ingrid's confidential approach and their security-policy disagreement do not fit the public romance explanation.}
+  - {id: T-013, type: discovery, actor: P-MARTIN, statement: Martin independently confirms that Ingrid had been cultivated by Morozov.}
+  - {id: T-014, type: investigative_pivot, actor: P-MARTIN, statement: Martin tests whether Russian influence around Ingrid also involved covert financing of Nystart.}
   - id: T-015
     type: secondary_secret
     actor: P-THOMAS
-    statement: Thomas has operated a supplier and false-invoicing loop connected to Nystart's organisational growth; a subset of inflated or partly fictitious invoices routes off-books money through an intermediary he controls or effectively controls. The scheme is independent of Russia and includes personal benefit to Thomas.
-    relation_to_russia: none
-    status: architect_proposal
-    scope_constraints:
-      - Solveig and ordinary Nystart members are not knowingly part of the scheme
-      - exposure threatens Thomas personally through criminal, financial and professional consequences
-      - the money trail must be understandable without specialist accounting knowledge
-    trace_consequence:
-      textual:
-        - invoices, supplier references, ordinary procurement correspondence and Martin's notes
-      visual:
-        - repeated address, logo, reference convention, contact detail or production mark creates a legitimate comparison path
-
-  - id: T-016
-    type: discovery
-    actor: P-MARTIN
-    statement: Martin's financing inquiry unexpectedly connects several suppliers and transactions to Thomas rather than to Russia.
-    status: architect_proposal
-
-  - id: T-017
-    type: confrontation_trigger
-    actors: [P-MARTIN, P-THOMAS]
-    statement: Martin contacts Thomas and signals that he has connected the supplier network to him and intends to verify or disclose it.
-    status: architect_proposal
-
+    statement: Thomas exploits real communications/event procurement during Nystart's rapid growth. A legitimate primary supplier routes selected inflated packages through a smaller secondary production vendor controlled by a trusted long-term Thomas associate; value then reaches an intermediary that pays expenses or benefits controlled by Thomas. The scheme is independent of Russia.
+    status: locked_architecture_pending_fictional_company_details
+  - {id: T-016, type: discovery, actor: P-MARTIN, statement: Martin's financing inquiry unexpectedly connects recurring supplier references and relationships to Thomas rather than Russia.}
+  - {id: T-017, type: confrontation_trigger, actors: [P-MARTIN, P-THOMAS], statement: Martin contacts Thomas and signals that he has connected the supplier network to him and intends to verify or disclose it.}
   - id: T-018
     type: homicide_event
     incident: INC-02
     responsible_actor: P-THOMAS
     victim: P-MARTIN
-    statement: Thomas kills Martin to stop disclosure of the financing scheme.
-    method: deliberate_vehicle_contact_with_bicycle_staged_as_single_bicycle_crash
-    method_status: architect_proposal_preferred_not_locked
-    trace_consequence:
-      visual:
-        - scene geometry and bicycle damage should establish involvement of another vehicle without identifying Thomas alone
-        - a later Thomas-vehicle artifact can corroborate compatible recent damage or repair
-      textual:
-        - route, timing and access records establish opportunity
-        - Martin's final work establishes motive
-
+    statement: Thomas deliberately makes lateral or rear-quarter vehicle contact with Martin while Martin is cycling on a quiet road. Martin loses control and strikes a fixed roadside object or barrier, causing fatal injuries.
+    method_status: preferred_pending_render_and_lay-comprehension_validation
   - id: T-019
     type: concealment
     actor: P-THOMAS
-    statement: Thomas attempts to make Martin's death appear accidental and benefits from the fact that Martin's surviving notes foreground Russia. He does not need to fabricate a Russian operation; the true Russia trail naturally misdirects attention.
-    status: architect_proposal
-
-  - id: T-020
-    type: negative_truth
-    actor: P-MOROZOV
-    statement: Morozov does not kill Ingrid or Martin.
-
-  - id: T-021
-    type: negative_truth
-    statement: The two murders are not part of one unified Russian conspiracy.
-
+    statement: Thomas leaves the accident-like scene without repositioning Martin or the bicycle. The fixed-object impact and Martin's Russia-focused surviving material initially support a solo-accident interpretation without Thomas fabricating evidence.
+    status: locked_behavior_pending_INC02_geometry
+  - {id: T-020, type: negative_truth, actor: P-MOROZOV, statement: Morozov does not kill Ingrid or Martin.}
+  - {id: T-021, type: negative_truth, statement: The two murders are not part of one unified Russian conspiracy.}
   - id: T-022
     type: phase_bridge_artifact_truth
     actor: P-THOMAS
-    statement: During phase 1 Thomas genuinely provides useful archived event or press material connected to Ingrid's final days. One mundane supplier or production detail in that material originates from the same supplier ecosystem Martin later investigates.
-    status: architect_proposal
-    logic:
-      - Thomas provides the material because it is genuinely useful and not incriminating in isolation
-      - the detail becomes meaningful only after Martin's supplier findings exist
-      - this creates a fair recontextualization rather than a planted puzzle clue
-    trace_consequence:
-      visual:
-        - sponsor, production label, supplier credit, filename convention, logo or other source-driven visual marker may be reused naturally
-      textual:
-        - archive caption, event reference or supplier credit may corroborate provenance
+    statement: During phase 1 Thomas genuinely provides useful archived event or press material. A mundane production credit or job reference comes from the same secondary supplier ecosystem Martin later investigates.
+    status: locked
 
 edges:
   - {from: T-001, to: T-002, relation: increases_value_of}
   - {from: T-002, to: T-003, relation: enables}
   - {from: T-003, to: T-003A, relation: develops_into}
-  - {from: T-003A, to: T-004, relation: becomes_reinterpretable_after}
-  - {from: T-003, to: T-004, relation: eventually_triggers}
+  - {from: T-003A, to: T-004, relation: becomes_recognisable_through_awareness_material}
   - {from: T-004, to: T-005, relation: causes}
-  - {from: T-005, to: T-006, relation: causes}
-  - {from: T-005, to: T-007, relation: becomes_known_to}
-  - {from: T-007, to: T-008, relation: causes}
+  - {from: T-005, to: T-005A, relation: causes_limited_internal_warning}
+  - {from: T-005A, to: T-006A, relation: containment_attempt_fails}
+  - {from: T-006A, to: T-006, relation: explains_outside_contact}
+  - {from: T-006A, to: T-007, relation: directly_informs}
+  - {from: T-007, to: T-007A, relation: creates_urgency}
+  - {from: T-007A, to: T-008, relation: escalates_to_in_person_attempt}
   - {from: T-008, to: T-009, relation: escalates_to}
   - {from: T-009, to: T-010, relation: causes_concealment}
   - {from: T-010, to: T-011, relation: shapes_official_narrative}
-  - {from: T-006, to: T-012, relation: later_contradicts}
-  - {from: T-004, to: T-012, relation: subject_of_unfinished_disclosure}
+  - {from: T-006, to: T-012, relation: later_contradicts_public_motive}
   - {from: T-012, to: T-013, relation: leads_to}
   - {from: T-013, to: T-014, relation: motivates_test}
   - {from: T-014, to: T-016, relation: accidentally_leads_to}
   - {from: T-015, to: T-016, relation: object_of_discovery}
   - {from: T-016, to: T-017, relation: causes}
   - {from: T-017, to: T-018, relation: immediate_trigger}
-  - {from: T-018, to: T-019, relation: causes_concealment}
-  - {from: T-013, to: T-020, relation: does_not_imply}
-  - {from: T-015, to: T-021, relation: supports}
+  - {from: T-018, to: T-019, relation: leaves_accident_like_scene}
   - {from: T-022, to: T-016, relation: later_becomes_comparison_anchor}
 
 phase_partition:
-  phase_1_truth_nodes: [T-001, T-002, T-003, T-003A, T-004, T-005, T-006, T-007, T-008, T-009, T-010, T-011, T-022]
-  phase_2_bridge_nodes: [T-004, T-006, T-010, T-012, T-013, T-014, T-022]
+  phase_1_truth_nodes: [T-001, T-002, T-003, T-003A, T-004, T-005, T-005A, T-006, T-006A, T-007, T-007A, T-008, T-009, T-010, T-011, T-022]
+  phase_2_bridge_nodes: [T-004, T-006, T-006A, T-010, T-012, T-013, T-014, T-022]
   phase_2_truth_nodes: [T-015, T-016, T-017, T-018, T-019, T-020, T-021]
 
 architecture_rules:
-  - every major visual clue must have an upstream objective-truth or provenance reason for existing
-  - every major textual clue must have a plausible author, purpose and knowledge boundary
-  - visual and textual evidence should converge on central conclusions rather than duplicate one another verbatim
-  - phase_2 may change interpretation of phase_1 material but never its factual content
+  - documents_do_not_lie_context_changes
+  - every_major_visual_clue_has_upstream_truth_or_provenance_reason
+  - every_textual_clue_has_plausible_author_purpose_and_knowledge_boundary
+  - phase_2_may_change_interpretation_of_phase_1_material_but_never_its_factual_content
+  - no_single_artifact_proves_identity_method_motive_and_concealment
 
 validation_notes:
-  - Objective truth is separated from actor belief and player-provable conclusions.
-  - T-004 now has a concrete architect proposal but remains unapproved.
-  - T-015 through T-019 and T-022 remain architect proposals until creator review.
-  - Exact murder-2 physics must be validated before method is locked.
+  - Ingrid realization and Hovden direct knowledge path are now locked.
+  - Thomas supplier architecture is locked at causal level; fictional entities and amounts remain production decisions.
+  - INC-02 requires a print-size scene/bicycle render test before physical method is fully locked.
