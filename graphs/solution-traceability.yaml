@@ -2,58 +2,39 @@ traceability_id: ST-SKYGGESPILL-001
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
 status: draft
-version: 0.1
+version: 0.2
 
 solution_claims:
-  - claim_id: SC-01
-    claim: Ingrid's death was homicide, not accident.
-    objectives: [O-01]
-    evidence_fragments: [E-001, E-002]
-    discoveries: [DM-01]
-    player_actions: [timeline_reconstruction, spatial_reconstruction]
-    phase: phase_1
-    fairness: redundant
-
-  - claim_id: SC-02
-    claim: Hovden caused Ingrid's death.
-    objectives: [O-02, O-03]
-    evidence_fragments: [E-001, E-002, E-003]
-    discoveries: [DM-01]
-    player_actions: [opportunity_testing, combine_presence_scene_and_claim]
-    phase: phase_1
-    fairness: redundant
-
-  - claim_id: SC-03
+  - {claim_id: SC-01, claim: Ingrid's death was homicide not accident, objectives: [O-01], evidence_fragments: [E-001, E-002, E-017], discoveries: [DM-01], player_actions: [timeline_reconstruction, spatial_reconstruction], phase: phase_1, fairness: redundant}
+  - {claim_id: SC-02, claim: Hovden caused Ingrid's death, objectives: [O-02, O-03], evidence_fragments: [E-001, E-002, E-003], discoveries: [DM-01], player_actions: [opportunity_testing, combine_presence_scene_and_claim], phase: phase_1, fairness: redundant}
+  - id: SC-03
     claim: Hovden's romance-only motive was false or materially incomplete.
     objectives: [O-04]
-    evidence_fragments: [E-003, E-004, E-005, E-006, E-007]
-    discoveries: [DM-02, DM-03]
-    recontextualizations: [RC-02, RC-04]
-    player_actions: [contradiction_detection, relationship_mapping, visual_identity_match]
+    evidence_fragments: [E-003, E-006, E-014, E-015, E-016, E-017]
+    discoveries: [DM-03, DM-07]
+    recontextualizations: [RC-02, RC-04, RC-06]
+    player_actions: [contradiction_detection, chronology_reconstruction, revisit_phase_1_urgency]
     phase: phase_2
     fairness: multi_source
-
-  - claim_id: SC-04
-    claim: Morozov cultivated Ingrid for Russian intelligence purposes.
+  - id: SC-04
+    claim: Morozov cultivated Ingrid for Russian intelligence purposes and Ingrid herself recognised the pattern before her death.
     objectives: [O-05, O-06]
-    evidence_fragments: [E-005, E-006, E-007, E-008]
-    discoveries: [DM-02]
+    evidence_fragments: [E-005, E-007, E-014, E-015, E-016]
+    discoveries: [DM-02, DM-07]
     recontextualizations: [RC-03, RC-06]
-    player_actions: [compare_faces_side_by_side, contact_pattern_reconstruction, reconstruct_ingrid_realization]
+    player_actions: [face_comparison, order_contacts, compare_awareness_pattern, inspect_annotations]
     phase: phase_2
-    fairness: multi_source
-
-  - claim_id: SC-05
-    claim: Morozov did not kill Ingrid or Martin.
+    fairness: independent_identity_plus_behavioral_pattern
+  - id: SC-05
+    claim: Morozov was not the killer in either incident.
     objectives: [O-06, O-10]
-    evidence_fragments: [E-013]
-    discoveries: [DM-02, DM-04]
-    player_actions: [timeline_elimination, reject_overbroad_conspiracy]
-    phase: phase_2
-    fairness: requires_positive_and_negative_reasoning
-
-  - claim_id: SC-06
-    claim: Martin's investigation of Ingrid caused him to discover a separate Thomas-linked financial crime.
+    evidence_fragments: [E-001, E-002, E-003, E-013]
+    discoveries: [DM-01, DM-02, DM-04]
+    player_actions: [identity_resolution_INC01, timeline_elimination_INC02]
+    phase: cross_phase
+    fairness: positive_and_negative_reasoning
+  - id: SC-06
+    claim: Martin's investigation of Ingrid led him to discover a separate Thomas-linked financial crime rather than Russian financing.
     objectives: [O-07, O-10]
     evidence_fragments: [E-008, E-009, E-010]
     discoveries: [DM-04]
@@ -61,17 +42,16 @@ solution_claims:
     player_actions: [sequence_reconstruction, entity_grouping, revisit_prior_artifact]
     phase: phase_2
     fairness: multi_cluster
-
-  - claim_id: SC-07
-    claim: Martin's bicycle death was homicide staged as an accident.
+  - id: SC-07
+    claim: Martin's bicycle death involved deliberate contact by another vehicle and was not a solo accident.
     objectives: [O-08]
     evidence_fragments: [E-011, E-012]
     discoveries: [DM-05]
-    player_actions: [inspect_damage, compare_scene_geometry, test_accident_hypothesis]
+    player_actions: [inspect_scene, compare_bicycle_damage, compare_vehicle_timing]
     phase: phase_2
-    fairness: physical_plus_timeline
-
-  - claim_id: SC-08
+    fairness: physical_plus_independent_corroboration
+    production_gate: INC02_render_and_lay_comprehension_test_required
+  - id: SC-08
     claim: Thomas killed Martin to prevent exposure of his financial scheme.
     objectives: [O-09]
     evidence_fragments: [E-009, E-010, E-011, E-012]
@@ -80,38 +60,54 @@ solution_claims:
     player_actions: [combine_motive_opportunity_method_and_provenance]
     phase: phase_2
     fairness: three_cluster_minimum
-
-  - claim_id: SC-09
-    claim: The murders have different offenders and motives, but are causally linked through Martin's investigation of Ingrid's death.
+    constraint: no_single_physical_trace_identifies_Thomas
+  - id: SC-09
+    claim: The murders have different offenders and motives but are causally linked through Martin's investigation of Ingrid's death.
     objectives: [O-10]
-    evidence_fragments: [E-003, E-006, E-007, E-008, E-009, E-013]
-    discoveries: [DM-03, DM-04, DM-06]
-    recontextualizations: [RC-03, RC-04]
+    evidence_fragments: [E-003, E-006, E-014, E-016, E-008, E-009, E-013]
+    discoveries: [DM-03, DM-04, DM-06, DM-07]
+    recontextualizations: [RC-03, RC-04, RC-06]
     player_actions: [cross_incident_causal_reconstruction, reject_unified_conspiracy]
     phase: phase_2_final
     fairness: broad_convergence
 
+phase_1_completion_gate:
+  required_player_answers:
+    - was_Ingrid_death_accidental_or_caused_by_another_person
+    - who_was_responsible
+    - what_basic_sequence_caused_fatal_fall
+  explicitly_not_required:
+    - full_Hovden_motive
+    - full_Morozov_role
+    - Martin_private_contact
+    - Thomas_financial_scheme
+  rule: phase_1_success_must_be_real_and_complete_on_these_questions_without_phase_2_material
+
 coverage_checks:
-  - id: STC-01
-    rule: every_required_solution_claim_has_at_least_one_objective
-    status: satisfied
-  - id: STC-02
-    rule: every_required_solution_claim_has_player_visible_evidence_path
-    status: satisfied_in_architecture_pending_artifact_mapping
-  - id: STC-03
-    rule: no_required_solution_claim_depends_on_single_hidden_fact
-    status: satisfied
-  - id: STC-04
-    rule: phase_1_claims_are_complete_without_phase_2_evidence
-    status: satisfied
-  - id: STC-05
-    rule: final_identity_claim_for_INC_02_requires_motive_method_and_opportunity
-    status: satisfied_in_architecture
-  - id: STC-06
-    rule: visual_evidence_supports_but_does_not_dominate_all_claims
-    status: satisfied_in_architecture
+  - {id: STC-01, rule: every_required_solution_claim_has_at_least_one_objective, status: satisfied}
+  - {id: STC-02, rule: every_required_solution_claim_has_player_visible_evidence_path, status: satisfied_in_architecture_pending_artifact_mapping}
+  - {id: STC-03, rule: no_required_solution_claim_depends_on_single_hidden_fact, status: satisfied}
+  - {id: STC-04, rule: phase_1_claims_are_complete_without_phase_2_evidence, status: satisfied}
+  - {id: STC-05, rule: final_identity_INC02_requires_motive_method_opportunity, status: satisfied_in_architecture_pending_physical_validation}
+  - {id: STC-06, rule: Ingrid_realization_is_reconstructed_not_narrated, status: satisfied_in_architecture}
+  - {id: STC-07, rule: Russia_is_real_evidence_but_not_unified_solution, status: satisfied}
+  - {id: STC-08, rule: phase_1_artifact_recontextualizes_without_changing_fact, status: satisfied}
+
+production_gates_before_bulk_artifacts:
+  completed:
+    - evidence_graph_sync_v0_3
+    - truth_graph_sync_v0_3
+    - actor_knowledge_sync_v0_3
+    - recontextualization_hypothesis_repair_v0_3
+    - solution_traceability_sync_v0_2
+  remaining:
+    - INC02_scene_and_bicycle_render_test
+    - map_E001_to_E017_to_LDOC01_to_LDOC24
+    - case_specific_style_guide
+    - page_word_comparison_load_budget
 
 next_mapping_step:
-  - assign each evidence fragment to one or more logical documents or artifact instances
-  - preserve source diversity so one document cannot accidentally collapse multiple inference steps
-  - validate that all phase-1 and phase-2 claims remain legible under document-count target
+  - assign evidence fragments to logical documents and artifact instances
+  - preserve source diversity
+  - prevent one artifact from collapsing identity method motive and concealment
+  - validate document count and phase pacing
