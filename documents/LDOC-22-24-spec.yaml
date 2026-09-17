@@ -1,0 +1,83 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: document_spec_v0_1
+cluster: INC02_PHYSICAL
+source_architecture: architecture/inc02-physical-evidence-lock.yaml
+
+documents:
+  - id: LDOC-22
+    title: Åstedsmateriale – Martin Hauge
+    player_job: Test whether the visible final impact explains the entire crash.
+    source: official_traffic_investigation_material
+    evidence: [E-011]
+    pages:
+      - page: 1
+        artifact: scene_photo_sheet
+        content:
+          - overview_photo_showing_curve_and_final_impact_area
+          - closer_photo_of_final_barrier_or_fixed_object_impact
+          - optional_upstream_photo_showing_small_disturbance_or_debris
+        captions: factual_time_place_and_observation_only
+      - page: 2
+        artifact: top_down_scene_sketch
+        content:
+          - road_and_curve
+          - Martin_direction_of_travel
+          - final_impact_location
+          - bicycle_final_position
+          - upstream_disturbance_location
+        forbidden: [reconstructed_car_path, culprit_vehicle_icon, collision_arrow, calculated_speed]
+    intended_discovery: DM-05_seed
+    comparison: LDOC-23
+    pass_test: player_notices_two_spatially_separate_events_without_being_told_why
+
+  - id: LDOC-23
+    title: Undersøkelse av sykkel
+    player_job: Decide whether all bicycle damage can reasonably come from the final roadside impact and fall.
+    source: official_property_or_technical_observation_record
+    evidence: [E-011]
+    pages:
+      - page: 1
+        artifact: bicycle_damage_observation_sheet
+        content:
+          - numbered_photo_or_clear_bicycle_outline
+          - observation_A_final_impact_damage
+          - observation_B_separate_lateral_or_rear_quarter_contact_damage
+          - observation_C_normal_fall_scuffs
+        language_examples:
+          acceptable: [bulk_i_rammeområdet, avskrapning_på_utsiden, deformasjon_i_annen_retning, ingen_konklusjon_om_opphav]
+          forbidden: [påkjørt_av_bil, spor_etter_Thomas_bil, lakken_matcher]
+    intended_discovery: DM-05
+    comparison: LDOC-22
+    pass_test: ordinary_player_can_explain_in_own_words_why_one_collision_does_not_comfortably_explain_both_damage_groups
+
+  - id: LDOC-24
+    title: Kjøretøyspor – Thomas Rønning
+    player_job: Test whether Thomas has an independently plausible vehicle link to the second-contact hypothesis.
+    source: pending_final_credible_source
+    evidence: [E-012]
+    pages:
+      - page: 1
+        artifact: vehicle_image_or_record
+        content: [vehicle_identity, recent_compatible_damage_or_repair, date_or_timestamp]
+      - page: 2_optional
+        artifact: short_route_or_service_context
+        content: [lawful_timing_or_route_corroboration]
+    forbidden: [unique_forensic_match, confession, direct_collision_description]
+    intended_discovery: DM-06_corroboration
+    comparisons: [LDOC-21, LDOC-22, LDOC-23]
+    pass_test: artifact_is_suspicious_only_after_second_vehicle_hypothesis_exists
+
+cluster_solution_density:
+  LDOC22_alone: another_event_possible
+  LDOC22_plus_23: another_vehicle_or_contact_likely
+  LDOC24_alone: Thomas_vehicle_had_recent_compatible_issue
+  LDOC20_plus_21_plus_22_plus_23_plus_24: fair_inference_Thomas_killed_Martin
+
+production_status:
+  architecture: ready
+  textual_spec: ready
+  scene_render: pending
+  print_test: pending
+  final_source_LDOC24: pending
+  bulk_generation: blocked_until_pending_items_resolved
