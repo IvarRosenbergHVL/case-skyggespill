@@ -1,0 +1,81 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: architect_budget_v0_1
+purpose: Control reading load, comparison density and physical page growth before artifact production.
+
+target_experience:
+  playtime_minutes: [150, 210]
+  players: 2-6
+  difficulty: upper_normal
+  difficulty_source: cross_document_inference_not_obscurity
+  desired_rhythm: [read, suspect, compare, see, return_to_text, revise]
+
+phase_budgets:
+  phase_1:
+    logical_documents: 13
+    target_player_facing_pages_excluding_resolution: [15, 21]
+    resolution_pages: [1, 2]
+    dense_text_pages_max: 7
+    visual_or_spatial_pages_min: 5
+    intended_active_comparisons: [4, 7]
+    target_minutes: [70, 95]
+  phase_2:
+    logical_documents: 11
+    target_player_facing_pages: [15, 22]
+    dense_text_pages_max: 7
+    visual_or_spatial_pages_min: 6
+    intended_active_comparisons: [6, 9]
+    target_minutes: [70, 105]
+
+whole_case:
+  target_player_facing_pages: [31, 45]
+  hard_review_threshold_pages: 48
+  principle: fewer_multifunctional_artifacts_preferred_over_fragmentation
+  text_density:
+    ordinary_A4_body_word_target: [250, 550]
+    dense_report_page_soft_max_words: 700
+    short_artifact_target_words: [20, 250]
+    rule: page_that_requires_close_reading_should_not_also_hide_a_critical_visual_microclue
+
+comparison_budget:
+  mandatory_high_value_comparisons:
+    - {id: CMP-01, artifacts: [LDOC-07, LDOC-16], action: face_match, payoff: Morozov_identity}
+    - {id: CMP-02, artifacts: [LDOC-10, LDOC-20], action: provenance_match, payoff: Thomas_supplier_network}
+    - {id: CMP-03, artifacts: [LDOC-17, LDOC-18, LDOC-07], action: chronology_and_topic_pattern, payoff: Ingrid_realization}
+    - {id: CMP-04, artifacts: [LDOC-22, LDOC-23, LDOC-24], action: physical_damage_and_opportunity_convergence, payoff: another_vehicle_then_Thomas_corroboration}
+    - {id: CMP-05, artifacts: [LDOC-05, LDOC-15, LDOC-12], action: motive_claim_vs_final_behavior, payoff: romance_story_incomplete}
+  anti_overload:
+    - no_more_than_three_artifacts_required_simultaneously_for_one_micro_inference
+    - four_plus_artifact_synthesis_reserved_for_final_case_model
+    - repeated_cross_reference_codes_must_be_visually_legible_at_normal_print_size
+
+phase_2_pacing_guard:
+  risk: Russia_intelligence_and_finance_material_can_create_text_heavy_middle
+  sequence_preference:
+    - breaking_news_visual_reset
+    - private_message_short_artifact
+    - Morozov_photo_identity_action
+    - awareness_brief_plus_annotations
+    - contact_chronology_comparison
+    - Martin_handwritten_notes
+    - supplier_entity_grouping
+    - contact_timing_short_artifact
+    - crash_scene_visual_action
+    - bicycle_damage_visual_action
+    - vehicle_corroboration
+  rule: avoid_three_consecutive_dense_text_led_documents
+
+artifact_rules:
+  - each_page_has_one_primary_player_job
+  - supporting_context_may_be_multifunctional_but_not_solution_dense
+  - critical_clue_never_depends_on_tiny_footer_or_illegible_screenshot
+  - handwritten_material_must_remain_readable_in_print
+  - tables_and_logs_should_be_short_enough_for_manual_comparison
+  - decorative_realism_must_not_create_false_provenance_links
+
+review_triggers:
+  - if_total_pages_exceed_48_reduce_before_production
+  - if_any_phase_has_more_than_7_dense_text_pages_rebalance_visual_or_split_function
+  - if_one_conclusion_requires_more_than_3_documents_for_nonfinal_inference_simplify
+  - if_visual_clue_requires_zoom_redesign
+  - if_players_can_skip_active_comparison_and_read_answer_directly_weaken_explicitness
