@@ -1,0 +1,103 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: document_spec_v0_1
+phase: phase_2
+principle: recontextualize_phase_1_then_pivot_from_real_Russia_thread_to_independent_Thomas_crime
+
+documents:
+  - id: LDOC-14
+    title: Martin Hauge omkommet i sykkelulykke
+    pages: 1
+    source: media
+    player_job: absorb time jump and new incident under accident frame
+    visual_priority: high
+    content: [Martin_dead, provisional_accident_description, brief_note_that_he_had_revisited_Ingrid_case]
+    guard: no_homicide_hint_in_headline
+  - id: LDOC-15
+    title: Ingrids siste private melding til Martin
+    pages: 1
+    source: recovered_Martin_material
+    player_job: discover public rivalry did not describe final private relationship
+    evidence: [E-006]
+    semantic_lock: Jeg tror du hadde rett om noe. Jeg trenger å vise deg hvorfor. Ikke på telefon. Kan vi møtes i morgen?
+    comparisons: [LDOC-05,LDOC-06,LDOC-08,LDOC-12]
+  - id: LDOC-16
+    title: Aleksej Morozov identifisert
+    pages: [1,2]
+    source: credible_media_reporting
+    player_job: identify the man from earlier conference material and learn his later public intelligence context
+    evidence: [E-007,E-013]
+    protected: same_canonical_face_as_LDOC07
+    guard: timeline_must_eventually_exclude_him_as_murderer
+  - id: LDOC-17
+    title: Sikkerhetsorientering med Ingrids notater
+    pages: [2,3]
+    source: legitimate_unclassified_policy_channel_then_Ingrid
+    player_job: see what pattern Ingrid noticed without being told her conclusion
+    evidence: [E-015,E-016]
+    content_topics: [relationship_building, interest_in_influence_networks, internal_disagreement, named_actor_reactions, harmless_details_form_useful_whole]
+    annotations: [underline_influence, circle_internal_disagreement, mark_named_reactions, question_mark_harmless_details, two_contact_date_crossrefs]
+    forbidden: [classified_markings, Morozov_name_in_body, direct_solution_sentence]
+  - id: LDOC-18
+    title: Kontaktutdrag – Ingrid og Morozov
+    pages: [2,3]
+    source: Ingrid_records_recovered_via_Martin
+    player_job: order Morozov's questions and compare their progression with LDOC-17
+    evidence: [E-014]
+    progression:
+      early: [NATO_dependence, public_foreign_policy, younger_politicians_and_dialogue]
+      middle: [who_shapes_Nystart_foreign_policy, Solveig_vs_Ingrid_influence, opposition_figures_Ingrid_respects]
+      late: [who_resists_softer_NATO_wording, Martin_reaction_to_sovereignty_argument, who_can_persuade_Solveig, whether_disagreement_goes_public]
+    guard: each_question_benign_in_isolation
+  - id: LDOC-19
+    title: Martins arbeidsnotater
+    pages: [2,3]
+    source: P-MARTIN
+    player_job: reconstruct his hypothesis path rather than read his solution
+    evidence: [E-008]
+    visual_priority: high
+    chronology: [romance_does_not_fit, identify_Morozov, confirm_cultivation, test_Russian_money, supplier_anomalies, Thomas_name_emerges]
+    guard: final_Thomas_connection_incomplete_and_question_form
+  - id: LDOC-20
+    title: Leverandørklyngen
+    pages: [3,5]
+    source: multiple_legitimate_sources
+    player_job: group entities and discover Thomas-linked financial scheme
+    evidence: [E-009,E-010]
+    artifacts: [primary_vendor_invoice_extract, secondary_vendor_invoice_or_credit, public_company_extract, intermediary_record_or_expense_trace]
+    required_player_visible_links: [recurring_job_reference_family, secondary_vendor_matches_LDOC10_credit, associate_relationship_to_Thomas, value_or_benefit_reaches_Thomas_control]
+    guard: no_tax_expertise_required_and_no_Russian_money
+  - id: LDOC-21
+    title: Martins siste kontakt- og møteoversikt
+    pages: [1,2]
+    source: recovered_Martin_calendar_phone_material
+    player_job: establish that Martin contacted Thomas after financial pivot and define opportunity window
+    evidence: [E-008,E-009,E-012]
+    content: [Thomas_contact, terse_followup, relevant_time_window, unfinished_next_step]
+    guard: no_direct_threat_or_confession
+
+phase_2_sequence:
+  - LDOC-14
+  - LDOC-15
+  - LDOC-16
+  - LDOC-17
+  - LDOC-18
+  - LDOC-19
+  - LDOC-20
+  - LDOC-21
+  - LDOC-22
+  - LDOC-23
+  - LDOC-24
+
+pacing_rule: never_present_three_dense_text_documents_in_a_row
+key_discovery_curve:
+  - romance_story_breaks
+  - Russia_thread_becomes_real
+  - players_reconstruct_Ingrids_realization
+  - Martin_follows_Russia_money_hypothesis
+  - evidence_pivots_to_Thomas
+  - second_death_stops_looking_like_solo_accident
+  - Thomas_motive_opportunity_and_method_converge
+  - unified_conspiracy_hypothesis_collapses
+
+final_realization: Det var aldri én stor konspirasjon. Det var flere mennesker med forskjellige hemmeligheter som handlet inne i den samme politiske krisen.
