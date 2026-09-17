@@ -1,0 +1,116 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: document_spec_v0_1
+phase: phase_1
+principle: phase_1_is_a_complete_murder_investigation_not_a_prologue
+
+phase_completion:
+  players_must_conclude: [Ingrid_death_caused_by_person, Hovden_responsible, basic_fatal_sequence]
+  players_need_not_conclude: [true_Hovden_motive, Morozov_intelligence_role, Martin_private_contact]
+
+documents:
+  - id: LDOC-01
+    title: Brev fra Solveig Løken
+    pages: 1
+    source: P-SOLVEIG
+    player_job: understand why the old case is being reviewed and what Solveig doubts
+    content: [relationship_to_Ingrid, public_case_closure, request_to_review_material]
+    guard: Solveig_may_doubt_but_must_not_feed_solution
+  - id: LDOC-02
+    title: Hendelsesoversikt – Ingrid Velde
+    pages: [1,2]
+    source: official_investigation
+    player_job: establish baseline chronology and official observations
+    evidence: [E-001,E-002]
+    guard: no_complete_reconstruction
+  - id: LDOC-03
+    title: Hotellmateriale
+    pages: 2
+    source: hotel
+    player_job: place people and understand room/access geometry
+    evidence: [E-001,E-002]
+    artifacts: [keycard_or_access_extract, simple_floor_plan]
+  - id: LDOC-04
+    title: Åstedsfoto – Ingrid Velde
+    pages: [1,2]
+    source: official_investigation
+    player_job: inspect physical room/window/fall relationship
+    evidence: [E-002]
+    visual_priority: high
+  - id: LDOC-05
+    title: Forklaring – Eirik Hovden
+    pages: [1,2]
+    source: P-HOVDEN
+    player_job: test Hovdens account against independent timing and scene evidence
+    evidence: [E-003]
+    guard: phase_1_version_contains_claims_and_omissions_not_post_conviction_full_resolution
+  - id: LDOC-06
+    title: Ingrid Velde og Martin Hauge – offentlig konflikt
+    pages: [1,2]
+    source: media_bundle
+    player_job: understand their visible political relationship
+    evidence: [E-004]
+    latent_phase_2_function: public_enemy_private_trust_contrast
+  - id: LDOC-07
+    title: Konferansemateriale
+    pages: 2
+    source: conference_organizer
+    player_job: inspect Ingrid's professional network and conference context
+    evidence: [E-005,E-014]
+    content: [program_extract, group_or_event_photo, benign_early_Morozov_context]
+    protected: Morozov_face_recognisable
+    guard: no_spy_label
+  - id: LDOC-08
+    title: Kalender og kontaktspor – Ingrid
+    pages: [1,2]
+    source: P-INGRID
+    player_job: reconstruct final days and unresolved meetings
+    evidence: [E-001,E-014,E-017]
+    guard: Martin_private_message_withheld_until_phase_2
+  - id: LDOC-09
+    title: Nystart – organisasjon og nøkkelpersoner
+    pages: [1,2]
+    source: Nystart
+    player_job: orient cast roles and political stakes
+    content: [party_profile, simple_org_or_campaign_structure, named_core_people]
+    guard: avoid_exposition_dump
+  - id: LDOC-10
+    title: Event- og pressearkiv
+    pages: [1,2]
+    source: P-THOMAS
+    player_job: use genuinely helpful archive material for phase_1 chronology
+    evidence: [E-010]
+    latent_detail: secondary_vendor_production_credit_or_job_reference
+    guard: latent_detail_mundane_and_not_visually_highlighted
+  - id: LDOC-11
+    title: Vitneforklaringer – hotellet
+    pages: [2,3]
+    source: official_investigation
+    player_job: compare independent observations around Hovden arrival/conflict window
+    evidence: [E-001,E-017]
+    guard: no_witness_hears_true_motive
+  - id: LDOC-12
+    title: Telefon- og bevegelsesutdrag
+    pages: [1,2]
+    source: official_investigation
+    player_job: test opportunity and Hovden urgency against statements
+    evidence: [E-001,E-017]
+    content: [call_attempts, limited_metadata, terse_request_not_to_act_before_talking]
+    guard: no_full_message_transcript_explaining_motive
+  - id: LDOC-13
+    title: Sakens utfall
+    pages: [1,2]
+    source: official_resolution
+    delivery: sealed_phase_gate
+    player_job: receive confirmation after declaring phase_1 conclusion
+    content: [Hovden_responsibility_confirmed, basic_sequence, strongest_evidence, conviction, Hovden_attributed_romance_explanation]
+    guard: narrator_never_states_romance_as_objective_truth
+
+phase_1_pacing:
+  opening: [LDOC-01,LDOC-02,LDOC-09]
+  physical_and_opportunity: [LDOC-03,LDOC-04,LDOC-11,LDOC-12]
+  people_and_context: [LDOC-05,LDOC-06,LDOC-07,LDOC-08,LDOC-10]
+  resolution: LDOC-13
+  intended_feeling: players_have_genuinely_solved_a_murder_before_phase_2
+
+production_order: [LDOC-03,LDOC-04,LDOC-12,LDOC-05,LDOC-11,LDOC-02,LDOC-08,LDOC-07,LDOC-10,LDOC-06,LDOC-09,LDOC-01,LDOC-13]
