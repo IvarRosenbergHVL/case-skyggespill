@@ -1,0 +1,136 @@
+case_id: CASE-SKYGGESPILL
+incident_id: INC-02
+specification: CER-2.0
+status: architect_lock_v0_1
+purpose: Define a credible, lay-readable physical evidence chain for Martin Hauge's death before LDOC-22 to LDOC-24 are rendered.
+
+truth_model:
+  victim: P-MARTIN
+  offender: P-THOMAS
+  mechanism: deliberate_vehicle_contact_causes_loss_of_control_then_fixed_object_impact
+  staging: none
+  offender_behavior: Thomas leaves the scene; he does not move Martin, bicycle, debris or fabricate evidence.
+  initial_appearance: plausible solo bicycle crash because the fatal fixed-object impact is real and visually dominant.
+
+scene_geometry:
+  road:
+    type: quiet_two_way_local_or_rural_road
+    width: ordinary_two_lane
+    condition: dry_or_neutral_weather_preferred
+    geometry: gentle_right_hand_curve_from_Martins_direction_of_travel
+    shoulder: narrow
+    roadside: fixed_barrier_or_other_hard_object_on_outer_side_of_curve
+  movement:
+    martin: cycling_near_outer_edge_in_normal_direction
+    thomas: approaches_from_behind_same_direction
+    contact_zone: before_final_fixed_object_impact
+    contact_orientation: vehicle_front_side_or_mirror_area_to_bicycle_rider_or_bicycle_rear_quarter_lateral_zone
+    result: bicycle_yaws_or_is_displaced_laterally_toward_outer_roadside
+    final_event: Martin_and_bicycle_strike_fixed_object_or_barrier
+  constraint: exact distances and angles remain illustrative, not forensic calculations.
+
+observable_clusters:
+  cluster_A_scene:
+    purpose: make_solo_accident_uncomfortable_not_impossible_alone
+    observations:
+      - final impact point on barrier/fixed object is clear
+      - bicycle and rider final position are consistent with that impact
+      - a small earlier disturbance/debris or scrape begins upstream and inboard of the final impact line
+      - simple diagram makes the two locations visually separable
+    forbidden:
+      - labelled_arrow_saying_vehicle_hit_here
+      - exact_speed_or_collision_math
+      - impossible_tire_mark_precision
+  cluster_B_bicycle:
+    purpose: establish_two_distinct_damage_events_when_compared_with_scene
+    observations:
+      - one damage group is consistent with final barrier/fall contact
+      - separate higher/lateral or rear-quarter contact area has different direction/shape and is not comfortably explained by the barrier
+      - ordinary-language inspection notes describe location and appearance only
+    forbidden:
+      - expert_conclusion_that_names_a_car
+      - microscopic_material_match
+      - unique_vehicle_model_fragment
+  cluster_C_thomas_vehicle:
+    purpose: independently_corroborate_actor_link
+    observations:
+      - recent damage or repair in a compatible front-side/mirror/trim area
+      - timing of repair or visible damage is after Martin contact and around incident window
+      - route/timing evidence places Thomas vehicle in plausible corridor
+    forbidden:
+      - unique_bicycle_material_embedded_in_vehicle
+      - DNA_or_fingerprint_miracle
+      - one_record_that_directly_states_collision_with_Martin
+
+player_inference_sequence:
+  - step: 1
+    inputs: [LDOC-22]
+    intended_inference: final_barrier_impact_is_real_but_scene_contains_an_earlier_disturbance
+    must_not_prove: [Thomas_identity]
+  - step: 2
+    inputs: [LDOC-22, LDOC-23]
+    intended_inference: bicycle_has_damage_not_fully_explained_by_final_barrier_impact_so_another_contact_is_likely
+    must_not_prove: [Thomas_identity]
+  - step: 3
+    inputs: [LDOC-21, LDOC-24]
+    intended_inference: Thomas_had_recent_contact_opportunity_and_compatible_vehicle_damage
+    must_not_prove: [homicide_without_scene_and_bicycle]
+  - step: 4
+    inputs: [LDOC-20, LDOC-21, LDOC-22, LDOC-23, LDOC-24]
+    intended_inference: motive_plus_contact_plus_physical_method_plus_opportunity_converge_on_Thomas
+
+lay_comprehension_test:
+  medium: printed_A4_at_100_percent
+  pass_conditions:
+    - player_can_point_to_final_impact_location_without_text_explanation
+    - player_can_point_to_separate_earlier_disturbance_location
+    - player_can_identify_two_visibly_different_bicycle_damage_zones
+    - player_does_not_need_collision_reconstruction_vocabulary
+    - no_critical_mark_requires_zoom_or_measurement
+    - Thomas_vehicle_damage_is_compatible_but_not_visually_identical_magic_match
+  fail_conditions:
+    - diagram_requires_angles_or_speed_calculation
+    - second_contact_only_visible_as_tiny_mark
+    - scene_alone_identifies_Thomas
+    - bicycle_sheet_explicitly_tells_player_another_car_hit_him
+    - physical_evidence_depends_on_unrealistic_police_or_forensic_access
+  current_status: architecture_pass_render_test_pending
+
+render_spec_LDOC22:
+  page_target: 2
+  page_1: scene_photo_sheet_with_2_to_3_photos
+  page_2: simple_top_down_scene_diagram
+  diagram_elements: [road_edges, travel_direction, curve, final_barrier_impact, bicycle_final_position, upstream_disturbance_or_debris, scale_bar_approximate]
+  labels: factual_observation_only
+  visual_hierarchy: final_impact_obvious_then_upstream_trace_discoverable
+
+render_spec_LDOC23:
+  page_target: 1
+  format: bicycle_outline_or_photo_with_numbered_observation_callouts
+  callouts:
+    - final_impact_damage_group
+    - separate_lateral_or_rear_quarter_damage_group
+    - ordinary_fall_scuffs
+  text_rule: observations_not_conclusions
+
+render_spec_LDOC24:
+  page_target: 1_to_2
+  format: credible_service_record_plus_vehicle_image_or_parking_camera_still
+  content:
+    - recent_compatible_damage_or_repair
+    - timestamp_or_service_date
+    - vehicle_identity_link_to_Thomas
+  source_lock: final_source_must_be_credible_and_lawfully_available_to_Martin_or_case_package
+
+credibility_notes:
+  - Contact should be enough to destabilise a cyclist, not a cinematic high-speed ram.
+  - Fatality comes from subsequent fixed-object impact, reducing need for implausible vehicle damage.
+  - Thomas does not know exactly how investigators will interpret the scene; he exploits ambiguity by leaving.
+  - Physical chain proves another vehicle before it helps identify Thomas.
+  - Motive remains independently established by supplier investigation.
+
+remaining_decisions:
+  - exact_generic_roadside_object_barrier_type
+  - exact_vehicle_body_area_used_for_compatible_damage
+  - exact_lawful_source_for_LDOC24
+  - final_scene_render_and_print_test
