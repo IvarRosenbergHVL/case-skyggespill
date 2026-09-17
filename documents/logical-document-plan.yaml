@@ -1,10 +1,8 @@
 case_id: CASE-SKYGGESPILL
 specification: CER-2.0
-status: architect_proposal
-version: 0.1
-purpose: >-
-  Pre-document architecture. Defines logical documents and player artifact roles before prose/design production.
-  No entry authorizes document generation until its truth, provenance and evidence dependencies are validated.
+status: architect_mapped
+version: 0.2
+purpose: Pre-document architecture mapping truth-derived evidence into logical documents before prose and rendering.
 
 targets:
   total_artifact_target: 24
@@ -12,34 +10,21 @@ targets:
   phase_1_target: 13
   phase_2_target: 11
   principle: multifunctional_but_not_solution_dense
-  modality_balance:
-    text_led: 10
-    mixed_text_visual: 8
-    visual_or_spatial_led: 6
-  reading_rhythm: [read, compare, reconstruct, observe, reread, connect]
+  modality_balance: {text_led: 10, mixed_text_visual: 8, visual_or_spatial_led: 6}
+  reading_rhythm: [read, suspect, compare, observe, reread, revise]
 
 logical_documents:
-  - id: LDOC-01
-    phase: phase_1
-    working_title: Oppdrag fra Solveig
-    type: client_letter
-    source_actor: P-SOLVEIG
-    modality: text_led
-    functions: [case_entry, relationship_context, question_framing]
-    evidence: []
-    provenance: direct_to_players
-    design_identity: personal_formal_letter
-
+  - {id: LDOC-01, phase: phase_1, working_title: Oppdrag fra Solveig, type: client_letter, source_actor: P-SOLVEIG, modality: text_led, functions: [case_entry, relationship_context, question_framing], evidence: [], provenance: direct_to_players, design_identity: personal_formal_letter}
   - id: LDOC-02
     phase: phase_1
     working_title: Politiets hendelsesoversikt
     type: police_case_summary
     source_actor: official_investigation
     modality: text_led
-    functions: [incident_baseline, timeline_anchor, official_classification]
+    functions: [incident_baseline, timeline_anchor, official_initial_frame]
     evidence: [E-001, E-002]
     design_identity: police_case_document
-
+    density_guard: summary_does_not_resolve_spatial_sequence
   - id: LDOC-03
     phase: phase_1
     working_title: Hotellmateriale
@@ -48,75 +33,44 @@ logical_documents:
     modality: mixed_text_visual
     functions: [presence, route, spatial_reconstruction]
     evidence: [E-001, E-002]
-    instances:
-      - artifact: access_log_or_keycard_extract
-      - artifact: floor_or_room_plan
+    instances: [access_log_or_keycard_extract, floor_or_room_plan]
     design_identity: hotel_operations_material
-
-  - id: LDOC-04
-    phase: phase_1
-    working_title: Åstedsfoto Ingrid
-    type: scene_photo_sheet
-    source_actor: official_investigation
-    modality: visual_or_spatial_led
-    functions: [fall_geometry, scene_reconstruction]
-    evidence: [E-002]
-    design_identity: police_photo_sheet
-
+  - {id: LDOC-04, phase: phase_1, working_title: Åstedsfoto Ingrid, type: scene_photo_sheet, source_actor: official_investigation, modality: visual_or_spatial_led, functions: [fall_geometry, scene_reconstruction], evidence: [E-002], design_identity: police_photo_sheet}
   - id: LDOC-05
     phase: phase_1
     working_title: Hovdens forklaring
     type: interview_or_statement
     source_actor: P-HOVDEN
     modality: text_led
-    functions: [claim, identity_confirmation, false_motive, later_recontextualization]
+    functions: [claim, later_false_motive, recontextualization]
     evidence: [E-003]
     recontextualization: [RC-04]
     design_identity: signed_statement
-
-  - id: LDOC-06
-    phase: phase_1
-    working_title: Ingrid og Martin i offentligheten
-    type: press_clipping_bundle
-    source_actor: media
-    modality: mixed_text_visual
-    functions: [political_context, public_rivalry, false_path, later_recontextualization]
-    evidence: [E-004]
-    recontextualization: [RC-02]
-    design_identity: newspaper_or_web_clippings
-
+    constraint: pre_resolution_version_must_not_contain_full_admission_if_that_would_collapse_phase_1
+  - {id: LDOC-06, phase: phase_1, working_title: Ingrid og Martin i offentligheten, type: press_clipping_bundle, source_actor: media, modality: mixed_text_visual, functions: [political_context, public_rivalry, false_path, later_recontextualization], evidence: [E-004], recontextualization: [RC-02], design_identity: newspaper_or_web_clippings}
   - id: LDOC-07
     phase: phase_1
     working_title: Konferansemateriale
-    type: conference_program_and_photo
+    type: conference_program_photo_and_minor_contact_trace
     source_actor: conference_organizer
     modality: mixed_text_visual
-    functions: [political_context, relationship_seed, latent_identity_anchor]
-    evidence: [E-005]
-    recontextualization: [RC-03]
+    functions: [political_context, relationship_seed, latent_identity_anchor, benign_contact_seed]
+    evidence: [E-005, E-014]
+    recontextualization: [RC-03, RC-06]
     design_identity: international_conference_material
-    protected_visual: Morozov visible but not intelligence-captioned
-
+    protected_visual: Morozov_recognisable_but_not_intelligence_captioned
+    phase_1_limit: only_benign_early_policy_contact_content
   - id: LDOC-08
     phase: phase_1
     working_title: Utdrag fra Ingrids kalender og kontaktspor
     type: calendar_contact_extract
     source_actor: P-INGRID
     modality: text_led
-    functions: [timeline, contact_pattern, actor_movements]
-    evidence: [E-001]
+    functions: [timeline, unresolved_contact_pattern, Hovden_urgency_seed]
+    evidence: [E-001, E-014, E-017]
     design_identity: personal_calendar_extract
-
-  - id: LDOC-09
-    phase: phase_1
-    working_title: Nystart-profil og organisasjonsoversikt
-    type: party_material
-    source_actor: Nystart
-    modality: mixed_text_visual
-    functions: [cast_orientation, stakes, party_structure]
-    evidence: []
-    design_identity: party_brand_material
-
+    phase_1_limit: no_Martin_private_message_and_no_explicit_foreign_contact_problem
+  - {id: LDOC-09, phase: phase_1, working_title: Nystart-profil og organisasjonsoversikt, type: party_material, source_actor: Nystart, modality: mixed_text_visual, functions: [cast_orientation, stakes, party_structure], evidence: [], design_identity: party_brand_material}
   - id: LDOC-10
     phase: phase_1
     working_title: Thomas sitt event-/pressearkiv
@@ -127,9 +81,7 @@ logical_documents:
     evidence: [E-010]
     recontextualization: [RC-01]
     design_identity: communications_archive
-    protected_latent_detail: supplier_or_production_mark_from_network
-    constraint: latent detail must be mundane in phase_1 and naturally caused by Thomas's work
-
+    protected_latent_detail: mundane_secondary_vendor_production_credit_or_job_reference
   - id: LDOC-11
     phase: phase_1
     working_title: Vitneforklaringer fra hotellet
@@ -137,40 +89,33 @@ logical_documents:
     source_actor: official_investigation
     modality: text_led
     functions: [presence, conflict_timing, alternative_hypothesis_testing]
-    evidence: [E-001]
+    evidence: [E-001, E-017]
     design_identity: witness_statement_bundle
-
+    constraint: witness_can_observe_urgency_or_arrival_but_not_true_motive
   - id: LDOC-12
     phase: phase_1
     working_title: Telefon- og bevegelsesutdrag
     type: communication_timeline_extract
     source_actor: official_investigation
     modality: text_led
-    functions: [timeline, opportunity, contradiction_testing]
-    evidence: [E-001]
+    functions: [timeline, opportunity, Hovden_contact_pressure]
+    evidence: [E-001, E-017]
     design_identity: telecom_case_extract
-
+    constraint: metadata_or_short_non_explanatory_message_only
   - id: LDOC-13
-    phase: phase_1
-    working_title: Fase-1 avslutningsgrunnlag
+    phase: phase_1_resolution
+    working_title: Sakens utfall
+    envelope_label: SAKENS UTFALL — åpnes når dere har konkludert i saken om Ingrid Velde
     type: official_disposition_extract
     source_actor: official_investigation
     modality: text_led
-    functions: [closure, conviction_context, romance_narrative]
+    functions: [closure, conviction_context, Hovden_admission, attributed_romance_narrative]
     evidence: [E-003]
     recontextualization: [RC-04]
     design_identity: court_or_police_disposition
+    constraint: romance_motive_is_explicitly_Hovdens_claim_not_objective_narrator_truth
 
-  - id: LDOC-14
-    phase: phase_2
-    working_title: Breaking news – Martin Hauge omkommet
-    type: news_report
-    source_actor: media
-    modality: mixed_text_visual
-    functions: [phase_gate, incident_02_entry, initial_accident_frame]
-    evidence: []
-    design_identity: breaking_news_page
-
+  - {id: LDOC-14, phase: phase_2, working_title: Breaking news – Martin Hauge omkommet, type: news_report, source_actor: media, modality: mixed_text_visual, functions: [phase_gate, incident_02_entry, initial_accident_frame], evidence: [], design_identity: breaking_news_page}
   - id: LDOC-15
     phase: phase_2
     working_title: Ingrids private melding til Martin
@@ -181,43 +126,43 @@ logical_documents:
     evidence: [E-006]
     recontextualization: [RC-02, RC-04]
     design_identity: authentic_message_capture_or_extract
-    constraint: strong enough to motivate Martin, not explicit enough to state solution
-
+    semantic_lock: Jeg tror du hadde rett om noe. Jeg trenger å vise deg hvorfor. Ikke på telefon. Kan vi møtes i morgen?
   - id: LDOC-16
     phase: phase_2
     working_title: Morozov identifisert offentlig
     type: press_report
     source_actor: media
     modality: mixed_text_visual
-    functions: [identity_match, intelligence_context, timeline]
+    functions: [identity_match, intelligence_context, timeline_exclusion]
     evidence: [E-007, E-013]
     recontextualization: [RC-03]
     design_identity: distinct_news_source
-    protected_visual: recognisable Morozov image independent of LDOC-07
-
+    protected_visual: canonical_Morozov_identity_matches_LDOC07
   - id: LDOC-17
     phase: phase_2
     working_title: Materialet Ingrid reagerte på
-    type: policy_or_security_brief_extract
+    type: unclassified_security_awareness_brief_extract_with_annotations
     source_actor: legitimate_policy_channel
     modality: mixed_text_visual
-    functions: [realization_reconstruction, contact_pattern_recontextualization]
-    evidence: [E-006]
-    design_identity: institutional_brief
-    protected_visual: Ingrid annotations/circles must correspond to earlier Morozov conversation topics
-    constraint: must not state that Morozov is an intelligence officer
-
+    functions: [realization_reconstruction, pattern_reference, visible_reasoning_trace]
+    evidence: [E-015, E-016]
+    recontextualization: [RC-06]
+    design_identity: institutional_brief_with_personal_annotations
+    protected_visuals: [underline_who_influences_whom, circle_internal_disagreement, mark_likely_reactions, question_mark_harmless_details_whole, two_date_cross_references]
+    forbidden: [Morozov_name_in_brief, direct_spy_accusation, classified_marking]
   - id: LDOC-18
     phase: phase_2
     working_title: Tidligere Ingrid–Morozov kontaktutdrag
-    type: messages_and_meeting_notes
+    type: messages_meeting_notes_and_contact_chronology
     source_actor: P-INGRID
     modality: text_led
-    functions: [cultivation_pattern, realization_reconstruction]
-    evidence: [E-005, E-006]
+    functions: [cultivation_progression, realization_reconstruction]
+    evidence: [E-014]
+    recontextualization: [RC-06]
     design_identity: mixed_personal_contact_records
-    player_action: compare_with_LDOC_17
-
+    player_action: compare_with_LDOC17_and_revisit_LDOC07
+    progression: [general_policy, party_influence, internal_disagreement, persuadable_actors, predicted_named_reactions]
+    fairness: no_single_question_is_incriminating
   - id: LDOC-19
     phase: phase_2
     working_title: Martins arbeidsnotater
@@ -228,8 +173,7 @@ logical_documents:
     evidence: [E-008]
     recontextualization: [RC-03, RC-05]
     design_identity: personal_handwritten_working_notes
-    protected_visual: chronology of annotations must visibly precede the final Thomas-focused work
-
+    constraint: notes_show_questions_and_pivot_not_complete_solution
   - id: LDOC-20
     phase: phase_2
     working_title: Leverandørklyngen
@@ -237,11 +181,11 @@ logical_documents:
     source_actor: multiple_business_sources
     modality: mixed_text_visual
     functions: [financial_network, Thomas_motive, entity_grouping]
-    evidence: [E-009]
+    evidence: [E-009, E-010]
+    recontextualization: [RC-01]
     design_identity: heterogeneous_business_records
-    protected_visual: shared provenance indicators must be true and modeled, not accidental template similarity
-    player_action: compare_with_LDOC_10
-
+    required_links: [primary_vendor_to_secondary_vendor, secondary_vendor_to_Thomas_associate, intermediary_to_Thomas_benefit, recurring_job_or_reference_family, LDOC10_production_credit_match]
+    constraint: understandable_without_VAT_or_tax_calculation
   - id: LDOC-21
     phase: phase_2
     working_title: Martins siste kontakt-/møteoversikt
@@ -249,74 +193,65 @@ logical_documents:
     source_actor: P-MARTIN
     modality: text_led
     functions: [Thomas_contact, opportunity_window, unfinished_investigation]
-    evidence: [E-008, E-009]
+    evidence: [E-008, E-009, E-012]
     design_identity: personal_calendar_or_phone_extract
-
+    constraint: establishes_contact_and_timing_not_method
   - id: LDOC-22
     phase: phase_2
     working_title: Åstedsmateriale Martin
     type: crash_scene_package
     source_actor: official_investigation
     modality: visual_or_spatial_led
-    functions: [accident_hypothesis_test, second_vehicle_inference]
+    functions: [solo_accident_test, second_vehicle_inference]
     evidence: [E-011]
     recontextualization: [RC-05]
-    instances:
-      - artifact: scene_photo_sheet
-      - artifact: simple_scene_diagram
+    instances: [scene_photo_sheet, simple_scene_diagram]
     design_identity: traffic_scene_material
-    constraint: lay-readable; no specialist reconstruction required
-
+    production_gate: INC02_render_and_lay_comprehension_test
   - id: LDOC-23
     phase: phase_2
     working_title: Sykkelundersøkelse
     type: damage_observation_sheet
     source_actor: official_or_workshop_source
     modality: visual_or_spatial_led
-    functions: [vehicle_interaction, corroboration]
+    functions: [separate_contact_area, final_barrier_damage, corroboration]
     evidence: [E-011]
     design_identity: technical_observation_sheet
-    constraint: describe observations in ordinary language without giving conclusion
-
+    constraint: ordinary_observational_language_no_expert_conclusion
+    production_gate: INC02_render_and_lay_comprehension_test
   - id: LDOC-24
     phase: phase_2
     working_title: Thomas kjøretøyspor
     type: vehicle_record_and_image
-    source_actor: workshop_parking_or_credible_source
+    source_actor: credible_service_parking_or_other_lawful_source
     modality: visual_or_spatial_led
-    functions: [opportunity, physical_link, corroboration]
+    functions: [opportunity, compatible_recent_damage_or_repair, corroboration]
     evidence: [E-012]
     design_identity: vehicle_service_or_camera_material
-    status: depends_on_INC_02_method_lock
+    constraint: vehicle_trace_alone_does_not_prove_homicide
+    production_gate: INC02_method_lock
 
-artifact_count_note: >-
-  LDOC-03, LDOC-10, LDOC-18, LDOC-20 and LDOC-22 may contain multiple physical pages/items while remaining one logical
-  document package. Final physical PDF/file count must be assessed separately. Do not inflate count merely to split evidence.
+artifact_count_note: LDOC packages may contain multiple physical pages/items. Final PDF count is separate from logical document count.
 
 cross_phase_revisit_contract:
-  mandatory_phase_1_revisits:
-    - LDOC-05
-    - LDOC-06
-    - LDOC-07
-    - LDOC-10
+  mandatory_phase_1_revisits: [LDOC-05, LDOC-06, LDOC-07, LDOC-08, LDOC-10, LDOC-12]
   pairings:
     - {phase_1: LDOC-05, phase_2: LDOC-15, purpose: true_act_false_motive}
     - {phase_1: LDOC-06, phase_2: LDOC-15, purpose: public_enemy_private_trust}
     - {phase_1: LDOC-07, phase_2: LDOC-16, purpose: Morozov_visual_identity}
+    - {phase_1: LDOC-07, phase_2: LDOC-18, purpose: benign_contact_becomes_cultivation_progression}
+    - {phase_1: LDOC-08, phase_2: LDOC-15, purpose: final_days_context_changes}
     - {phase_1: LDOC-10, phase_2: LDOC-20, purpose: Thomas_supplier_provenance}
+    - {phase_1: LDOC-12, phase_2: LDOC-15, purpose: Hovden_urgency_gains_true_context}
 
 solution_density_constraints:
-  - no_single_document_may_prove_killer_method_motive_and_concealment
-  - LDOC-19_must_not_contain_Martins_complete_solution
-  - LDOC-20_must_establish_financial_pattern_but_not_by_itself_prove_murder
-  - LDOC-24_must_not_by_itself_identify_Thomas_as_killer
-  - phase_1_documents_must_support_a_complete_and_satisfying_Hovden_solution_without_phase_2_material
+  - no_single_document_proves_identity_method_motive_concealment
+  - LDOC19_not_Martin_complete_solution
+  - LDOC20_financial_pattern_not_murder_proof
+  - LDOC24_not_killer_proof_alone
+  - phase_1_complete_without_phase_2
+  - LDOC17_plus_LDOC18_require_active_comparison
 
 production_gates:
-  - truth_dependency_validated
-  - actor_access_and_provenance_validated
-  - evidence_traceability_validated
-  - document_visual_identity_assigned
-  - critical_visual_indicator_print_tested
-  - no_accidental_cross_document_template_clues
-  - final_document_count_and_reading_load_tested
+  completed: [truth_dependency_validated, actor_access_validated, evidence_traceability_mapped, document_visual_identity_assigned]
+  remaining: [INC02_critical_visual_print_test, case_specific_style_guide, final_document_count_and_reading_load_test]
