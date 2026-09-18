@@ -1,0 +1,19 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-08
+specification: CER-2.0
+status: player_copy_v0_1
+phase: phase_1
+source_identity: Ingrid_personal_calendar
+dates: 2025-09-15_to_2025-09-18
+protected_phase_2_withholding: Ingrid_to_Martin_private_message
+visible_contact_seeds:
+  - [2022-10-11, Northern Europe Security & Dialogue Forum, Copenhagen]
+  - [2023-03-03, A_Morozov, coffee_after_panel]
+  - [2023-11-22, A_Morozov, European_security_conversation]
+  - [2024-06-17, A_Morozov, coffee_Oslo]
+  - [2025-02-06, A_Morozov, phone]
+  - [2025-08-28, A_Morozov, meeting_30_min]
+final_day:
+  - ["19:18", Eirik_phone]
+  - ["20:30", own_time]
+fair_play: contact pattern is visible but benign without phase_2 context
