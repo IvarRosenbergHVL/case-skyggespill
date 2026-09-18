@@ -1,0 +1,25 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-05
+specification: CER-2.0
+status: player_copy_locked_v0_1
+phase: phase_1
+format: A4
+source_identity: signed_police_statement_extract
+player_title: Forklaring – Eirik Hovden
+statement_date: 2025-09-19
+
+player_copy:
+  intro: "Eirik Hovden forklarer at han oppsøkte Ingrid Velde på Hotel Arken fordi de måtte avklare en intern sak før neste dags program."
+  paragraphs:
+    - "Han hadde snakket med Velde tidligere på kvelden. Etter samtalen ble han bekymret for at hun kom til å ta en beslutning som kunne få store konsekvenser for partiet, og forsøkte derfor flere ganger å få kontakt."
+    - "Hovden sier at han kom til hotellet litt før klokken 21. Han beskriver samtalen på rommet som opphetet, men hevder at den dreide seg om uenighet om hvordan en intern sak skulle håndteres."
+    - "Han opplyser at Velde var opprørt og at han etter noen minutter valgte å gå fordi de ikke kom videre."
+    - "På spørsmål om fysisk kontakt sier Hovden at han ikke dyttet, slo eller holdt Velde. Han sier at hun var i live da han forlot rommet."
+    - "Hovden ønsker ikke å utdype hva den interne saken gjaldt, utover at den etter hans vurdering kunne ha skadet Nystart dersom den ble håndtert overilt."
+  closing: "Forklaringen er lest gjennom og godkjent av den avhørte."
+
+intentional_tensions:
+  - imprecise_arrival_against_hotel_records
+  - visit_duration_is_minimized
+  - urgency_exceeds_vague_explanation
+guard: [no_full_admission_before_LDOC13, no_romance_motive_before_resolution, no_Martin_or_Morozov]
