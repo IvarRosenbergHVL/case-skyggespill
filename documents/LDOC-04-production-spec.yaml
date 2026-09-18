@@ -1,0 +1,103 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-04
+specification: CER-2.0
+status: production_ready_v0_1
+title: Åstedsfoto – Ingrid Velde
+phase: phase_1
+format: A4
+page_target: 2
+source_identity: police_scene_documentation
+player_job: inspect the room/window/fall geometry and test whether a simple accident explains the scene.
+
+scene_truth_constraints:
+  room: 417
+  window_faces: rear_courtyard
+  fatal_event: Hovden causes Ingrid to fall during physical escalation at the window area.
+  scene_is_not_staged: true
+  visual_rule: photographs show consequences and geometry, not an authored solution.
+
+page_1:
+  title: Fotovedlegg – rom 417
+  photos:
+    - id: FOTO_01
+      framing: wide_from_entry
+      must_show:
+        - bed_or_seating_area
+        - desk_or_small_table
+        - window_position
+        - plausible walking space
+        - ordinary signs of Ingrid's stay
+      must_not_show:
+        - written_solution
+        - melodramatic_overturned_room
+        - obvious_weapon
+      caption: "Foto 1. Oversikt, rom 417. Fotograferingsretning fra inngangsdør."
+    - id: FOTO_02
+      framing: medium_window_area
+      must_show:
+        - openable_window
+        - sill_or_low_internal_window_area
+        - nearby movable chair or small furniture displaced enough to be observable but not conclusive
+        - no broken glass
+      caption: "Foto 2. Vindusparti mot bakgård."
+  factual_note: "Rommet ble fotografert før ordinær rydding."
+
+page_2:
+  title: Fotovedlegg – bakgård
+  photos:
+    - id: FOTO_03
+      framing: exterior_ground_to_facade
+      must_show:
+        - rear facade
+        - room_417_window_identifiable_by_normal floor/room mapping
+        - courtyard/service surface
+      caption: "Foto 3. Bakfasade sett fra bakgård."
+    - id: FOTO_04
+      framing: ground_context_non_graphic
+      must_show:
+        - approximate final-location marker used by investigators or factual numbered marker
+        - relation to facade
+        - no body
+      caption: "Foto 4. Bakgård, område under romrekken."
+  optional_small_diagram: none
+
+physical_readability:
+  intended_observations:
+    - room window is the relevant fall point
+    - interior is not a scene of obvious planned violence
+    - furniture/window relationship makes an accidental fall conceivable in isolation
+    - when combined with Hovden presence, witness conflict and timing, the scene supports physical escalation
+  prohibited_overclaim:
+    - exact push angle
+    - exact body trajectory
+    - forensic certainty from furniture position
+    - blood or injury trace used as magic proof
+
+image_generation_rules:
+  - generate photography without embedded evidentiary text
+  - exact captions and numbering added in controlled layout
+  - room architecture must stay consistent across all images
+  - exterior window location must correspond to floor-plan orientation
+  - no gore
+  - no cinematic noir lighting
+  - contemporary ordinary Norwegian/European business hotel
+  - source look is documentary police photography
+
+comparisons:
+  - with: LDOC-03
+    action: map room/window to floor and courtyard
+  - with: LDOC-11
+    action: map witness hearing/location to room
+  - with: LDOC-12
+    action: place Hovden in time before fall
+
+evidence: [E-002]
+discovery_contribution: DM-01
+solution_density: cannot_identify_Hovden_alone
+
+render_QA:
+  - window and furniture geometry visible in normal print
+  - exterior mapping understandable without counting ambiguous identical windows
+  - photos remain useful in grayscale
+  - no visual clue depends on tiny object
+  - police sheet styling clearly differs from hotel material
