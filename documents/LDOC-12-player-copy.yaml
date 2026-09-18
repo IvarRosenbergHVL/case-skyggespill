@@ -1,0 +1,27 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-12
+specification: CER-2.0
+status: player_copy_locked_v0_1
+phase: phase_1
+format: A4
+source_identity: official_investigation_telecom_extract
+player_title: Telefon- og bevegelsesutdrag
+incident_date: 2025-09-18
+
+player_visible:
+  telecom_rows:
+    - ["19:18", "Ingrid Velde", "Eirik Hovden", "Samtale", "03:12"]
+    - ["20:12", "Eirik Hovden", "Ingrid Velde", "Anrop", "Ikke besvart"]
+    - ["20:19", "Eirik Hovden", "Ingrid Velde", "Melding", "Vent med å gjøre noe til vi har snakket ordentlig. Jeg kommer innom."]
+    - ["20:31", "Eirik Hovden", "Ingrid Velde", "Anrop", "Ikke besvart"]
+    - ["20:47", "Eirik Hovden", "Ingrid Velde", "Anrop", "Ikke besvart"]
+  movement_rows:
+    - ["20:41", "Eirik Hovden", "Hotel Arken", "Registrert som besøkende i resepsjonen"]
+    - ["20:44", "Besøkskort 04-17", "Hotel Arken", "Heis til gjesteetasje"]
+    - ["21:05", "Besøkskort 04-17", "Hotel Arken", "Heis fra gjesteetasje"]
+
+withheld: [Ingrid_to_Martin_message, Morozov_reference, true_subject_of_dispute, narrator_interpretation]
+fair_play:
+  - establishes escalating contact pressure and opportunity
+  - does not establish what Ingrid intended to do
+  - must be compared with LDOC-03, LDOC-05 and LDOC-11
