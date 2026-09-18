@@ -1,0 +1,18 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-09
+specification: CER-2.0
+status: player_copy_v0_1
+phase: phase_1
+source_identity: Nystart_party_material
+people:
+  - [Solveig_Løken, party_leader_and_founder]
+  - [Ingrid_Velde, deputy_leader]
+  - [Eirik_Hovden, organisation_chief]
+  - [Thomas_Rønning, communications_and_events]
+political_profile:
+  - reduce_economic_inequality
+  - increase_national_policy_autonomy
+  - challenge_established_power_structures
+  - more_independent_foreign_policy
+  - dialogue_even_in_difficult_international_relations
+guard: no_real_party_one_to_one_parody
