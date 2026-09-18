@@ -1,0 +1,86 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-03
+specification: CER-2.0
+status: production_ready_v0_1
+title: Hotellmateriale
+phase: phase_1
+format: A4
+artifact_count: 2
+source_identity: hotel_operations
+player_job: place Hovden at the hotel and understand the physical route to Ingrid without being told what happened in the room.
+
+artifact_03A:
+  title: Utdrag fra besøks- og adgangslogg
+  page: 1
+  visual_source: hotel_internal_export
+  header_fields:
+    property: pending_hotel_name
+    date: pending_absolute_date
+    export_label: Besøks- og adgangslogg
+  columns:
+    - Tid
+    - Punkt
+    - Registrering
+  rows:
+    - ["20:41", "Resepsjon", "E. Hovden registrert som besøkende"]
+    - ["20:44", "Heis / gjesteetasje", "Besøkskort 04-17"]
+    - ["21:05", "Heis / gjesteetasje", "Besøkskort 04-17"]
+    - ["21:06", "Resepsjon", "Nødanrop mottatt fra bakgårdssiden"]
+  footer_note: "Besøkskort 04-17 ble utstedt manuelt i resepsjonen. Kortet var ikke knyttet til et bestemt rom."
+  design:
+    typography: restrained_hotel_admin
+    decoration: none
+    logo: hotel_brand_only_when_name_locked
+    table: compact_but_comfortably_readable
+    clue_emphasis: none
+  evidence: [E-001]
+  does_not_prove: [room_entry, physical_confrontation, motive]
+
+artifact_03B:
+  title: Etasjeplan – gjesteetasje
+  page: 2
+  visual_source: hotel_guest_safety_or_operations_plan
+  geometry:
+    canvas_orientation: landscape_plan_on_A4_portrait_page
+    corridor: single_main_corridor
+    elevator: near_one_end
+    stairs: opposite_or_offset_from_elevator
+    ingrid_room: room_417
+    ingrid_room_position: outer_side_of_corridor
+    window_side: rear_courtyard
+    rear_courtyard_label: Bakgård
+    route_length_elevator_to_room: short
+  required_labels:
+    - Heis
+    - Trapp
+    - 417
+    - Korridor
+    - Bakgård
+  optional_context:
+    - neighboring_room_numbers
+    - service_closet
+    - emergency_exit_symbol
+  forbidden:
+    - red_route
+    - suspect_name
+    - fall_arrow
+    - evidence_circle
+    - game_annotations
+  evidence: [E-002]
+  comparison_targets: [LDOC-04, LDOC-11]
+  player_action: reconstruct where witnesses and Ingrid's room sit relative to elevator and courtyard.
+
+fair_play:
+  - 03A establishes Hovden's presence on guest floor but not room entry.
+  - 03B makes the route and room orientation legible but contains no culprit path.
+  - LDOC-11 is required to move from guest-floor presence toward room/conflict inference.
+  - LDOC-04 is required for physical fall reconstruction.
+  - no critical information is encoded by colour alone.
+
+render_QA:
+  - all table text readable at 100 percent A4
+  - floor plan labels readable without zoom
+  - room 417 not visually highlighted beyond normal room numbering
+  - courtyard/window orientation unambiguous
+  - unrelated rooms look ordinary enough to avoid puzzle-board effect
+  - no accidental source styling overlap with police documents
