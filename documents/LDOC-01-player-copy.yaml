@@ -1,0 +1,17 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-01
+specification: CER-2.0
+status: player_copy_v0_1
+phase: phase_1
+source_actor: P-SOLVEIG
+source_identity: personal_formal_letter
+commission:
+  questions:
+    - what_happened_at_Hotel_Arken
+    - who_was_responsible
+    - whether_sequence_matches_accounts
+guard:
+  - Solveig explicitly accepts Hovden conviction as existing outcome
+  - she does not supply an alternative suspect
+  - her doubt concerns motive/context rather than feeding solution
+  - Thomas is naturally introduced as archive helper
