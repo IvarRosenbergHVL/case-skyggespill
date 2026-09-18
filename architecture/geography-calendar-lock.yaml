@@ -1,0 +1,144 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: geography_and_calendar_lock_v0_1
+
+political_world:
+  party_1:
+    canonical_name: Nystart
+    status: locked
+  party_2:
+    canonical_name: Fremtidspartiet
+    status: locked
+  rationale: fictional parties with no one-to-one mapping to a real Norwegian party
+
+primary_geography:
+  country: Norway
+  city: Oslo
+  status: locked
+  rationale:
+    - national political actors and media activity are naturally plausible
+    - hotel conference and party activity require no contrived travel
+    - Martin can plausibly cycle on ordinary local roads while Thomas uses a car
+    - setting remains exportable because no clue depends on Oslo-specific local knowledge
+
+hotel:
+  canonical_name: Hotel Arken
+  type: fictional_mid_to_upscale_business_hotel
+  district_profile: central_urban_business_area
+  room: 417
+  rear_space: service_courtyard
+  status: locked
+  naming_rule: fictional hotel name; no real business may be implied as crime scene
+
+incident_01:
+  date: 2025-09-18
+  day_of_week: Thursday
+  city: Oslo
+  hotel: Hotel Arken
+  room: 417
+  critical_times:
+    ingrid_hovden_call: "19:18"
+    hovden_call_1: "20:12"
+    hovden_message: "20:19"
+    hovden_call_2: "20:31"
+    hovden_arrival_reception: "20:41"
+    guest_floor_access: "20:44"
+    hovden_call_3: "20:47"
+    raised_voices_window: "20:55-21:02"
+    estimated_fall: "21:03"
+    elevator_down: "21:05"
+    emergency_call: "21:06"
+
+conference_and_morozov:
+  first_meeting:
+    date: 2022-10-11
+    event_name: Northern Europe Security & Dialogue Forum
+    city: Copenhagen
+    country: Denmark
+    status: locked
+  contact_span:
+    from: 2022-10
+    to: 2025-09
+  awareness_brief:
+    received_by_ingrid: 2025-09-04
+  ingrid_pattern_review:
+    from: 2025-09-05
+    to: 2025-09-14
+
+pre_incident_01:
+  limited_warning_to_hovden: 2025-09-17
+  message_to_martin: 2025-09-18
+  note: exact private-message timestamp will be locked with LDOC-15 but must precede Hovden hotel confrontation
+
+official_closure:
+  hovden_arrested: 2025-09-19
+  conviction_date: 2026-02-13
+  public_narrative: secret_relationship_and_emotional_confrontation
+  note: conviction timing is intentionally several months after incident, allowing a credible investigation and court process without becoming a legal-procedure case
+
+incident_02:
+  date: 2026-06-24
+  day_of_week: Wednesday
+  city: Oslo
+  time_gap_from_incident_01: approximately_9_months
+  time_gap_from_conviction: approximately_4_months
+  route_profile:
+    type: quiet_two_lane_local_road_on_outer_urban_edge
+    road_name: Granliveien
+    status: fictional_name_locked
+    geometry: gentle_right_hand_curve
+    roadside_object: steel_guardrail
+  critical_time:
+    estimated_collision: "21:14"
+  rationale:
+    - long daylight supports realistic cycling and scene photography
+    - evening traffic can be sparse without requiring remote wilderness
+    - guardrail permits a clear secondary fatal impact without implausible staging
+
+morozov_exclusion:
+  departure_from_norway: 2026-05-30
+  public_assignment_location_after_departure: Brussels
+  incident_02_day_public_trace: documented_at_public_diplomatic_event_in_Brussels
+  status: locked
+  fairness_rule: exclusion must be available through ordinary public reporting, not classified material
+
+supplier_network_names:
+  primary_vendor:
+    canonical_name: Nordlys Arrangement AS
+    role: legitimate_event_and_campaign_supplier_with_selected_inflated_packages
+  secondary_vendor:
+    canonical_name: Linje 8 Produksjon AS
+    role: small_production_subcontractor_with_real_work_and_repeated_vague_lines
+  intermediary:
+    canonical_name: Vektor Kommunikasjon ENK
+    role: coordination_entity_used_to_route_value_or_expenses_toward_Thomas
+  associated_person:
+    canonical_name: Marius Eide
+    role: Thomas_long_term_associate_and_formal_controller_of_secondary_vendor
+    character_weight: minor_non_suspect_supporting_name
+  status: locked
+  naming_rule: names are fictional and should be checked before release for accidental collision with real local firms
+
+thomas_vehicle:
+  vehicle_profile: dark_grey_mid_size_station_wagon
+  damage_area: right_front_mirror_and_adjacent_trim
+  repair_window: 2026-06-25_to_2026-06-27
+  status: locked
+  evidence_rule: damage is compatible corroboration only, never a unique forensic match
+
+ingrid_last_words:
+  decision: omit
+  status: locked
+  rationale:
+    - avoids melodramatic clue delivery
+    - prevents riddle-like recontextualization
+    - documentary case is stronger when motive is reconstructed from ordinary records
+
+production_implications:
+  - replace all DAG_0 placeholders with 2025-09-18
+  - use Hotel Arken and room 417 consistently across hotel, police and witness artifacts
+  - use Oslo only where source documents naturally include city
+  - LDOC-16 may use Copenhagen 2022 conference image and Brussels 2026 reporting for Morozov
+  - LDOC-20 uses Nordlys Arrangement AS, Linje 8 Produksjon AS and Vektor Kommunikasjon ENK
+  - LDOC-22 to LDOC-24 use Granliveien, guardrail geometry and Thomas vehicle profile
+  - no player inference may depend on knowing real Oslo geography
