@@ -1,0 +1,23 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-02
+specification: CER-2.0
+status: player_copy_locked_v0_1
+phase: phase_1
+format: A4
+source_identity: official_investigation_summary
+player_title: Hendelsesoversikt – Ingrid Velde
+incident_date: 2025-09-18
+location: Hotel Arken, Oslo
+
+player_copy:
+  sections:
+    - heading: Hendelsen
+      text: "Ingrid Velde, 38, oppholdt seg på Hotel Arken i forbindelse med politiske møter og medieaktivitet i Oslo. Klokken 21:06 mottok hotellets resepsjon varsel om at en person var funnet i bakgården. Personen ble identifisert som Velde, som hadde rom 417 i fjerde etasje."
+    - heading: Åsted
+      text: "Vinduet på rom 417 vender mot bakgården. Rommet var ikke ryddet da det ble undersøkt. Det ble ikke funnet noe avskjedsbrev. De første undersøkelsene ga ikke alene grunnlag for å fastslå om fallet skyldtes ulykke, egen handling eller involvering fra en annen person."
+    - heading: Siste time
+      text: "Etterforskningen har derfor lagt særlig vekt på Veldes telefonsamtaler, besøkende ved hotellet og observasjoner fra gjester og ansatte i tidsrommet før fallet."
+    - heading: Materiale
+      text: "Vedlagt materiale omfatter hotellopplysninger, foto fra rom og bakgård, vitneforklaringer og utdrag fra telefon- og bevegelsesdata."
+
+guard: [no_homicide_conclusion, no_Hovden_accusation, no_true_motive, no_phase_2_information]
