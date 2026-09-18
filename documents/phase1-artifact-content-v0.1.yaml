@@ -1,0 +1,136 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: artifact_content_v0_1
+phase: phase_1
+purpose: Lock concrete player-visible content before final layout/rendering.
+
+production_rule:
+  - all_dates_and_times_below_are_case_internal_and_must_remain_consistent
+  - exact_city_hotel_name_remains_generic_until geography_lock
+  - text_must_sound_like_originating_source_not_game_narrator
+  - no_document_explains_its_own_clue
+
+incident_clock:
+  incident_date_label: DAG_0
+  hotel_window:
+    hovden_arrival_lobby: "20:41"
+    hovden_guest_floor_access: "20:44"
+    first_repeated_call_attempt: "20:47"
+    witness_raised_voices_window: "20:55-21:02"
+    estimated_fall_window: "21:01-21:04"
+    emergency_call: "21:06"
+  note: Absolute calendar date is withheld until final geography/timeline lock. Relative clock times may be used in prototypes.
+
+LDOC_03:
+  title: Hotellmateriale
+  artifact_A_access_extract:
+    source: hotel_access_system
+    columns: [tid, hendelse, registrering]
+    rows:
+      - ["20:41", "Hovedinngang / resepsjon", "E. Hovden registrert av resepsjon"]
+      - ["20:44", "Heis til gjesteetasje", "Besøkskort 04-17"]
+      - ["21:05", "Heis fra gjesteetasje", "Besøkskort 04-17"]
+      - ["21:06", "Resepsjon", "Nødanrop mottatt fra bakgårdssiden"]
+    player_visible_note: Besøkskort 04-17 ble utstedt manuelt i resepsjonen og levert tilbake senere samme kveld.
+    guard: do_not_state_room_number_in_access_log_if_floor_plan_plus_witnesses_can_supply_route
+  artifact_B_floor_plan:
+    required_geometry:
+      - Ingrid_room_on_outer_side_of_corridor
+      - elevator_and_stairwell_separate
+      - route_from_elevator_to_room_short_and_unambiguous
+      - window_or_fall_side_faces_courtyard_or_rear_service_area
+    labels: [heis, trapp, korridor, rom, bakgård]
+    clue_job: allow players to combine access timing with witness positions and scene material
+    forbidden: culprit_path_arrow
+
+LDOC_04:
+  title: Åstedsfoto – Ingrid Velde
+  photo_set:
+    - id: P1
+      view: room_overview
+      factual_caption: Oversiktsfoto tatt fra inngangsdøren.
+      must_show: [window_position, furniture_relationship, signs_of_recent_occupancy]
+    - id: P2
+      view: window_area
+      factual_caption: Vindusparti mot bakgård.
+      must_show: [openable_window, nearby_furniture_or_surface, no_obvious_suicide_note_or_staged_message]
+    - id: P3
+      view: exterior_or_courtyard
+      factual_caption: Bakgård sett fra bakkenivå.
+      must_show: [vertical_relationship_to_room, final_location_context_without_graphic_body]
+  clue_job: make simple accidental fall possible at first glance but require LDOC03/11/12 to classify homicide
+  gore: none
+  guard: no_single_photo_proves_push
+
+LDOC_12:
+  title: Telefon- og bevegelsesutdrag
+  source: official_investigation_extract
+  player_visible_rows:
+    - ["19:18", "Ingrid Velde", "Eirik Hovden", "samtale", "03:12"]
+    - ["20:12", "Eirik Hovden", "Ingrid Velde", "anrop", "ikke besvart"]
+    - ["20:19", "Eirik Hovden", "Ingrid Velde", "melding", "Vent med å gjøre noe til vi har snakket ordentlig. Jeg kommer innom."]
+    - ["20:31", "Eirik Hovden", "Ingrid Velde", "anrop", "ikke besvart"]
+    - ["20:47", "Eirik Hovden", "Ingrid Velde", "anrop", "ikke besvart"]
+  movement_extract:
+    - ["20:41", "Hovden", "registrert i hotellresepsjonen"]
+    - ["20:44", "Hovden", "besøkskort brukt til gjesteetasje"]
+  withheld:
+    - Ingrid_to_Martin_private_message
+    - explicit_Russia_or_Morozov_reference
+  clue_job: show urgency and contradiction potential without explaining why
+
+LDOC_11:
+  title: Vitneforklaringer – hotellet
+  witnesses:
+    - witness_id: VITNE_A
+      role: resepsjonsmedarbeider
+      observations:
+        - Hovden arrived alone and asked for Ingrid by name.
+        - He appeared controlled but unusually insistent about going up immediately.
+        - He said Ingrid expected him; witness cannot verify that.
+        - He returned through lobby after the incident window and did not stop to talk.
+      knowledge_boundary: no_knowledge_of_argument_content
+    - witness_id: VITNE_B
+      role: guest_on_same_floor
+      observations:
+        - heard a man and woman speaking sharply through corridor/door area
+        - heard one short louder exchange but could not distinguish words
+        - later heard a sudden sound from room direction followed by a brief silence
+      knowledge_boundary: cannot_identify_male_voice_with_certainty
+    - witness_id: VITNE_C
+      role: hotel_employee_or_guest_near_rear_area
+      observations:
+        - becomes relevant to emergency discovery and timing
+        - did not see the fall itself
+      knowledge_boundary: no_offender_identification
+  clue_job: corroborate timing and conflict without leaking motive
+
+LDOC_05:
+  title: Forklaring – Eirik Hovden
+  statement_position:
+    - acknowledges visiting hotel to discuss an urgent internal party matter
+    - says Ingrid was under pressure and conversation became heated
+    - initially minimizes how long he remained in room
+    - says he left Ingrid alive and does not describe physical confrontation in phase_1 artifact
+    - frames repeated calls as concern over an impulsive political decision
+  contradictions_for_players:
+    - access/witness timing makes visit longer or more intense than presented
+    - his urgency exceeds his deliberately vague explanation
+  guard: full_admission_reserved_for_LDOC13
+
+LDOC_02:
+  title: Hendelsesoversikt – Ingrid Velde
+  baseline:
+    - Ingrid stayed at hotel in connection with political appearances/meetings.
+    - She was found after a fall from her room window toward rear/courtyard side.
+    - Initial scene did not by itself settle accident, suicide or involvement by another person.
+    - Investigators reconstructed visitors, calls and movements in final hour.
+  guard: no_narrator_statement_that_Hovden_is_killer
+
+consistency_checks:
+  - Hovden is physically present before estimated fall.
+  - Repeated calls occur before and around arrival, not after death.
+  - Witnesses do not hear explanatory dialogue.
+  - No phase_1 trace names Martin as intended confidant.
+  - No phase_1 trace proves Morozov cultivation.
+  - Phase_1 can still converge on Hovden through presence, timing, spatial evidence and contradictions.
