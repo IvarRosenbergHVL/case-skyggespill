@@ -1,0 +1,43 @@
+case_id: CASE-SKYGGESPILL
+document_id: LDOC-11
+specification: CER-2.0
+status: player_copy_locked_v0_1
+phase: phase_1
+format: A4
+source_identity: official_witness_statement_bundle
+player_title: Vitneforklaringer – Hotel Arken
+
+witnesses:
+  - id: VITNE-A
+    name: Nora Bakke
+    role: resepsjonsmedarbeider
+    statement_date: 2025-09-19
+    player_copy:
+      - "Bakke var på vakt i resepsjonen da Eirik Hovden kom inn omtrent tjue minutter på ni."
+      - "Han spurte etter Ingrid Velde ved navn. Bakke kjente igjen Hovden fra mediene."
+      - "Hun beskriver ham som kontrollert, men mer pågående enn vanlige besøkende. Han sa at Velde ventet ham, men Bakke ringte ikke rommet for å kontrollere dette."
+      - "Hun utstedte besøkskort 04-17. Hun husker senere å ha sett Hovden krysse lobbyen på vei ut. Han stanset ikke i resepsjonen."
+    boundary: saw_no_argument
+  - id: VITNE-B
+    name: Henrik Løvaas
+    role: gjest_room_415
+    statement_date: 2025-09-19
+    player_copy:
+      - "Løvaas oppholdt seg på rom 415. Mellom omtrent 20:55 og 21:02 hørte han en mann og en kvinne snakke skarpt fra et rom i nærheten."
+      - "Han oppfattet ikke ordene. På et tidspunkt ble stemmene høyere, før han hørte en kort dump lyd."
+      - "Etter dette ble det stille. Løvaas åpnet ikke døren og kan ikke sikkert identifisere mannsstemmen."
+    boundary: cannot_identify_voice
+  - id: VITNE-C
+    name: Farah Osman
+    role: hotellmedarbeider
+    statement_date: 2025-09-19
+    player_copy:
+      - "Osman var på vei gjennom serviceområdet ved bakgården da hun ble gjort oppmerksom på at en person lå på bakken."
+      - "Hun gikk ikke nærmere enn nødvendig og varslet resepsjonen umiddelbart."
+      - "Hun så ikke selve fallet og hadde ikke sett noen forlate bakgården."
+    boundary: no_offender_identification
+
+fair_play:
+  - Nora places Hovden at hotel, not inside 417
+  - Henrik establishes nearby conflict but not speaker identity
+  - Farah anchors discovery timing only
