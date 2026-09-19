@@ -1,0 +1,40 @@
+case_id: CASE-SKYGGESPILL
+specification: CER-2.0
+status: draft_player_copy_with_visual_gates
+phase: phase_1
+documents:
+  LDOC-06:
+    drive_id: 1WAfdjpdmZHunI0HUZONk9Rx7yefb6qINZqwaNqBkT7Y
+    evidence: [E-004]
+    source_identity: fictional_political_periodical_and_party_public_excerpt
+    factual_boundary: public_rivalry_does_not_prove_private_animosity
+    qa:
+      - distinguish two sources by masthead and composition
+      - no real news brand impersonation
+      - press quotations are fictional in-world statements
+  LDOC-07:
+    drive_id: 1UP1-wFZupn8BJDiJyXBmFN_gLML3KcAF0EYqu5gwsts
+    evidence: [E-005, E-014]
+    source_identity: fictional_international_conference
+    visual_gate: canonical_Morozov_and_Ingrid_event_photo_not_yet_inserted
+    qa:
+      - 2022-10-11 Copenhagen consistent with geography lock
+      - early conversation is benign in isolation
+      - remove bracketed production notes before release
+      - no phase_1 intelligence accusation
+  LDOC-10:
+    drive_id: 1huTHHS_bFEpVHfAdMyvrghC2Es1ofM36h9BAVAAsyRA
+    evidence: [E-010]
+    source_identity: Thomas_supplied_Nystart_event_archive
+    visual_gate: event_photos_not_yet_inserted
+    latent_reference: Linje 8 Produksjon AS / HØST-25 Oslo
+    qa:
+      - provenance is an archive supplied after incident, not an invented live dispatch
+      - Thomas helps phase_1 investigation genuinely
+      - supplier credit is ordinary and unhighlighted
+      - remove bracketed production notes before release
+global_gates:
+  - not_print_ready
+  - no_claim_of_completed_photo_assets
+  - cross_phase_revisit_LDOC07_with_LDOC16
+  - cross_phase_revisit_LDOC10_with_LDOC20
